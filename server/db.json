@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user.demo",
+      "email": "user.demo@glassgo.com",
+      "password": "demo123",
+      "role": "distributor",
+      "firstName": "Usuario",
+      "lastName": "Demo",
+      "isActive": true,
+      "createdAt": "2025-01-01T00:00:00Z"
+    }
+  ]
+}
