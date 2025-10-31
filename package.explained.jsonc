@@ -1,0 +1,50 @@
+{
+  // ============================================================
+  // 📦 GlassGo Frontend — package.explained.jsonc
+  // ------------------------------------------------------------
+  // Archivo de configuración del proyecto Frontend de GlassGo.
+  // Contiene metadatos, dependencias y scripts npm usados para
+  // automatizar tareas como desarrollo, build y servidor local.
+  // ============================================================
+
+  "name": "glassgo-frontend", // Nombre del proyecto (debe coincidir con el repositorio GitHub)
+
+  "private": true,             // Evita que este paquete se publique accidentalmente en npm
+
+  "version": "0.0.1",          // Versión inicial del proyecto (semántica: MAJOR.MINOR.PATCH)
+
+  "type": "module",            // Define que se usa sintaxis ESM (import/export) en lugar de require()
+
+  // ------------------------------------------------------------
+  // 🧩 Scripts disponibles (npm run ...)
+  // ------------------------------------------------------------
+  "scripts": {
+    "dev": "vite",                             // Inicia el entorno de desarrollo local con Vite (http://localhost:5173)
+    "build": "vite build",                     // Genera los archivos optimizados para producción (carpeta /dist)
+    "preview": "vite preview",                 // Previsualiza la versión compilada en local
+    "server": "json-server --watch server/db.json --routes server/routes.json --port 3000"
+    // Ejecuta un servidor simulado con JSON Server (http://localhost:3000)
+    // - Observa el archivo db.json (base de datos falsa)
+    // - Aplica reglas de rutas personalizadas desde routes.json
+  },
+
+  // ------------------------------------------------------------
+  // 📚 Dependencias principales del proyecto
+  // ------------------------------------------------------------
+  "dependencies": {
+    "axios": "^1.7.7",         // Cliente HTTP usado para consumir APIs (GET, POST, PUT, DELETE)
+    "pinia": "^2.1.7",         // State management moderno de Vue (reemplazo oficial de Vuex)
+    "vue": "^3.4.21",          // Framework base (Vue 3 con Composition API)
+    "vue-i18n": "^9.14.0",     // Módulo de internacionalización (traducciones EN/ES)
+    "vue-router": "^4.3.0"     // Sistema de enrutamiento oficial de Vue (maneja navegación y vistas)
+  },
+
+  // ------------------------------------------------------------
+  // 🛠️ Dependencias de desarrollo (solo se usan en local)
+  // ------------------------------------------------------------
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",   // Plugin oficial que permite a Vite interpretar componentes Vue (*.vue)
+    "json-server": "^0.17.4",         // Servidor REST simulado para desarrollo local (API falsa)
+    "vite": "^5.0.8"                  // Bundler y servidor de desarrollo ultrarrápido para Vue 3
+  }
+}
