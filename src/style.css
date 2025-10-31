@@ -1,0 +1,37 @@
+/* =========================================================
+ 🎨 style.css — Estilos globales del Frontend GlassGo
+ =========================================================
+ Este archivo define las reglas de estilo base aplicadas
+ a toda la aplicación. Sirve como punto de partida para
+ asegurar consistencia visual entre componentes y vistas.
+ ========================================================= */
+
+/* ---------------------------------------------------------
+ * 🔳 Reset de caja (Box Model)
+ * ---------------------------------------------------------
+ * - box-sizing: border-box → asegura que padding y borde
+ *   se incluyan dentro del tamaño total de los elementos.
+ * - Aplica este comportamiento a todos los elementos (*)
+ *   para evitar diferencias de cálculo entre navegadores.
+ * --------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+ * 🧩 Configuración global de documento y aplicación
+ * ---------------------------------------------------------
+ * - Se asegura que html, body y #app ocupen el 100% del alto
+ *   de la pantalla para permitir layouts responsivos (Flex/Grid).
+ * - Se eliminan los márgenes por defecto del navegador.
+ * - Se define la tipografía base del sistema.
+ * - Se establece el color de texto principal usado en la UI.
+ * --------------------------------------------------------- */
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    color: #202733; /* Gris azulado principal de la identidad visual */
+}

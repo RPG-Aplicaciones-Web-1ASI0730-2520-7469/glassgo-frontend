@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- =========================================================
+ 📄 index.html — Punto de entrada principal del Frontend GlassGo
+ =========================================================
+ Este archivo define la estructura base de la aplicación web.
+
+ Es cargado directamente por Vite al iniciar el servidor de desarrollo,
+ y sirve como contenedor raíz para montar la aplicación Vue.
+ ========================================================= -->
+
+<html lang="es">
+    <head>
+        <!-- 🔤 Metadatos básicos -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- 🖼️ Favicon (logo que aparece en la pestaña del navegador) -->
+        <link rel="icon" type="image/jpeg" href="/icon-glassgo.png" />
+
+        <!-- 🧠 Título del documento (visible en la pestaña del navegador) -->
+        <title>GlassGo</title>
+
+        <!-- 💅 Estilos globales (opcional, gestionados por style.css) -->
+        <link rel="stylesheet" href="/src/style.css" />
+    </head>
+
+    <body>
+        <!-- 🧩 Contenedor raíz donde Vue montará toda la aplicación -->
+        <div id="app"></div>
+
+        <!-- ⚙️ Script principal (entry point) -->
+        <!-- Carga el módulo raíz de Vue (main.js), que inicializa router, i18n, y pinia -->
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>
