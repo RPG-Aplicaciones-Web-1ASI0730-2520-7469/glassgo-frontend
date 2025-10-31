@@ -1,0 +1,33 @@
+{
+  "notfound": {
+    "message": "La página que buscas no existe 😢.",
+    "back": "Volver al inicio"
+  },
+  "sidebar": {
+    "home": "🏠Inicio",
+    "modules": "🧩Módulos (En desarrollo)"
+  },
+  "comingSoon": {
+    "title": "Próximamente",
+    "message": "Estamos trabajando para traer nuevas funcionalidades muy pronto 🚀"
+  },
+  "roles": {
+    "distributor": "Distribuidor",
+    "transport": "Transportista",
+    "business": "Negocio",
+    "admin": "Administrador",
+    "demo": "Demo",
+    "role": "Rol"
+  },
+  "fallbackUser": {
+    "name": "Nombre",
+    "lastname": "Apellido"
+  },
+  "homeView": {
+    "welcome": "Bienvenido a GlassGo👋🏼",
+    "description": "GlassGo es una plataforma modular para la gestión, seguimiento y fidelización de servicios."
+  },
+  "footer": {
+    "text": "© 2025 GlassGo. Todos los derechos reservados."
+  }
+}

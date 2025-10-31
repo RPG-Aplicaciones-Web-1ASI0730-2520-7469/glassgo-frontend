@@ -1,0 +1,33 @@
+{
+  "notfound": {
+    "message": "The page you are looking for does not exist 😢.",
+    "back": "Return to Home"
+  },
+  "sidebar": {
+    "home": "🏠Home",
+    "modules": "🧩Modules (In development)"
+  },
+  "comingSoon": {
+    "title": "Coming soon",
+    "message": "We’re working to bring new features very soon 🚀"
+  },
+  "roles": {
+    "distributor": "Distributor",
+    "transport": "Transport",
+    "business": "Business",
+    "admin": "Admin",
+    "demo": "Demo",
+    "role": "Role"
+  },
+  "fallbackUser": {
+    "name": "Name",
+    "lastname": "Lastname"
+  },
+  "homeView": {
+    "welcome": "Welcome to GlassGo👋🏼",
+    "description": "GlassGo is a modular platform for service management, monitoring and loyalty."
+  },
+  "footer": {
+    "text": "© 2025 GlassGo. All rights reserved."
+  }
+}
