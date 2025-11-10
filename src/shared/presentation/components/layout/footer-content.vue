@@ -1,41 +1,39 @@
 <template>
-  <!-- ------------------------------------------------------------
-       🦶 Pie de página (Footer)
+  <!-- ============================================================
+       🦶 Footer Component
        ------------------------------------------------------------
-       - Componente simple y global para el layout principal.
-       - Muestra información institucional de derechos reservados.
-       - Se incluye al final del contenido principal dentro del AppShell.
-       ------------------------------------------------------------ -->
+       Global footer for the main layout.
+       Displays reserved rights and institutional information.
+       Included at the bottom of the AppShell view.
+       ============================================================ -->
   <footer class="footer">
     <p>{{ t('footer.text') }}</p>
   </footer>
 </template>
 
 <script setup>
-/* ----------------------------------------------------
- * 🌐 Internacionalización (i18n)
- * ----------------------------------------------------
- * - Se usa la función `t()` para traducir el texto del footer.
- * - `useScope: 'global'` asegura que use el idioma global actual.
- * ---------------------------------------------------- */
+/* ============================================================
+ * 🌐 i18n — Internationalization
+ * ------------------------------------------------------------
+ * Uses the global translation scope (`t()`) to display footer text.
+ * ============================================================ */
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n({ useScope: 'global' })
 </script>
 
 <style scoped>
-/* ----------------------------------------------------
- * 🎨 Estilos del pie de página
- * ----------------------------------------------------
- * - Se mantiene simple y consistente con el estilo general de GlassGo.
- * - Usa fondo blanco y borde superior para separar visualmente
- *   del contenido principal.
- * ---------------------------------------------------- */
+/* ============================================================
+ * 🎨 Footer Styles
+ * ------------------------------------------------------------
+ * Simple and clean design consistent with GlassGo layout.
+ * White background with subtle top border separation.
+ * ============================================================ */
 .footer {
-  text-align: center;           /* Centra el texto horizontalmente */
-  padding: 0px;                /* Espaciado interno */
-  font-size: 0.4rem;           /* Tamaño de fuente más pequeño */
-  color: #777;                  /* Color de texto gris suave */
-  border-top: 1px solid #eee;   /* Línea divisoria superior */
-  background: #fff;             /* Fondo blanco */
+  text-align: center;           /* Centers the text */
+  padding: 0;                   /* Inner spacing */
+  font-size: 0.4rem;           /* Small readable font size */
+  color: #777;                  /* Soft gray text */
+  border-top: 1px solid #eee;   /* Top separator line */
+  background: #fff;             /* White background */
 }
 </style>

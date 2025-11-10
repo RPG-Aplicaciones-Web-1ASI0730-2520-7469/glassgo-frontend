@@ -1,101 +1,121 @@
 <template>
-  <!-- Contenedor raíz del sidebar -->
+  <!-- ============================================================
+       🧭 Sidebar Navigation
+       ------------------------------------------------------------
+       Main navigation component for GlassGo AppShell.
+       Dynamically loads routes based on user role.
+       Includes overlay support for mobile and fixed logout link.
+       ============================================================ -->
   <div>
-    <!-- ------------------------------------------------------------
-         🌓 Capa oscura (overlay)
-         ------------------------------------------------------------
-         - Solo visible en pantallas pequeñas cuando el sidebar está abierto.
-         - Cubre el resto del contenido para dar efecto de modal.
-         - Al hacer clic, emite el evento 'close' al padre (AppShell)
-           para cerrar el panel lateral.
-         ------------------------------------------------------------ -->
-    <div
-        v-if="open && !desktop"
-        class="overlay"
-        @click="$emit('close')"
-    ></div>
+    <!-- 🌑 Mobile overlay -->
+    <div v-if="open && !desktop" class="overlay" @click="$emit('close')"></div>
 
-    <!-- ------------------------------------------------------------
-         🧭 Sidebar principal (menú lateral de navegación)
-         ------------------------------------------------------------
-         - Contiene el logotipo y las opciones de navegación principales.
-         - Se muestra u oculta según el valor de la prop "open".
-         ------------------------------------------------------------ -->
+    <!-- 🧭 Sidebar -->
     <aside class="sidebar" :class="{ open }">
-      <!-- 🔹 Sección de marca (logo GlassGo centrado) -->
+      <!-- 🔹 Logo -->
       <div class="brand">
         <img :src="logo" alt="GlassGo Logo" class="brand-logo" />
       </div>
 
-      <!-- 🔸 Navegación principal del sistema -->
+      <!-- 📋 Navigation menu -->
       <nav class="menu">
-        <!-- Enlace a la página de inicio -->
-        <RouterLink to="/app/home" class="item">
-          {{ t('sidebar.home') }}
-        </RouterLink>
-
-        <!-- Enlace a la sección de módulos (en desarrollo) -->
-        <RouterLink to="/app/modules" class="item">
-          {{ t('sidebar.modules') }}
+        <RouterLink
+            v-for="(item, i) in menuItems"
+            :key="i"
+            :to="item.path"
+            class="item"
+        >
+          {{ item.icon }} {{ t(item.label) }}
         </RouterLink>
       </nav>
+
+      <!-- 🚪 Logout -->
+      <div class="logout">
+        <RouterLink to="/" class="logout-link">
+          [→ {{ t('sidebar.logout') }}
+        </RouterLink>
+      </div>
     </aside>
   </div>
 </template>
 
 <script setup>
-/* ----------------------------------------------------
- * 🧩 Importaciones principales
- * ----------------------------------------------------
- * - computed: permite crear propiedades reactivas derivadas.
- * - RouterLink: componente de navegación nativo de Vue Router.
- * ---------------------------------------------------- */
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
-
-/* ----------------------------------------------------
- * 🖼️ Recursos estáticos
- * ----------------------------------------------------
- * - Se importa el logotipo institucional GlassGo desde la carpeta /assets.
- * ---------------------------------------------------- */
+import { useUserStore } from '@/stores/user.store'
+import { useI18n } from 'vue-i18n'
 import logo from '@/assets/logo-glassgo.jpg'
 
-/* ----------------------------------------------------
- * ⚙️ Propiedades del componente
- * ----------------------------------------------------
- * - open: indica si el sidebar está visible o no.
- *   (controlado desde el componente AppShell a través de v-bind)
- * ---------------------------------------------------- */
+/* ============================================================
+ * 🧠 Sidebar State & Logic
+ * ============================================================ */
 const props = defineProps({
-  open: { type: Boolean, default: true },
+  open: { type: Boolean, default: true }
 })
 
-/* ----------------------------------------------------
- * 💻 Detección de tipo de dispositivo
- * ----------------------------------------------------
- * - Computa si el ancho de pantalla actual pertenece a modo escritorio.
- * - Permite mantener el sidebar siempre visible en pantallas grandes (>=1024px).
- * ---------------------------------------------------- */
+const { t } = useI18n()
+const userStore = useUserStore()
+
+// 💻 Detect screen type
 const desktop = computed(() =>
     window.matchMedia('(min-width:1024px)').matches
 )
 
-/* ----------------------------------------------------
- * 🌐 Internacionalización (i18n)
- * ----------------------------------------------------
- * - Permite traducir las etiquetas del menú lateral según el idioma activo.
- * ---------------------------------------------------- */
-import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+// 🧩 Menu items by user role
+const menuConfig = {
+  admin: [
+    { icon: '🏠', label: 'sidebar.home', path: '/app/home-admin' },
+    { icon: '🚚', label: 'sidebar.tracking', path: '/app/tracking' },
+    { icon: '📦', label: 'sidebar.inventory', path: '/app/inventory' },
+    { icon: '🗓️', label: 'sidebar.calendar', path: '/app/calendar' },
+    { icon: '📊', label: 'sidebar.reports', path: '/app/reports' },
+    { icon: '💳', label: 'sidebar.payments', path: '/app/payments' },
+    { icon: '🕓', label: 'sidebar.history', path: '/app/history' },
+    { icon: '💬', label: 'sidebar.claims', path: '/app/claims' },
+    { icon: '⚙️', label: 'sidebar.admin', path: '/app/admin' }
+  ],
+  distributor: [
+    { icon: '🏠', label: 'sidebar.home', path: '/app/home-distributor' },
+    { icon: '➕', label: 'sidebar.createOrder', path: '/app/create-order' },
+    { icon: '🚚', label: 'sidebar.tracking', path: '/app/tracking' },
+    { icon: '📦', label: 'sidebar.inventory', path: '/app/inventory' },
+    { icon: '🗓️', label: 'sidebar.calendar', path: '/app/calendar' },
+    { icon: '📊', label: 'sidebar.reports', path: '/app/reports' },
+    { icon: '💳', label: 'sidebar.payments', path: '/app/payments' },
+    { icon: '🕓', label: 'sidebar.history', path: '/app/history' },
+    { icon: '💬', label: 'sidebar.claims', path: '/app/claims' }
+  ],
+  carrier: [
+    { icon: '🏠', label: 'sidebar.home', path: '/app/home-carrier' },
+    { icon: '🚚', label: 'sidebar.tracking', path: '/app/tracking' },
+    { icon: '🗓️', label: 'sidebar.calendar', path: '/app/calendar' },
+    { icon: '🕓', label: 'sidebar.history', path: '/app/history' },
+    { icon: '💬', label: 'sidebar.claims', path: '/app/claims' }
+  ],
+  'business-owner': [
+    { icon: '🏠', label: 'sidebar.home', path: '/app/home-business-owner' },
+    { icon: '➕', label: 'sidebar.createOrder', path: '/app/create-order' },
+    { icon: '📊', label: 'sidebar.reports', path: '/app/reports' },
+    { icon: '💳', label: 'sidebar.payments', path: '/app/payments' },
+    { icon: '🕓', label: 'sidebar.history', path: '/app/history' },
+    { icon: '💬', label: 'sidebar.claims', path: '/app/claims' }
+  ],
+  demo: [{ icon: '🏠', label: 'sidebar.home', path: '/app/home' }]
+}
+
+// 🔁 Computed menu based on user role
+const menuItems = computed(() => {
+  const role = userStore.user?.role || 'demo'
+  return menuConfig[role] || menuConfig.demo
+})
 </script>
 
 <style scoped>
-/* ----------------------------------------------------
- * 🌑 Capa oscura de fondo (overlay)
- * ----------------------------------------------------
- * - Se muestra al abrir el sidebar en móviles.
- * - Evita interacción con el contenido principal.
- * ---------------------------------------------------- */
+/* ============================================================
+ * 🎨 Sidebar Styles
+ * ============================================================ */
+
+/* 🌑 Mobile overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -103,12 +123,7 @@ const { t } = useI18n()
   z-index: 40;
 }
 
-/* ----------------------------------------------------
- * 🧭 Contenedor principal del sidebar
- * ----------------------------------------------------
- * - Fijo al lado izquierdo de la ventana.
- * - Deslizable en pantallas pequeñas.
- * ---------------------------------------------------- */
+/* 🧭 Sidebar base */
 .sidebar {
   position: fixed;
   top: 0;
@@ -118,63 +133,41 @@ const { t } = useI18n()
   background: #fff;
   border-right: 1px solid #e9eef5;
   z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transform: translateX(-100%);
   transition: transform 0.25s ease;
 }
-
-/* Estado visible (sidebar desplegado) */
 .sidebar.open {
   transform: translateX(0);
 }
-
-/* ----------------------------------------------------
- * 💻 Comportamiento en pantallas grandes
- * ----------------------------------------------------
- * - El sidebar siempre permanece visible.
- * ---------------------------------------------------- */
 @media (min-width: 1024px) {
   .sidebar {
     transform: translateX(0);
   }
 }
 
-/* ----------------------------------------------------
- * 🖼️ Sección de marca (logotipo)
- * ----------------------------------------------------
- * - Centra el logo vertical y horizontalmente.
- * - Incluye una línea inferior decorativa.
- * ---------------------------------------------------- */
+/* 🔹 Brand */
 .brand {
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #e9eef5;
 }
-
 .brand-logo {
-  height: 100px; /* ajustable según diseño */
+  height: 100px;
   object-fit: contain;
   display: block;
 }
 
-/* ----------------------------------------------------
- * 📋 Menú de navegación
- * ----------------------------------------------------
- * - Agrupa los enlaces principales del sistema.
- * ---------------------------------------------------- */
+/* 📋 Menu */
 .menu {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
   gap: 0.25rem;
 }
-
-/* ----------------------------------------------------
- * 🔗 Elementos del menú
- * ----------------------------------------------------
- * - Cada enlace de navegación (RouterLink).
- * - Cambia color al pasar el cursor o activarse.
- * ---------------------------------------------------- */
 .item {
   padding: 0.6rem 0.75rem;
   border-radius: 8px;
@@ -182,15 +175,26 @@ const { t } = useI18n()
   color: #202733;
   transition: background 0.2s ease;
 }
-
-/* Hover (resalta el enlace) */
 .item:hover {
   background: #f3f6fb;
 }
-
-/* Estado activo (ruta actual) */
 .item.router-link-active {
   background: #f0f3f8;
   font-weight: 600;
+}
+
+/* 🚪 Logout */
+.logout {
+  border-top: 1px solid #e9eef5;
+  padding: 0.75rem;
+  text-align: center;
+}
+.logout-link {
+  color: #dc2626;
+  font-weight: 500;
+  text-decoration: none;
+}
+.logout-link:hover {
+  text-decoration: underline;
 }
 </style>
