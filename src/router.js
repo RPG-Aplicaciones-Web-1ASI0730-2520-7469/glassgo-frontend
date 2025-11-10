@@ -7,11 +7,35 @@
  * ============================================================ */
 
 import { createRouter, createWebHistory } from 'vue-router'
+import { h } from 'vue'
 
 // ------------------------------------------------------------
 // 🧩 Core Layout and Common Views
 // ------------------------------------------------------------
 import AppShell from './shared/presentation/components/layout/app-shell.vue'
+// Importar rutas de autenticación y guard
+import Login from '@/modules/identity-access/presentation/views/login.vue'
+const authRoutes = [
+    {
+        path: 'login',
+        name: 'auth-login',
+        component: Login,
+        meta: { title: 'Sign In', titleKey: 'auth.sign-in' }
+    },
+    {
+        path: 'forgot-password',
+        name: 'auth-forgot-password',
+        component: () => import('@/modules/identity-access/presentation/views/forgot-password.vue'),
+        meta: { title: 'Forgot Password', titleKey: 'auth.forgot-password' }
+    },
+    {
+        path: 'register',
+        name: 'auth-register',
+        component: () => import('@/modules/identity-access/presentation/views/register.vue'),
+        meta: { title: 'Register', titleKey: 'auth.sign-up' }
+    }
+]
+import { authGuard } from '@/modules/identity-access/infrastructure/auth.guard.js'
 import Home from '@shared/presentation/views/home/home.vue'
 import ComingSoon from './shared/presentation/views/coming-soon.vue'
 import NotFound from './shared/presentation/views/page-not-found.vue'
@@ -19,6 +43,8 @@ import NotFound from './shared/presentation/views/page-not-found.vue'
 // ------------------------------------------------------------
 // 🏠 Role-Specific Home Views
 // ------------------------------------------------------------
+
+
 import HomeAdmin from './shared/presentation/views/home/home-admin.vue'
 import HomeDistributor from './shared/presentation/views/home/home-distributor.vue'
 import HomeCarrier from './shared/presentation/views/home/home-carrier.vue'
@@ -35,6 +61,12 @@ import { useUserStore } from '@/stores/user.store'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        // Rutas de autenticación
+        {
+            path: '/auth',
+            component: () => import('@/modules/identity-access/presentation/components/auth-layout.vue'),
+            children: authRoutes
+        },
         {
             path: '/app',
             component: AppShell,
@@ -75,8 +107,8 @@ const router = createRouter({
                 { path: 'home-admin', component: HomeAdmin, name: 'HomeAdmin' },
                 { path: 'home-distributor', component: HomeDistributor, name: 'HomeDistributor' },
                 { path: 'home-carrier', component: HomeCarrier, name: 'HomeCarrier' },
-                { path: 'home-business-owner', component: HomeBusinessOwner, name: 'HomeBusinessOwner' },
 
+                { path: 'home-business-owner', component: HomeBusinessOwner, name: 'HomeBusinessOwner' },
                 // 🧩 Placeholder Modules (WIP)
                 { path: 'create-order', component: ComingSoon },
                 { path: 'tracking', component: ComingSoon },
@@ -91,9 +123,12 @@ const router = createRouter({
         },
 
         // 🌍 Global Routes
-        { path: '/', redirect: '/app/home' },
+        { path: '/', redirect: '/auth/login' },
         { path: '/:pathMatch(.*)*', component: NotFound }
     ]
 })
+
+// Aplicar el guard de autenticación globalmente
+router.beforeEach(authGuard)
 
 export default router

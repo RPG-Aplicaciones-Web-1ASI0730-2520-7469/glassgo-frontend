@@ -1,4 +1,26 @@
 {
+  "auth": {
+    "username": "Email",
+    "password": "Password",
+    "sign-in": "Sign In",
+  "sign-up": "Create Account",
+  "forgot-password": "Forgot Password?",
+  "send-recovery": "Send Recovery Email",
+  "recovery-email-sent": "Recovery email sent! Please check your inbox.",
+  "back-to-login": "Back to Login",
+    "remember-me": "Remember me",
+    "distributor": "Distributor",
+    "transport": "Transport",
+  "admin": "Admin",
+  "business-owner": "Business Owner",
+    "register": "Register",
+    "required-field": "The field {field} is required.",
+    "user-type": "User Type",
+    "validation-error": "Validation Error",
+    "welcome": "Welcome!",
+    "login-failed": "Login failed",
+    "invalid-credentials": "Invalid credentials"
+  },
   "notfound": {
     "message": "The page you are looking for does not exist 😢.",
     "back": "Return to Home"

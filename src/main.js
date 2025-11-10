@@ -1,3 +1,8 @@
+import InputText from 'primevue/inputtext';
+import Checkbox from 'primevue/checkbox';
+import Button from 'primevue/button';
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
 /* ============================================================
  * 🧭 main.js — GlassGo Entry Point
  * ============================================================
@@ -14,6 +19,9 @@
 // ------------------------------------------------------------
 import { createApp } from 'vue'
 import App from './App.vue'
+import PrimeVue from 'primevue/config';
+import ToastService from 'primevue/toastservice';
+import Toast from 'primevue/toast';
 
 // ------------------------------------------------------------
 // 🧭 Router
@@ -51,4 +59,12 @@ const app = createApp(App)
 app.use(pinia)
 app.use(router)
 app.use(i18n)
+app.use(PrimeVue)
+app.use(ToastService)
+app.component('Toast', Toast)
+app.component('InputText', InputText)
+app.component('Checkbox', Checkbox)
+app.component('Button', Button)
+app.component('IconField', IconField)
+app.component('InputIcon', InputIcon)
 app.mount('#app')
