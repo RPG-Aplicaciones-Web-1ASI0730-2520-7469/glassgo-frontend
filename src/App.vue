@@ -1,45 +1,43 @@
 <!-- =========================================================
-     🧩 App.vue — Componente raíz de la aplicación GlassGo
+     🧩 App.vue — Root Component (GlassGo)
      =========================================================
-     Este archivo representa el punto de entrada visual de la
-     aplicación Vue. Aquí se renderizan dinámicamente las vistas
-     según la ruta activa, utilizando el componente <router-view />.
+     The visual entry point of the Vue application.
+     Dynamically renders the active route via <router-view />.
      ---------------------------------------------------------
-     📁 Relación jerárquica:
-       index.html   → Contiene el <div id="app">
-       main.js      → Monta App.vue dentro del div raíz
-       App.vue      → Renderiza las rutas con <router-view />
+     📁 Hierarchy:
+       index.html   → contains <div id="app">
+       main.js      → mounts App.vue inside the root div
+       App.vue      → displays routes through <router-view />
      ========================================================= -->
 
 <template>
   <!--
-    📍 Contenedor principal del enrutador
-    <router-view /> actúa como un "marco dinámico" donde se
-    inyectan los componentes de cada vista según la ruta activa.
-    Ejemplo:
-      - /app/home       → muestra Home.vue
-      - /app/modules    → muestra ComingSoon.vue
-      - /app/404 o ruta inexistente → muestra PageNotFound.vue
+    📍 Main router container
+    <router-view /> acts as a dynamic frame where
+    components are injected depending on the active route.
+
+    Examples:
+      /app/home       → Home.vue
+      /app/modules    → ComingSoon.vue
+      /app/404        → PageNotFound.vue
   -->
   <router-view />
 </template>
 
 <script setup>
-/* ----------------------------------------------------
- * 🧠 Script vacío (Composition API)
- * ----------------------------------------------------
- * Este componente no requiere lógica propia,
- * ya que toda la gestión de rutas se maneja desde router.js.
- * ---------------------------------------------------- */
+/* ----------------------------------------------------------
+ * 🧠 No internal logic
+ * ----------------------------------------------------------
+ * All routing is managed through router.js.
+ * App.vue serves purely as the render container.
+ * ---------------------------------------------------------- */
 </script>
 
 <style scoped>
-/* ----------------------------------------------------
- * 🎨 Estilos globales (opcionales)
- * ----------------------------------------------------
- * En este caso no se aplican estilos directos al App.vue,
- * pues cada vista o layout define su propio estilo.
- * Si se quisieran aplicar fondos o temas globales,
- * podrían definirse aquí.
- * ---------------------------------------------------- */
+/* ----------------------------------------------------------
+ * 🎨 Global Styles (optional)
+ * ----------------------------------------------------------
+ * No direct styling applied here; each layout/view defines
+ * its own theme. Global backgrounds or themes could go here.
+ * ---------------------------------------------------------- */
 </style>

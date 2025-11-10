@@ -1,37 +1,33 @@
-/* =========================================================
- 🎨 style.css — Estilos globales del Frontend GlassGo
- =========================================================
- Este archivo define las reglas de estilo base aplicadas
- a toda la aplicación. Sirve como punto de partida para
- asegurar consistencia visual entre componentes y vistas.
- ========================================================= */
+/* ============================================================
+ * 🎨 style.css — Global Styles for GlassGo Frontend
+ * ============================================================
+ * Defines the base visual rules applied across the app.
+ * Ensures consistent styling between all components and views.
+ * ============================================================ */
 
-/* ---------------------------------------------------------
- * 🔳 Reset de caja (Box Model)
- * ---------------------------------------------------------
- * - box-sizing: border-box → asegura que padding y borde
- *   se incluyan dentro del tamaño total de los elementos.
- * - Aplica este comportamiento a todos los elementos (*)
- *   para evitar diferencias de cálculo entre navegadores.
- * --------------------------------------------------------- */
+/* ------------------------------------------------------------
+ * 🔳 Box Model Reset
+ * ------------------------------------------------------------
+ * - box-sizing: border-box → includes padding and border
+ *   in the element’s total width and height.
+ * - Applied globally (*) to normalize layout calculations.
+ * ------------------------------------------------------------ */
 * {
     box-sizing: border-box;
 }
 
-/* ---------------------------------------------------------
- * 🧩 Configuración global de documento y aplicación
- * ---------------------------------------------------------
- * - Se asegura que html, body y #app ocupen el 100% del alto
- *   de la pantalla para permitir layouts responsivos (Flex/Grid).
- * - Se eliminan los márgenes por defecto del navegador.
- * - Se define la tipografía base del sistema.
- * - Se establece el color de texto principal usado en la UI.
- * --------------------------------------------------------- */
+/* ------------------------------------------------------------
+ * 🧩 Global Document & App Setup
+ * ------------------------------------------------------------
+ * - Ensures html, body, and #app occupy full viewport height.
+ * - Removes default margins for a clean layout base.
+ * - Sets the system font stack and main text color.
+ * ------------------------------------------------------------ */
 html,
 body,
 #app {
     height: 100%;
     margin: 0;
     font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-    color: #202733; /* Gris azulado principal de la identidad visual */
+    color: #202733; /* Primary bluish-gray brand color */
 }

@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<!-- =========================================================
- 📄 index.html — Punto de entrada principal del Frontend GlassGo
- =========================================================
- Este archivo define la estructura base de la aplicación web.
+<!-- ============================================================
+ 📄 index.html — Main Entry Point for GlassGo Frontend
+ ============================================================
+ This file defines the base structure of the web application.
+ Loaded directly by Vite when starting the dev server, it acts
+ as the root container where the Vue app is mounted.
+ ============================================================ -->
 
- Es cargado directamente por Vite al iniciar el servidor de desarrollo,
- y sirve como contenedor raíz para montar la aplicación Vue.
- ========================================================= -->
-
-<html lang="es">
+<html lang="en">
     <head>
-        <!-- 🔤 Metadatos básicos -->
+        <!-- 🔤 Basic Metadata -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- 🖼️ Favicon (logo que aparece en la pestaña del navegador) -->
+        <!-- 🖼️ Favicon (appears in the browser tab) -->
         <link rel="icon" type="image/jpeg" href="/icon-glassgo.png" />
 
-        <!-- 🧠 Título del documento (visible en la pestaña del navegador) -->
+        <!-- 🧠 Document Title -->
         <title>GlassGo</title>
 
-        <!-- 💅 Estilos globales (opcional, gestionados por style.css) -->
+        <!-- 💅 Global Styles (managed in style.css) -->
         <link rel="stylesheet" href="/src/style.css" />
     </head>
 
     <body>
-        <!-- 🧩 Contenedor raíz donde Vue montará toda la aplicación -->
+        <!-- 🧩 Root container where Vue mounts the entire app -->
         <div id="app"></div>
 
-        <!-- ⚙️ Script principal (entry point) -->
-        <!-- Carga el módulo raíz de Vue (main.js), que inicializa router, i18n, y pinia -->
+        <!-- ⚙️ Main Script -->
+        <!-- Loads main.js, which initializes Router, i18n, and Pinia -->
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>

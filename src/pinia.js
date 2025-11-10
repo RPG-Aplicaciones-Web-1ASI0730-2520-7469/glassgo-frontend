@@ -1,31 +1,28 @@
-/* ====================================================
- * 🧠 pinia.js — Configuración global de Pinia
- * ====================================================
- * Pinia es el sistema oficial de gestión de estado para Vue 3.
- * Permite centralizar datos y lógica que deben ser accesibles
- * desde distintos componentes o vistas de la aplicación.
+/* ============================================================
+ * 🧠 pinia.js — Global Pinia Configuration
+ * ============================================================
+ * Pinia is Vue 3’s official state management system.
+ * It centralizes data and logic shared across components.
  *
- * En GlassGo se utiliza, por ejemplo, para:
- *  - Mantener la sesión del usuario actual (user.store.js)
- *  - Almacenar configuraciones de idioma o preferencias
- *  - Sincronizar estados globales entre módulos
- * ==================================================== */
+ * In GlassGo, it's used for:
+ *  - Managing user sessions (user.store.js)
+ *  - Storing language or user preferences
+ *  - Synchronizing global states between modules
+ * ============================================================ */
 
-/* ----------------------------------------------------
- * 📦 Importación principal
- * ----------------------------------------------------
- * createPinia() → crea una instancia única del store global.
- * ---------------------------------------------------- */
+// ------------------------------------------------------------
+// 📦 Main Import
+// ------------------------------------------------------------
+// createPinia() → creates a single global store instance.
 import { createPinia } from 'pinia'
 
-/* ----------------------------------------------------
- * 🚀 Exportación de la instancia global
- * ----------------------------------------------------
- * La instancia se registra en main.js mediante app.use(pinia),
- * quedando disponible para todos los componentes.
- *
- * Ejemplo de uso:
- *   import { useUserStore } from '@/stores/user.store'
- *   const userStore = useUserStore()
- * ---------------------------------------------------- */
+// ------------------------------------------------------------
+// 🚀 Export Global Instance
+// ------------------------------------------------------------
+// Registered in main.js via app.use(pinia),
+// making it available to all components.
+//
+// Example:
+//   import { useUserStore } from '@/stores/user.store'
+//   const userStore = useUserStore()
 export const pinia = createPinia()
