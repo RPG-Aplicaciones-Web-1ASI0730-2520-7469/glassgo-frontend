@@ -1,43 +1,39 @@
 <template>
-  <!-- ------------------------------------------------------------
-       🚧 Vista temporal: Coming Soon
+  <!-- ============================================================
+       🚧 Coming Soon — Temporary View
        ------------------------------------------------------------
-       - Página informativa que se muestra para módulos en desarrollo.
-       - Mantiene el diseño limpio y centrado, coherente con el branding GlassGo.
-       - Utiliza animación y mensajes traducibles mediante i18n.
-       ------------------------------------------------------------ -->
+       Placeholder view for modules under development.
+       Keeps a clean, centered layout consistent with GlassGo branding.
+       ============================================================ -->
   <section class="coming-soon">
     <div class="content">
-      <!-- Ícono decorativo con animación (indicador visual de construcción) -->
+      <!-- Decorative animated icon -->
       <div class="icon">🚧</div>
 
-      <!-- Título traducible -->
+      <!-- Translated title -->
       <h1>{{ t('comingSoon.title') }}</h1>
 
-      <!-- Mensaje descriptivo traducible -->
+      <!-- Translated message -->
       <p>{{ t('comingSoon.message') }}</p>
     </div>
   </section>
 </template>
 
 <script setup>
-/* ----------------------------------------------------
- * 🌐 Internacionalización (i18n)
- * ----------------------------------------------------
- * - Permite mostrar el título y mensaje en el idioma activo.
- * - Las claves se definen en /locales/en.json y /locales/es.json.
- * ---------------------------------------------------- */
+/* ============================================================
+ * 🌐 i18n Integration
+ * ------------------------------------------------------------
+ * Enables translations for title and message.
+ * Keys are defined in /locales/en.json and /locales/es.json.
+ * ============================================================ */
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n({ useScope: 'global' })
 </script>
 
 <style scoped>
-/* ----------------------------------------------------
- * 🎨 Contenedor principal de la vista "Coming Soon"
- * ----------------------------------------------------
- * - Centra vertical y horizontalmente el contenido.
- * - Mantiene fondo gris claro coherente con el layout GlassGo.
- * ---------------------------------------------------- */
+/* ============================================================
+ * 🎨 Layout — Coming Soon
+ * ============================================================ */
 .coming-soon {
   display: flex;
   align-items: center;
@@ -48,12 +44,7 @@ const { t } = useI18n({ useScope: 'global' })
   padding: 2rem;
 }
 
-/* ----------------------------------------------------
- * 📦 Contenedor interno del contenido
- * ----------------------------------------------------
- * - Caja blanca con sombra suave y bordes redondeados.
- * - Diseño centrado y espacioso, tipo "card".
- * ---------------------------------------------------- */
+/* Content card */
 .content {
   display: flex;
   flex-direction: column;
@@ -66,21 +57,13 @@ const { t } = useI18n({ useScope: 'global' })
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* ----------------------------------------------------
- * 🚧 Ícono decorativo
- * ----------------------------------------------------
- * - Emoji animado que rebota suavemente (indicador de trabajo en progreso).
- * ---------------------------------------------------- */
+/* Animated icon */
 .icon {
   font-size: 3rem;
   animation: bounce 1.2s infinite;
 }
 
-/* ----------------------------------------------------
- * 🏷️ Título principal
- * ----------------------------------------------------
- * - Traducción del texto “Próximamente”.
- * ---------------------------------------------------- */
+/* Title */
 h1 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -88,11 +71,7 @@ h1 {
   margin: 0;
 }
 
-/* ----------------------------------------------------
- * 📝 Descripción informativa
- * ----------------------------------------------------
- * - Mensaje explicativo traducible.
- * ---------------------------------------------------- */
+/* Description */
 p {
   color: #64748b;
   font-size: 1rem;
@@ -100,11 +79,7 @@ p {
   margin: 0;
 }
 
-/* ----------------------------------------------------
- * 🌀 Animación “bounce” (rebote)
- * ----------------------------------------------------
- * - Aplica movimiento vertical periódico al ícono 🚧.
- * ---------------------------------------------------- */
+/* Bounce animation */
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
