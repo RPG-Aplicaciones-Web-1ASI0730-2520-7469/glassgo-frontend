@@ -20,5 +20,11 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "json-server": "^0.17.4",
     "vite": "^5.0.8"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "RPG-Aplicaciones-Web-1ASI0730-2520-7469",
+  "license": "MIT",
+  "description": "Official frontend repository for the GlassGo Project by RPG Startup. Built with Vue 3, Vite, and PrimeVue. Implements the web application layer of the system architecture, integrating with the internal RESTful API and supporting i18n, responsive UI, and modular development under GitFlow and Conventional Commits."
 }

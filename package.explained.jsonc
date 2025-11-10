@@ -2,49 +2,66 @@
   // ============================================================
   // 📦 GlassGo Frontend — package.explained.jsonc
   // ------------------------------------------------------------
-  // Archivo de configuración del proyecto Frontend de GlassGo.
-  // Contiene metadatos, dependencias y scripts npm usados para
-  // automatizar tareas como desarrollo, build y servidor local.
+  // Core configuration file for the GlassGo Frontend project.
+  // Defines metadata, dependencies, and npm scripts for:
+  //  - Local development (Vite + JSON Server)
+  //  - Building and previewing production assets
+  //  - Maintaining modular DDD architecture
   // ============================================================
 
-  "name": "glassgo-frontend", // Nombre del proyecto (debe coincidir con el repositorio GitHub)
+  "name": "glassgo-frontend", // Project name (must match GitHub repo)
 
-  "private": true,             // Evita que este paquete se publique accidentalmente en npm
+  "private": true,            // Prevents accidental npm publication
 
-  "version": "0.0.1",          // Versión inicial del proyecto (semántica: MAJOR.MINOR.PATCH)
+  "version": "0.0.1",         // Initial semantic version: MAJOR.MINOR.PATCH
 
-  "type": "module",            // Define que se usa sintaxis ESM (import/export) en lugar de require()
+  "type": "module",           // Enables ES Modules syntax (import/export)
 
   // ------------------------------------------------------------
-  // 🧩 Scripts disponibles (npm run ...)
+  // 🧩 Scripts (npm run ...)
   // ------------------------------------------------------------
   "scripts": {
-    "dev": "vite",                             // Inicia el entorno de desarrollo local con Vite (http://localhost:5173)
-    "build": "vite build",                     // Genera los archivos optimizados para producción (carpeta /dist)
-    "preview": "vite preview",                 // Previsualiza la versión compilada en local
+    "dev": "vite",                             // Starts local dev server → http://localhost:5173
+    "build": "vite build",                     // Bundles optimized production files → /dist
+    "preview": "vite preview",                 // Serves the built /dist folder locally
     "server": "json-server --watch server/db.json --routes server/routes.json --port 3000"
-    // Ejecuta un servidor simulado con JSON Server (http://localhost:3000)
-    // - Observa el archivo db.json (base de datos falsa)
-    // - Aplica reglas de rutas personalizadas desde routes.json
+    // Launches mock API with JSON Server → http://localhost:3000
+    // - Watches db.json (mock database)
+    // - Applies route rules from routes.json
+    // ----------------------------------------------------------
   },
 
   // ------------------------------------------------------------
-  // 📚 Dependencias principales del proyecto
+  // 📚 Dependencies — Core runtime packages
   // ------------------------------------------------------------
   "dependencies": {
-    "axios": "^1.7.7",         // Cliente HTTP usado para consumir APIs (GET, POST, PUT, DELETE)
-    "pinia": "^2.1.7",         // State management moderno de Vue (reemplazo oficial de Vuex)
-    "vue": "^3.4.21",          // Framework base (Vue 3 con Composition API)
-    "vue-i18n": "^9.14.0",     // Módulo de internacionalización (traducciones EN/ES)
-    "vue-router": "^4.3.0"     // Sistema de enrutamiento oficial de Vue (maneja navegación y vistas)
+    "axios": "^1.7.7",         // HTTP client for API calls (GET/POST/PUT/DELETE)
+    "pinia": "^2.1.7",         // Vue’s official global state manager
+    "vue": "^3.4.21",          // Vue 3 framework (Composition API)
+    "vue-i18n": "^9.14.0",     // i18n plugin for multilingual support
+    "vue-router": "^4.3.0"     // Official router for page navigation
   },
 
   // ------------------------------------------------------------
-  // 🛠️ Dependencias de desarrollo (solo se usan en local)
+  // 🛠️ Dev Dependencies — Used only in local builds
   // ------------------------------------------------------------
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",   // Plugin oficial que permite a Vite interpretar componentes Vue (*.vue)
-    "json-server": "^0.17.4",         // Servidor REST simulado para desarrollo local (API falsa)
-    "vite": "^5.0.8"                  // Bundler y servidor de desarrollo ultrarrápido para Vue 3
-  }
+    "@vitejs/plugin-vue": "^5.0.4",   // Vite plugin to compile .vue components
+    "json-server": "^0.17.4",         // Local mock REST API for testing
+    "vite": "^5.0.8"                  // Lightning-fast dev server and bundler
+  },
+
+  // ------------------------------------------------------------
+  // 🧠 Recommended Node.js Engine
+  // ------------------------------------------------------------
+  "engines": {
+    "node": ">=18.0.0"
+  },
+
+  // ------------------------------------------------------------
+  // 🧾 Metadata (for documentation / CI)
+  // ------------------------------------------------------------
+  "author": "RPG-Aplicaciones-Web-1ASI0730-2520-7469",         // Project author or organization
+  "license": "MIT",                       // Open-source license
+  "description": "Official frontend repository for the GlassGo Project by RPG Startup. Built with Vue 3, Vite, and PrimeVue. Implements the web application layer of the system architecture, integrating with the internal RESTful API and supporting i18n, responsive UI, and modular development under GitFlow and Conventional Commits."
 }

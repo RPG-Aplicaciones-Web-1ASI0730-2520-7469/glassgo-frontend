@@ -1,53 +1,66 @@
-/* ====================================================
- * ⚙️ vite.config.js — Configuración del entorno Vite
- * ====================================================
- * Este archivo define la configuración base del *build system*
- * de GlassGo, utilizando **Vite** como herramienta principal
- * para el desarrollo, compilación y optimización del frontend.
+/* ============================================================
+ * ⚙️ vite.config.js — Vite Environment Configuration
+ * ============================================================
+ * Optimized setup for GlassGo using Domain-Driven Design (DDD)
+ * with 8 Bounded Contexts.
  *
- * Funcionalidades clave:
- *  - Carga y procesamiento de archivos `.vue`
- *  - Definición de alias de rutas (ej. `@/` → `/src`)
- *  - Soporte para módulos ES y hot-reload en desarrollo
- * ==================================================== */
+ * ✅ Key Features:
+ *  - Vue file processing
+ *  - Clean path aliases for modular imports
+ *  - Scalable DDD structure per bounded context
+ *  - Automatic Hot Reload for fast development
+ * ============================================================ */
 
-/* ----------------------------------------------------
- * 📦 Plugin principal de Vue
- * ----------------------------------------------------
- * Permite a Vite reconocer y procesar componentes `.vue`.
- * Sin este plugin, Vite no sabría cómo interpretar archivos Vue.
- * ---------------------------------------------------- */
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
-/* ----------------------------------------------------
- * 🚀 Exportación de configuración
- * ----------------------------------------------------
- * Define los plugins y resoluciones personalizadas
- * usadas en toda la aplicación.
- * ---------------------------------------------------- */
-export default {
-    /* --------------------------------------------------
-     * 🧩 Plugins registrados
-     * --------------------------------------------------
-     * Incluye soporte para componentes Vue.
-     * Se pueden agregar más plugins si la app los requiere
-     * (por ejemplo, analizador de dependencias o SVG loader).
-     * -------------------------------------------------- */
+/* ------------------------------------------------------------
+ * 🚀 Export Configuration
+ * ------------------------------------------------------------ */
+export default defineConfig({
+    /* ----------------------------------------------------------
+     * 🧩 Plugins
+     * ---------------------------------------------------------- */
     plugins: [vue()],
 
-    /* --------------------------------------------------
-     * 🧭 Alias de rutas
-     * --------------------------------------------------
-     * Permite importar archivos con rutas cortas.
+    /* ----------------------------------------------------------
+     * 🧭 Path Aliases
+     * ----------------------------------------------------------
+     * Simplifies imports following GlassGo’s modular structure.
      *
-     * Ejemplo:
-     *   import Logo from '@/assets/logo-glassgo.jpg'
-     *   en lugar de:
-     *   import Logo from '../../assets/logo-glassgo.jpg'
-     * -------------------------------------------------- */
+     * Example:
+     *   import { loginUser } from '@modules/identity-access/application/login.service'
+     *   import { ButtonPrimary } from '@shared/presentation/components/ui/button-primary.vue'
+     * ---------------------------------------------------------- */
     resolve: {
         alias: {
-            '@': '/src'
+            '@': path.resolve(__dirname, './src'),
+            '@assets': path.resolve(__dirname, './src/assets'),
+            '@shared': path.resolve(__dirname, './src/shared'),
+            '@modules': path.resolve(__dirname, './src/modules'),
+            '@config': path.resolve(__dirname, './src/config'),
+
+            // 🔹 Optional aliases per bounded context
+            '@identity': path.resolve(__dirname, './src/modules/identity-access'),
+            '@profiles': path.resolve(__dirname, './src/modules/profiles-preferences'),
+            '@payments': path.resolve(__dirname, './src/modules/payments-subscriptions'),
+            '@inventory': path.resolve(__dirname, './src/modules/consumption-inventory'),
+            '@execution': path.resolve(__dirname, './src/modules/service-execution-monitoring'),
+            '@dashboard': path.resolve(__dirname, './src/modules/dashboard-analytics'),
+            '@notifications': path.resolve(__dirname, './src/modules/notifications-messaging'),
+            '@system': path.resolve(__dirname, './src/modules/system-administration-configuration')
         }
+    },
+
+    /* ----------------------------------------------------------
+     * 🌐 Dev Server
+     * ----------------------------------------------------------
+     * Local development server settings.
+     * ---------------------------------------------------------- */
+    server: {
+        port: 5173,
+        open: true,
+        strictPort: true
     }
-}
+})
