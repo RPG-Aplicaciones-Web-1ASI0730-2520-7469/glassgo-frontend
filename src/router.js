@@ -1,96 +1,99 @@
-/* ----------------------------------------------------
- * 🧭 Configuración del enrutador principal de GlassGo
- * ----------------------------------------------------
- * - Define todas las rutas visibles del frontend.
- * - Gestiona la navegación entre vistas (Home, ComingSoon, 404, etc.).
- * - Implementa el layout principal (AppShell) que contiene la barra lateral y superior.
- * ---------------------------------------------------- */
+/* ============================================================
+ * 🧭 GlassGo Main Router (with Role Detection)
+ * ============================================================
+ * Central routing system controlling navigation across views.
+ * Handles automatic redirection based on user roles and ensures
+ * a consistent layout (AppShell) for all /app routes.
+ * ============================================================ */
 
-/* ----------------------------------------------------
- * 📦 Importación de dependencias base
- * ----------------------------------------------------
- * createRouter: crea la instancia del enrutador de Vue.
- * createWebHistory: utiliza la API de historial HTML5 para URLs limpias (sin #).
- * ---------------------------------------------------- */
 import { createRouter, createWebHistory } from 'vue-router'
 
-/* ----------------------------------------------------
- * 🧱 Importación de vistas y componentes del layout
- * ----------------------------------------------------
- * - AppShell: layout principal (sidebar + topbar + router-view).
- * - Home: vista inicial del sistema.
- * - ComingSoon: placeholder temporal para módulos en desarrollo.
- * - NotFound: vista de error 404 personalizada.
- * ---------------------------------------------------- */
+// ------------------------------------------------------------
+// 🧩 Core Layout and Common Views
+// ------------------------------------------------------------
 import AppShell from './shared/presentation/components/layout/app-shell.vue'
-import Home from './shared/presentation/views/home.vue'
+import Home from '@shared/presentation/views/home/home.vue'
 import ComingSoon from './shared/presentation/views/coming-soon.vue'
 import NotFound from './shared/presentation/views/page-not-found.vue'
 
-/* ----------------------------------------------------
- * 🚀 Definición de rutas principales
- * ----------------------------------------------------
- * - Se agrupan las rutas bajo el layout principal /app.
- * - Se definen redirecciones automáticas y manejo de errores (404).
- * ---------------------------------------------------- */
-export default createRouter({
-    // Usa historial HTML5 para navegación sin #
-    history: createWebHistory(),
+// ------------------------------------------------------------
+// 🏠 Role-Specific Home Views
+// ------------------------------------------------------------
+import HomeAdmin from './shared/presentation/views/home/home-admin.vue'
+import HomeDistributor from './shared/presentation/views/home/home-distributor.vue'
+import HomeCarrier from './shared/presentation/views/home/home-carrier.vue'
+import HomeBusinessOwner from './shared/presentation/views/home/home-business-owner.vue'
 
+// ------------------------------------------------------------
+// 🧠 User Store (Role Detection)
+// ------------------------------------------------------------
+import { useUserStore } from '@/stores/user.store'
+
+// ------------------------------------------------------------
+// 🚀 Router Definition
+// ------------------------------------------------------------
+const router = createRouter({
+    history: createWebHistory(),
     routes: [
         {
-            /* ----------------------------------------------------
-             * 🏠 Layout principal de la aplicación (/app)
-             * ----------------------------------------------------
-             * - Estructura base donde se montan las vistas principales.
-             * - Contiene la barra lateral (Sidebar), topbar (Topbar)
-             *   y la zona dinámica del contenido (router-view).
-             * ---------------------------------------------------- */
             path: '/app',
             component: AppShell,
-
-            // Rutas hijas dentro del layout
             children: [
-                /* ----------------------------------------------------
-                 * 📄 Página de inicio (/app/home)
-                 * ----------------------------------------------------
-                 * - Vista principal con mensaje de bienvenida.
-                 * - Primer destino al acceder al sistema.
-                 * ---------------------------------------------------- */
-                { path: 'home', component: Home },
-
-                /* ----------------------------------------------------
-                 * 🧩 Módulos en desarrollo (/app/modules)
-                 * ----------------------------------------------------
-                 * - Vista temporal “Próximamente”.
-                 * - Se reemplazará cuando los módulos reales estén listos.
-                 * ---------------------------------------------------- */
-                { path: 'modules', component: ComingSoon },
-
-                /* ----------------------------------------------------
-                 * 🔁 Redirección interna
-                 * ----------------------------------------------------
-                 * - Si el usuario accede a /app sin ruta específica,
-                 *   se redirige automáticamente a /app/home.
-                 * ---------------------------------------------------- */
+                { path: 'profile', component: ComingSoon, name: 'Profile' },
                 { path: '', redirect: '/app/home' },
+
+                // 🏠 Base Home Route — Redirect by Role
+                {
+                    path: 'home',
+                    name: 'Home',
+                    component: Home,
+                    beforeEnter: async () => {
+                        const userStore = useUserStore()
+
+                        // Load user if not available yet
+                        if (!userStore.user) await userStore.fetchUser()
+
+                        const role = userStore.user?.role || 'demo'
+
+                        // Role-based redirects
+                        const redirectMap = {
+                            admin: '/app/home-admin',
+                            distributor: '/app/home-distributor',
+                            carrier: '/app/home-carrier',
+                            'business-owner': '/app/home-business-owner'
+                        }
+
+                        // Default to classic Home if invalid or demo role
+                        if (role === 'demo' || role === '' || !redirectMap[role]) return true
+
+                        // Redirect to correct Home view
+                        return redirectMap[role]
+                    }
+                },
+
+                // 🧱 Role-Specific Routes
+                { path: 'home-admin', component: HomeAdmin, name: 'HomeAdmin' },
+                { path: 'home-distributor', component: HomeDistributor, name: 'HomeDistributor' },
+                { path: 'home-carrier', component: HomeCarrier, name: 'HomeCarrier' },
+                { path: 'home-business-owner', component: HomeBusinessOwner, name: 'HomeBusinessOwner' },
+
+                // 🧩 Placeholder Modules (WIP)
+                { path: 'create-order', component: ComingSoon },
+                { path: 'tracking', component: ComingSoon },
+                { path: 'inventory', component: ComingSoon },
+                { path: 'calendar', component: ComingSoon },
+                { path: 'reports', component: ComingSoon },
+                { path: 'payments', component: ComingSoon },
+                { path: 'history', component: ComingSoon },
+                { path: 'claims', component: ComingSoon },
+                { path: 'admin', component: ComingSoon }
             ]
         },
 
-        /* ----------------------------------------------------
-         * 🌍 Redirección raíz
-         * ----------------------------------------------------
-         * - Si el usuario entra a http://localhost:5173,
-         *   se redirige automáticamente al Home.
-         * ---------------------------------------------------- */
+        // 🌍 Global Routes
         { path: '/', redirect: '/app/home' },
-
-        /* ----------------------------------------------------
-         * ❌ Error 404 global (fuera del layout)
-         * ----------------------------------------------------
-         * - Captura cualquier ruta no reconocida a nivel global.
-         * - Se usa como fallback para rutas externas.
-         * ---------------------------------------------------- */
         { path: '/:pathMatch(.*)*', component: NotFound }
     ]
 })
+
+export default router
