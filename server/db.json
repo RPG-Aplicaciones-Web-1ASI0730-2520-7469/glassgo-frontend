@@ -2,14 +2,321 @@
   "users": [
     {
       "id": 1,
-      "username": "user.demo",
-      "email": "user.demo@glassgo.com",
-      "password": "demo123",
+      "username": "distributor.main",
+      "email": "distributor@glassgo.com",
+      "password": "dist123",
       "role": "distributor",
-      "firstName": "Usuario",
-      "lastName": "Demo",
+      "firstName": "Main",
+      "lastName": "Distributor",
+      "company": "Distribuidora Central SAC",
+      "taxId": "20123456789",
+      "address": "Av. Brasil 1234, Lima",
+      "phone": "+51 987654321",
+      "preferredCurrency": "PEN",
+      "notifications": { "email": true, "sms": false, "push": true },
+      "paymentMethods": [
+        {
+          "type": "bank_transfer",
+          "bank": "BCP",
+          "account": "123-456-789"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "owner.main",
+      "email": "owner.main@glassgo.com",
+      "password": "owner123",
+      "role": "business-owner",
+      "firstName": "Main",
+      "lastName": "Owner",
       "isActive": true,
-      "createdAt": "2025-01-01T00:00:00Z"
+      "createdAt": "2025-01-15T00:00:00Z",
+      "businessName": "Restobar El Buen Sabor SAC",
+      "taxId": "20456789231",
+      "address": "Av. Primavera 456, Lima",
+      "phone": "+51 999888777",
+      "preferredCurrency": "PEN",
+      "notifications": {
+        "email": true,
+        "sms": true,
+        "push": false
+      },
+      "loyaltyPoints": 72
+    },
+    {
+      "id": 3,
+      "username": "carrier.main",
+      "email": "carrier@glassgo.com",
+      "password": "car123",
+      "role": "carrier",
+      "firstName": "Main",
+      "lastName": "Driver",
+      "isActive": true,
+      "createdAt": "2025-01-10T00:00:00Z",
+      "phone": "+51 999888777"
+    },
+    {
+      "id": 4,
+      "username": "admin.main",
+      "email": "admin@glassgo.com",
+      "password": "car123",
+      "role": "admin",
+      "firstName": "Main",
+      "lastName": "Admin",
+      "isActive": true,
+      "phone": "+51 999888777"
+    }
+  ],
+  "orders": [
+    {
+      "id": "GG2025-01",
+      "client": "Transporte B",
+      "status": "Active",
+      "date": "2025-11-01",
+      "userId": 1
+    },
+    {
+      "id": "GG2025-02",
+      "client": "Negocio C",
+      "status": "Delivered",
+      "date": "2025-11-03",
+      "userId": 1
+    },
+    {
+      "id": "GG2025-03",
+      "client": "Negocio D",
+      "status": "Cancelled",
+      "date": "2025-10-28",
+      "userId": 1
+    },
+    {
+      "id": "ORD-1001",
+      "date": "2025-10-28",
+      "status": "Delivered",
+      "total": 350,
+      "liters": 450,
+      "userId": 2
+    },
+    {
+      "id": "ORD-1002",
+      "date": "2025-10-29",
+      "status": "Pending",
+      "total": 420,
+      "liters": 700,
+      "userId": 2
+    },
+    {
+      "id": "ORD-1003",
+      "date": "2025-10-30",
+      "status": "Cancelled",
+      "total": 120,
+      "liters": 300,
+      "userId": 2
+    },
+    {
+      "id": "DL2025-01",
+      "client": "Distribuidor A",
+      "status": "delivered",
+      "date": "2025-11-01",
+      "total": 320,
+      "userId": 3
+    },
+    {
+      "id": "DL2025-02",
+      "client": "Negocio B",
+      "status": "pending",
+      "date": "2025-11-01",
+      "total": 240,
+      "userId": 3
+    },
+    {
+      "id": "DL2025-03",
+      "client": "Cliente GG-12",
+      "status": "failed",
+      "date": "2025-11-01",
+      "total": 180,
+      "userId": 3
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "product": "Botella 1L",
+      "stock": 45,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "product": "Botella 500ml",
+      "stock": 88,
+      "userId": 1
+    },
+    {
+      "id": 1,
+      "product": "Agua Mineral Premium 20L",
+      "stock": 8,
+      "userId": 2
+    },
+    {
+      "id": 2,
+      "product": "Agua Mineral Regular 10L",
+      "stock": 53,
+      "userId": 2
+    }
+  ],
+  "events": [
+    {
+      "date": "2025-11-05",
+      "description": "Entrega programada GG2025-01",
+      "userId": 1
+    },
+    {
+      "date": "2025-11-10",
+      "description": "Actualización de stock mensual",
+      "userId": 1
+    },
+    {
+      "id": 9001,
+      "userId": 3,
+      "type": "traffic",
+      "date": "2025-11-01T13:15:00Z",
+      "severity": "low",
+      "description": "Retraso por congestión en Av. Universitaria"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": 1,
+      "userId": 2,
+      "name": "Plan Estándar",
+      "type": "Mensual",
+      "renewal": "Renovación automática el 1 de noviembre",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "Soporte Premium",
+      "type": "Anual",
+      "renewal": "Renovación en marzo 2026",
+      "isActive": true
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "userId": 3,
+      "plate": "ABC-123",
+      "model": "Hino 300",
+      "year": 2022,
+      "odometerKm": 45210,
+      "fuelPercent": 62,
+      "maintenanceDue": false
+    }
+  ],
+  "routes": [
+    {
+      "id": "RT2025-01",
+      "origin": "Depósito Central",
+      "destination": "Sucursal Norte",
+      "status": "in-transit",
+      "userId": 3
+    },
+    {
+      "id": "RT2025-02",
+      "origin": "Depósito Sur",
+      "destination": "Cliente GG-14",
+      "status": "pending",
+      "userId": 3
+    },
+    {
+      "id": "RT2025-03",
+      "origin": "Planta Lima",
+      "destination": "Almacén Callao",
+      "status": "completed",
+      "userId": 3
+    }
+  ],
+  "system": {
+    "stats": {
+      "totalUsers": 3,
+      "activeOrders": 2,
+      "servicesOnline": 7,
+      "alerts": 1
+    },
+    "roleDistribution": {
+      "distributor": 1,
+      "transport": 1,
+      "business": 1,
+      "admin": 1
+    }
+  },
+  "services": [
+    {
+      "id": 1,
+      "name": "API Gateway",
+      "status": "online"
+    },
+    {
+      "id": 2,
+      "name": "Auth Service",
+      "status": "online"
+    },
+    {
+      "id": 3,
+      "name": "Notification Engine",
+      "status": "online"
+    },
+    {
+      "id": 4,
+      "name": "Payments Module",
+      "status": "online"
+    },
+    {
+      "id": 5,
+      "name": "Analytics Core",
+      "status": "online"
+    },
+    {
+      "id": 6,
+      "name": "Database Cluster",
+      "status": "online"
+    },
+    {
+      "id": 7,
+      "name": "File Storage",
+      "status": "online"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": 1,
+      "date": "2025-10-31",
+      "user": "Admin01",
+      "action": "Actualizó stock global",
+      "status": "success"
+    },
+    {
+      "id": 2,
+      "date": "2025-10-30",
+      "user": "Distribuidor12",
+      "action": "Registró pedido GG2025-054",
+      "status": "success"
+    },
+    {
+      "id": 3,
+      "date": "2025-10-29",
+      "user": "Transportista03",
+      "action": "Reporte de entrega fallida",
+      "status": "warning"
+    },
+    {
+      "id": 4,
+      "date": "2025-10-28",
+      "user": "Admin02",
+      "action": "Desactivó usuario inactivo",
+      "status": "danger"
     }
   ]
 }

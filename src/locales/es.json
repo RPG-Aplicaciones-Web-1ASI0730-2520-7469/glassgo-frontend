@@ -4,8 +4,17 @@
     "back": "Volver al inicio"
   },
   "sidebar": {
-    "home": "🏠Inicio",
-    "modules": "🧩Módulos (En desarrollo)"
+    "home": "Inicio",
+    "createOrder": "Crear pedido",
+    "tracking": "Tracking",
+    "inventory": "Inventario",
+    "calendar": "Calendario",
+    "reports": "Reportes",
+    "payments": "Pagos",
+    "history": "Historial",
+    "claims": "Reclamos",
+    "admin": "Administración del sistema",
+    "logout": "Cerrar sesión"
   },
   "comingSoon": {
     "title": "Próximamente",
@@ -13,8 +22,8 @@
   },
   "roles": {
     "distributor": "Distribuidor",
-    "transport": "Transportista",
-    "business": "Negocio",
+    "business-owner": "Dueño de Negocio",
+    "carrier": "Transportista",
     "admin": "Administrador",
     "demo": "Demo",
     "role": "Rol"
@@ -26,6 +35,105 @@
   "homeView": {
     "welcome": "Bienvenido a GlassGo👋🏼",
     "description": "GlassGo es una plataforma modular para la gestión, seguimiento y fidelización de servicios."
+  },
+  "homeDistributor": {
+    "welcome": "Bienvenido",
+    "subtitle": "Aquí tienes un resumen general de tus operaciones y pedidos activos.",
+    "activeOrders": "Pedidos activos",
+    "deliveredOrders": "Pedidos entregados",
+    "canceledOrders": "Pedidos cancelados",
+    "stockProducts": "Productos en stock",
+    "recentOrders": "Pedidos recientes",
+    "table": {
+      "id": "ID",
+      "client": "Cliente",
+      "status": "Estado",
+      "date": "Fecha"
+    },
+    "status": {
+      "active": "Activo",
+      "delivered": "Entregado",
+      "cancelled": "Cancelado",
+      "canceled": "Cancelado"
+    },
+    "upcomingEvents": "Próximos eventos"
+  },
+  "homeBusinessOwner": {
+    "welcome": "Bienvenido",
+    "subtitle": "Monitorea el estado de tu negocio, tus pedidos y tus suscripciones activas.",
+    "monthlyConsumption": "Consumo mensual",
+    "activeSubscriptions": "Suscripciones activas",
+    "pendingOrders": "Pedidos pendientes",
+    "totalSpent": "Gasto mensual",
+    "recentOrders": "Pedidos recientes",
+    "table": {
+      "id": "ID",
+      "date": "Fecha",
+      "status": "Estado",
+      "total": "Total"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "delivered": "Entregado",
+      "cancelled": "Cancelado",
+      "canceled": "Cancelado"
+    },
+    "activeSubscriptionsTitle": "Suscripciones activas",
+    "loyaltyProgram": "Programa de fidelización",
+    "loyaltyPoints": "Tus puntos acumulados:",
+    "maxLoyalty": "🎉 ¡Has alcanzado el nivel máximo de fidelización!"
+  },
+  "homeCarrier": {
+    "welcome": "¡Hola",
+    "subtitle": "Estas son tus entregas y rutas asignadas para el día.",
+    "deliveriesToday": "Entregas del día",
+    "completedDeliveries": "Entregas completadas",
+    "pendingDeliveries": "Pendientes",
+    "failedDeliveries": "Fallidas",
+    "activeRoutes": "Rutas activas",
+    "table": {
+      "route": "Ruta",
+      "origin": "Origen",
+      "destination": "Destino",
+      "status": "Estado"
+    },
+    "status": {
+      "in-transit": "En tránsito",
+      "pending": "Pendiente",
+      "completed": "Completada",
+      "failed": "Fallida",
+      "delivered": "Entregada"
+    },
+    "recentDeliveries": "Entregas recientes"
+  },
+  "homeAdmin": {
+    "title": "Panel de Administración",
+    "subtitle": "Supervisa el estado general del ecosistema GlassGo.",
+    "kpi": {
+      "totalUsers": "Usuarios registrados",
+      "activeOrders": "Pedidos activos",
+      "servicesOnline": "Servicios en línea",
+      "alerts": "Alertas críticas"
+    },
+    "roles": {
+      "title": "Distribución de roles",
+      "distributor": "Distribuidores",
+      "transport": "Transportistas",
+      "business": "Dueños de negocio",
+      "admin": "Administradores"
+    },
+    "activity": {
+      "title": "Últimas actividades del sistema",
+      "date": "Fecha",
+      "user": "Usuario",
+      "action": "Acción",
+      "result": "Resultado"
+    },
+    "status": {
+      "success": "Éxito",
+      "warning": "Advertencia",
+      "danger": "Error"
+    }
   },
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."

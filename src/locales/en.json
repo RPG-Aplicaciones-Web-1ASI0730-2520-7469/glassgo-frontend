@@ -4,8 +4,17 @@
     "back": "Return to Home"
   },
   "sidebar": {
-    "home": "🏠Home",
-    "modules": "🧩Modules (In development)"
+    "home": "Home",
+    "createOrder": "Create Order",
+    "tracking": "Tracking",
+    "inventory": "Inventory",
+    "calendar": "Calendar",
+    "reports": "Reports",
+    "payments": "Payments",
+    "history": "History",
+    "claims": "Claims",
+    "admin": "System Administration",
+    "logout": "Logout"
   },
   "comingSoon": {
     "title": "Coming soon",
@@ -13,8 +22,8 @@
   },
   "roles": {
     "distributor": "Distributor",
-    "transport": "Transport",
-    "business": "Business",
+    "carrier": "Carrier",
+    "business-owner": "Business Owner",
     "admin": "Admin",
     "demo": "Demo",
     "role": "Role"
@@ -26,6 +35,105 @@
   "homeView": {
     "welcome": "Welcome to GlassGo👋🏼",
     "description": "GlassGo is a modular platform for service management, monitoring and loyalty."
+  },
+  "homeDistributor": {
+    "welcome": "Welcome",
+    "subtitle": "Here’s an overview of your operations and active orders.",
+    "activeOrders": "Active orders",
+    "deliveredOrders": "Delivered orders",
+    "canceledOrders": "Canceled orders",
+    "stockProducts": "Products in stock",
+    "recentOrders": "Recent orders",
+    "table": {
+      "id": "ID",
+      "client": "Client",
+      "status": "Status",
+      "date": "Date"
+    },
+    "status": {
+      "active": "Active",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled",
+      "canceled": "Cancelled"
+    },
+    "upcomingEvents": "Upcoming events"
+  },
+  "homeBusinessOwner": {
+    "welcome": "Welcome",
+    "subtitle": "Monitor your business status, your orders and active subscriptions.",
+    "monthlyConsumption": "Monthly consumption",
+    "activeSubscriptions": "Active subscriptions",
+    "pendingOrders": "Pending orders",
+    "totalSpent": "Monthly spending",
+    "recentOrders": "Recent orders",
+    "table": {
+      "id": "ID",
+      "date": "Date",
+      "status": "Status",
+      "total": "Total"
+    },
+    "status": {
+      "pending": "Pending",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled",
+      "canceled": "Cancelled"
+    },
+    "activeSubscriptionsTitle": "Active subscriptions",
+    "loyaltyProgram": "Loyalty program",
+    "loyaltyPoints": "Your accumulated points:",
+    "maxLoyalty": "🎉 You've reached the maximum loyalty level!"
+  },
+  "homeCarrier": {
+    "welcome": "Hello",
+    "subtitle": "These are your deliveries and assigned routes for today.",
+    "deliveriesToday": "Deliveries today",
+    "completedDeliveries": "Completed deliveries",
+    "pendingDeliveries": "Pending",
+    "failedDeliveries": "Failed",
+    "activeRoutes": "Active routes",
+    "table": {
+      "route": "Route",
+      "origin": "Origin",
+      "destination": "Destination",
+      "status": "Status"
+    },
+    "status": {
+      "in-transit": "In Transit",
+      "pending": "Pending",
+      "completed": "Completed",
+      "failed": "Failed",
+      "delivered": "Delivered"
+    },
+    "recentDeliveries": "Recent deliveries"
+  },
+  "homeAdmin": {
+    "title": "Administration Panel",
+    "subtitle": "Supervise the overall status of the GlassGo ecosystem.",
+    "kpi": {
+      "totalUsers": "Registered Users",
+      "activeOrders": "Active Orders",
+      "servicesOnline": "Online Services",
+      "alerts": "Critical Alerts"
+    },
+    "roles": {
+      "title": "Role Distribution",
+      "distributor": "Distributors",
+      "transport": "Carriers",
+      "business": "Business Owners",
+      "admin": "Administrators"
+    },
+    "activity": {
+      "title": "Latest System Activities",
+      "date": "Date",
+      "user": "User",
+      "action": "Action",
+      "result": "Result"
+    },
+    "status": {
+      "success": "Success",
+      "warning": "Warning",
+      "danger": "Error"
+    }
   },
   "footer": {
     "text": "© 2025 GlassGo. All rights reserved."
