@@ -1,102 +1,105 @@
-/* ====================================================
+/* ============================================================
  * 📁 src/stores/user.store.js
- * ====================================================
- * 👤 Store global del usuario (Pinia)
- * ----------------------------------------------------
- * Este módulo centraliza el manejo del estado del usuario
- * autenticado en toda la aplicación GlassGo.
- *
- * Funcionalidades:
- *  - Obtener el usuario desde JSON Server (db.json).
- *  - Acceder al rol, nombre completo e iniciales.
- *  - Compartir la información del usuario entre componentes.
- *
- * Ejemplo de origen de datos:
- *   http://localhost:3000/users/1
- * ==================================================== */
+ * ============================================================
+ * 👤 Global User Store (Pinia)
+ * ------------------------------------------------------------
+ * Centralized management of the authenticated user.
+ * - Loads data from JSON Server via DEMO_USER_ID.
+ * - Handles role, name, and session persistence.
+ * - Ready for future migration to the Identity & Access BC.
+ * ============================================================ */
 
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import { httpClient } from '@/shared/infrastructure/http-client'
+import { DEMO_USER_ID } from '@/shared/config/demo-user'
 
 export const useUserStore = defineStore('user', {
-    /* ----------------------------------------------------
-     * 🧠 Estado (State)
-     * ----------------------------------------------------
-     * Contiene los datos reactivamente accesibles por toda la app.
-     * user → objeto con los datos del usuario actual.
-     * loading → indica si se está obteniendo información del servidor.
-     * error → almacena mensajes en caso de fallo de conexión.
-     * ---------------------------------------------------- */
+    /* ----------------------------------------------------------
+     * 🧠 State
+     * ---------------------------------------------------------- */
     state: () => ({
         user: null,
         loading: false,
         error: null
     }),
 
-    /* ----------------------------------------------------
-     * ⚙️ Acciones (Actions)
-     * ----------------------------------------------------
-     * Métodos que modifican el estado global.
-     * Se encargan de la comunicación con el backend o JSON Server.
-     * ---------------------------------------------------- */
+    /* ----------------------------------------------------------
+     * ⚙️ Actions
+     * ---------------------------------------------------------- */
     actions: {
         /**
-         * 🔄 fetchUser()
-         * Obtiene los datos del usuario desde JSON Server.
-         * En este caso, simula un login cargando el ID=1.
+         * 🔄 Fetch user from db.json
+         * Uses DEMO_USER_ID for local testing.
          */
-        async fetchUser() {
+        async fetchUser(userId = DEMO_USER_ID) {
             this.loading = true
             this.error = null
 
             try {
-                const response = await axios.get('http://localhost:3000/users/1')
+                const response = await httpClient.get(`/users/${userId}`)
                 this.user = response.data
+
+                console.log(`👤 User loaded: ${this.user.firstName} (${this.user.role})`)
+
+                // ✅ Local persistence
+                localStorage.setItem('userRole', this.user.role)
+                localStorage.setItem('userId', this.user.id)
             } catch (err) {
-                console.error('Error al obtener usuario:', err)
-                this.error = 'No se pudo cargar la información del usuario.'
+                console.error('❌ Failed to load user:', err)
+                this.error = 'User information could not be loaded.'
+                this.user = null
             } finally {
                 this.loading = false
             }
         },
 
         /**
-         * ✏️ setUser()
-         * Permite modificar el usuario manualmente (ej. al actualizar perfil).
+         * ✏️ Manually set user data
          */
         setUser(userData) {
             this.user = userData
+            localStorage.setItem('userRole', userData.role || 'demo')
+            localStorage.setItem('userId', userData.id || DEMO_USER_ID)
         },
 
         /**
-         * 🚪 clearUser()
-         * Limpia los datos del usuario (ej. al cerrar sesión).
+         * 🚪 Clear user data (logout)
          */
         clearUser() {
             this.user = null
+            localStorage.removeItem('userRole')
+            localStorage.removeItem('userId')
+        },
+
+        /**
+         * 🧭 Return home route by user role
+         * Used by router.js and AppShell.vue.
+         */
+        getHomeRoute() {
+            const role = this.user?.role || localStorage.getItem('userRole')
+
+            const roleRoutes = {
+                admin: '/app/home-admin',
+                distributor: '/app/home-distributor',
+                carrier: '/app/home-carrier',
+                'business-owner': '/app/home-business-owner'
+            }
+
+            return roleRoutes[role] || '/app/home'
         }
     },
 
-    /* ----------------------------------------------------
-     * 🔍 Getters (Propiedades derivadas)
-     * ----------------------------------------------------
-     * Devuelven valores calculados automáticamente
-     * según el estado actual del usuario.
-     * ---------------------------------------------------- */
+    /* ----------------------------------------------------------
+     * 🔍 Getters
+     * ---------------------------------------------------------- */
     getters: {
-        /**
-         * 🧾 fullName → combina nombre y apellido del usuario.
-         * Ejemplo: "Usuario Demo"
-         */
+        /** 🧾 Full name */
         fullName: (state) => {
             if (!state.user) return ''
             return `${state.user.firstName} ${state.user.lastName}`
         },
 
-        /**
-         * 🔠 initials → genera las iniciales del usuario.
-         * Ejemplo: "Usuario Demo" → "UD"
-         */
+        /** 🔠 User initials */
         initials: (state) => {
             if (!state.user) return ''
             const f = state.user.firstName?.[0]?.toUpperCase() || ''
@@ -104,15 +107,10 @@ export const useUserStore = defineStore('user', {
             return f + l
         },
 
-        /**
-         * 🧩 role → devuelve el rol actual del usuario (admin, distributor, etc.)
-         * Utilizado en la Topbar.
-         */
+        /** 🧩 Current role */
         role: (state) => state.user?.role || 'demo',
 
-        /**
-         * ⚙️ isAuthenticated → true si hay usuario cargado.
-         */
+        /** ⚙️ Auth state */
         isAuthenticated: (state) => !!state.user
     }
 })
