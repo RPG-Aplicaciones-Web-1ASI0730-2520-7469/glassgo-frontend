@@ -137,5 +137,41 @@
   },
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
+  },
+  "orders": {
+    "create": {
+      "title": "Crear Pedido",
+      "subtitle": "Agrega productos y completa la información de entrega",
+      "searchPlaceholder": "Buscar productos...",
+      "addNewProduct": "Añadir nuevo producto",
+      "orderInfo": "Información del pedido",
+      "total": "Total",
+      "orderSummary": "Resumen del pedido",
+      "deliveryInfo": "Información de entrega",
+      "subtotal": "Subtotal",
+      "igv": "IGV",
+      "itemCount": "Artículos",
+      "items": "productos",
+      "deliveryDate": "Fecha de entrega",
+      "deliveryTime": "Hora de entrega",
+      "deliveryAddress": "Dirección de entrega",
+      "specialInstructions": "Instrucciones especiales",
+      "addressPlaceholder": "Ingresa la dirección completa de entrega",
+      "instructionsPlaceholder": "Instrucciones adicionales para la entrega (opcional)",
+      "selectTime": "Seleccionar horario",
+      "cancel": "Cancelar",
+      "submitOrder": "Enviar Pedido",
+      "submitting": "Enviando...",
+      "continue": "Continuar",
+      "description": "Descripción",
+      "unitPrice": "Precio unitario",
+      "supplier": "Proveedor",
+      "showDetails": "Mostrar detalles",
+      "hideDetails": "Ocultar detalles",
+      "emptyOrder": "No hay productos en el pedido",
+      "emptyOrderSubtitle": "Busca y agrega productos para comenzar",
+      "orderSuccess": "¡Pedido enviado exitosamente!",
+      "orderSuccessMessage": "Tu pedido ha sido registrado y será procesado pronto."
+    }
   }
 }
