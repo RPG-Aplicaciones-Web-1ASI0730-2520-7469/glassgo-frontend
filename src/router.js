@@ -13,6 +13,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // ------------------------------------------------------------
 import AppShell from './shared/presentation/components/layout/app-shell.vue'
 import Home from '@shared/presentation/views/home/home.vue'
+import CrearPedido from './modules/service-planning/presentation/views/crear-pedido.vue'
 import ComingSoon from './shared/presentation/views/coming-soon.vue'
 import NotFound from './shared/presentation/views/page-not-found.vue'
 
@@ -78,15 +79,17 @@ const router = createRouter({
                 { path: 'home-business-owner', component: HomeBusinessOwner, name: 'HomeBusinessOwner' },
 
                 // 🧩 Placeholder Modules (WIP)
-                { path: 'create-order', component: ComingSoon },
+                { path: 'create-order', component: CrearPedido },
                 { path: 'tracking', component: ComingSoon },
                 { path: 'inventory', component: ComingSoon },
                 { path: 'calendar', component: ComingSoon },
-                { path: 'reports', component: ComingSoon },
                 { path: 'payments', component: ComingSoon },
                 { path: 'history', component: ComingSoon },
                 { path: 'claims', component: ComingSoon },
                 { path: 'admin', component: ComingSoon }
+                ,
+                // Dashboard Analytics
+                // { path: 'reportes', component: () => import('./modules/dashboard-analytics/presentation/views/reportes.vue'), name: 'Reportes' }
             ]
         },
 
