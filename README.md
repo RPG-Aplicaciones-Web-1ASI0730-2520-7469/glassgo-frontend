@@ -67,15 +67,28 @@ This repository contains the **Web Frontend Application** of **GlassGo**, a modu
   │ │ │   └─ routes.js                    # Routes for loyalty module
   │ │ │
   │ │ ├─ payments-subscriptions/          # Handles payments, billing, and subscription plans
-  │ │ │ ├─ application/                   # Business logic for payments and renewals
-  │ │ │ ├─ domain/                        # Entities for transactions and billing cycles
-  │ │ │ │ └─ model/                       # Domain models for payment and subscription data
-  │ │ │ ├─ infrastructure/                # Integrations with payment gateways
-  │ │ │ └─ presentation/                  # UI for invoices and subscriptions
-  │ │ │   ├─ components/                  # Payment-related reusable components
-  │ │ │   ├─ views/                       # Views for managing payments and subscriptions
-  │ │ │   └─ routes.js                    # Routing configuration for payment module
-  │ │ │
+  │ │ │ ├─ application/                   # Business logic and service layer for handling payment and renewal processes
+  │ │ │ │ └─ payment.service.js           # Implements core functions for initiating, processing, and verifying payments
+  │ │ │ │
+  │ │ │ ├─ domain/                        # Defines core business entities and rules for payments and subscriptions
+  │ │ │ │ └─ model/                       # Domain models representing payment and subscription data structures
+  │ │ │ │   ├─ payment.entity.js          # Represents a payment entity with attributes like amount, status, and method
+  │ │ │ │   └─ subscription.entity.js     # Represents a subscription entity including plan, cycle, and renewal details
+  │ │ │ │
+  │ │ │ ├─ infrastructure/                # Handles integration with external payment gateways and APIs
+  │ │ │ │ └─ payments-api.js              # Defines API calls for creating transactions, fetching invoices, and validating payments
+  │ │ │ │
+  │ │ │ └─ presentation/                  # User interface layer for visualizing and managing payment and subscription data
+  │ │ │   ├─ components/                  # Reusable UI components for payment and subscription sections
+  │ │ │   │ ├─ payment-card.vue           # Displays individual payment details and transaction summaries
+  │ │ │   │ └─ subscription-card.vue      # Displays user subscription info, renewal dates, and plan details
+  │ │ │   │
+  │ │ │   ├─ views/                       # Main pages for interacting with payment and subscription modules
+  │ │ │   │ ├─ payments-view-admin.vue    # View for administrators to monitor and manage all transactions
+  │ │ │   │ ├─ payments-view-distributor  # View for distributors to manage their own subscription and billing data
+  │ │ │   │ └─ payments-view-owner        # View for business owners to review their payment history and active plans
+  │ │ │   │
+  │ │ │   └─ routes.js                    # Defines navigation routes and paths for the payments-subscriptions module
   │ │ ├─ profiles-preferences/            # Handles user profiles and system preferences
   │ │ │ ├─ application/                   # Application logic for user configuration
   │ │ │ ├─ domain/                        # Entities for user settings and preferences
