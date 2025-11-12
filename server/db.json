@@ -13,7 +13,11 @@
       "address": "Av. Brasil 1234, Lima",
       "phone": "+51 987654321",
       "preferredCurrency": "PEN",
-      "notifications": { "email": true, "sms": false, "push": true },
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "push": true
+      },
       "paymentMethods": [
         {
           "type": "bank_transfer",
@@ -100,7 +104,6 @@
     },
     {
       "id": "ORD-1002",
-      "date": "2025-10-29",
       "status": "Pending",
       "total": 420,
       "liters": 700,
@@ -137,6 +140,40 @@
       "date": "2025-11-01",
       "total": 180,
       "userId": 3
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "productId": 7,
+          "productName": "Vidrio antirreflejo",
+          "quantity": 2,
+          "unitPrice": 200,
+          "subtotal": 400
+        },
+        {
+          "productId": 8,
+          "productName": "Vidrio esmerilado",
+          "quantity": 1,
+          "unitPrice": 110,
+          "subtotal": 110
+        }
+      ],
+      "delivery": {
+        "date": "2025-11-15",
+        "time": "08:00-12:00",
+        "address": "Samiria",
+        "instructions": "Bien sellado"
+      },
+      "totals": {
+        "subtotal": 510,
+        "igv": 91.8,
+        "total": 601.8,
+        "itemCount": 2
+      },
+      "status": "pending",
+      "createdAt": "2025-11-12T03:18:56.211Z",
+      "id": "4Cd2Gje"
     }
   ],
   "inventory": [
@@ -317,6 +354,185 @@
       "user": "Admin02",
       "action": "Desactivó usuario inactivo",
       "status": "danger"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Vidrio templado 10mm",
+      "category": "templado",
+      "description": "Vidrio templado de alta resistencia, ideal para aplicaciones comerciales",
+      "price": 120,
+      "unit": "m²",
+      "stock": 150,
+      "minQuantity": 1,
+      "maxQuantity": 100,
+      "specifications": {
+        "thickness": "10mm",
+        "strength": "Alta",
+        "applications": [
+          "Comercial",
+          "Residencial",
+          "Industrial"
+        ]
+      },
+      "supplier": "GlassSupply SAC",
+      "imageUrl": "/images/products/vidrio-templado-10mm.jpg",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Vidrio laminado 8mm",
+      "category": "laminado",
+      "description": "Vidrio laminado de seguridad con múltiples capas",
+      "price": 95,
+      "unit": "m²",
+      "stock": 200,
+      "minQuantity": 1,
+      "maxQuantity": 80,
+      "specifications": {
+        "thickness": "8mm",
+        "layers": "2 capas",
+        "applications": [
+          "Seguridad",
+          "Arquitectónico"
+        ]
+      },
+      "supplier": "SecureGlass EIRL",
+      "imageUrl": "/images/products/vidrio-laminado-8mm.jpg",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "Cristal decorativo",
+      "category": "decorativo",
+      "description": "Cristal con acabados decorativos para interiores",
+      "price": 180,
+      "unit": "m²",
+      "stock": 75,
+      "minQuantity": 1,
+      "maxQuantity": 50,
+      "specifications": {
+        "thickness": "6mm",
+        "finish": "Decorativo",
+        "applications": [
+          "Decoración",
+          "Interiores"
+        ]
+      },
+      "supplier": "DecoGlass Perú",
+      "imageUrl": "/images/products/cristal-decorativo.jpg",
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Vidrio reflectivo",
+      "category": "reflectivo",
+      "description": "Vidrio con película reflectiva para control solar",
+      "price": 140,
+      "unit": "m²",
+      "stock": 100,
+      "minQuantity": 1,
+      "maxQuantity": 75,
+      "specifications": {
+        "thickness": "8mm",
+        "reflectivity": "85%",
+        "applications": [
+          "Fachadas",
+          "Control solar"
+        ]
+      },
+      "supplier": "SolarGlass SAC",
+      "imageUrl": "/images/products/vidrio-reflectivo.jpg",
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "Vidrio templado 12mm",
+      "category": "templado",
+      "description": "Vidrio templado extra resistente para aplicaciones pesadas",
+      "price": 160,
+      "unit": "m²",
+      "stock": 80,
+      "minQuantity": 1,
+      "maxQuantity": 60,
+      "specifications": {
+        "thickness": "12mm",
+        "strength": "Extra alta",
+        "applications": [
+          "Industrial",
+          "Estructural"
+        ]
+      },
+      "supplier": "GlassSupply SAC",
+      "imageUrl": "/images/products/vidrio-templado-12mm.jpg",
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "name": "Vidrio curvo",
+      "category": "especial",
+      "description": "Vidrio curvo personalizado para diseños especiales",
+      "price": 250,
+      "unit": "m²",
+      "stock": 30,
+      "minQuantity": 1,
+      "maxQuantity": 20,
+      "specifications": {
+        "thickness": "Variable",
+        "shape": "Curvo",
+        "applications": [
+          "Arquitectónico",
+          "Diseño especial"
+        ]
+      },
+      "supplier": "CustomGlass EIRL",
+      "imageUrl": "/images/products/vidrio-curvo.jpg",
+      "isActive": true
+    },
+    {
+      "id": 7,
+      "name": "Vidrio antirreflejo",
+      "category": "especial",
+      "description": "Vidrio con tratamiento antirreflejo para máxima claridad",
+      "price": 200,
+      "unit": "m²",
+      "stock": 60,
+      "minQuantity": 1,
+      "maxQuantity": 40,
+      "specifications": {
+        "thickness": "6mm",
+        "coating": "Antirreflejo",
+        "applications": [
+          "Vitrinas",
+          "Marcos"
+        ]
+      },
+      "supplier": "ClearGlass SAC",
+      "imageUrl": "/images/products/vidrio-antirreflejo.jpg",
+      "isActive": true
+    },
+    {
+      "id": 8,
+      "name": "Vidrio esmerilado",
+      "category": "decorativo",
+      "description": "Vidrio con acabado esmerilado para privacidad",
+      "price": 110,
+      "unit": "m²",
+      "stock": 120,
+      "minQuantity": 1,
+      "maxQuantity": 80,
+      "specifications": {
+        "thickness": "8mm",
+        "finish": "Esmerilado",
+        "applications": [
+          "Privacidad",
+          "Decoración"
+        ]
+      },
+      "supplier": "PrivateGlass EIRL",
+      "imageUrl": "/images/products/vidrio-esmerilado.jpg",
+      "isActive": true
     }
   ]
 }
