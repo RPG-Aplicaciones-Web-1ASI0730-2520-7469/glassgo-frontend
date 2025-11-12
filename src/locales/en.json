@@ -137,5 +137,36 @@
   },
   "footer": {
     "text": "© 2025 GlassGo. All rights reserved."
+  },
+  "payments": {
+    "titleOwner": "Payments & Subscriptions",
+    "subtitleOwner": "Manage your active plans and review your payment history.",
+    "activeSubscription": "Active Subscription",
+    "plan": "Plan",
+    "renewal": "Renewal",
+    "renewNow": "Renew Now",
+    "history": "Payment History",
+    "date": "Date",
+
+    "titleDistributor": "Distributor Payments",
+    "subtitleDistributor": "View your received payments and pending commissions.",
+    "table": {
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "status": "Status",
+      "user": "User"
+    },
+
+    "titleAdmin": "System Payments",
+    "subtitleAdmin": "System-wide payment audit and monitoring panel.",
+    "searchPlaceholder": "Search by user ID...",
+
+    "status": {
+      "completed": "Completed",
+      "pending": "Pending",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    }
   }
 }
