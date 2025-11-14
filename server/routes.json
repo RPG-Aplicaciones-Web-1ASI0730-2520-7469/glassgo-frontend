@@ -1,4 +1,15 @@
 {
   "/api/*": "/$1",
-  "/": "/db"
+  "/": "/db",
+  "/api/users": "/users",
+  "/api/orders": "/orders",
+  "/api/inventory": "/inventory",
+  "/api/events": "/events",
+  "/api/subscriptions": "/subscriptions",
+  "/api/vehicles": "/vehicles",
+  "/api/routes": "/routes",
+  "/api/system": "/system",
+  "/api/services": "/services",
+  "/api/activityLogs": "/activityLogs",
+  "/api/analyticsReports": "/analyticsReports"
 }
