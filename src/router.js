@@ -82,14 +82,14 @@ const router = createRouter({
                 { path: 'tracking', component: ComingSoon },
                 { path: 'inventory', component: ComingSoon },
                 { path: 'calendar', component: ComingSoon },
-                { path: 'reports', component: () => import('./modules/dashboard-analytics/presentation/views/reportes.vue'), name: 'Reports' },
+                { path: 'reports', component: () => import('./modules/dashboard-analytics/presentation/views/reporte.vue'), name: 'Reports' },
                 { path: 'payments', component: ComingSoon },
                 { path: 'history', component: ComingSoon },
                 { path: 'claims', component: ComingSoon },
                 { path: 'admin', component: ComingSoon }
                 ,
                 // Dashboard Analytics
-                { path: 'reportes', component: () => import('./modules/dashboard-analytics/presentation/views/reportes.vue'), name: 'Reportes' }
+                { path: 'reportes', component: () => import('./modules/dashboard-analytics/presentation/views/reporte.vue'), name: 'Reportes' }
             ]
         },
 
