@@ -137,5 +137,20 @@
   },
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
+    }
+  ,
+  "analytics": {
+    "title": "Analítica",
+    "metrics": "Métricas",
+    "reports": "Reportes",
+    "totalSales": "Ventas Totales",
+    "activeUsers": "Usuarios Activos",
+    "ordersDelivered": "Órdenes Entregadas",
+    "monthlyReport": "Reporte de Ventas Mensual",
+    "userActivityReport": "Reporte de Actividad de Usuarios",
+    "viewReport": "Ver Reporte",
+    "period": "Periodo",
+    "value": "Valor",
+    "unit": "Unidad"
   }
 }
