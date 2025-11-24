@@ -1,8 +1,8 @@
 // analytics.store.js - Pinia store para reportes y métricas
 import { defineStore } from 'pinia';
-import ReportEntity from '../domain/model/report.entity';
-import MetricEntity from '../domain/model/metric.entity';
-import { fetchReports, fetchMetrics } from '../infrastructure/analytics-api';
+import ReportEntity from '../domain/model/report.entity.js';
+import MetricEntity from '../domain/model/metric.entity.js';
+import { fetchReports, fetchMetrics } from '../infrastructure/analytics-api.js';
 
 export const useAnalyticsStore = defineStore('analytics', {
   state: () => ({

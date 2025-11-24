@@ -1,5 +1,5 @@
 /* ============================================================
- * ⚙️ vite.config.js — Vite Environment Configuration
+ * ⚙️ vite.domain.js — Vite Environment Configuration
  * ============================================================
  * Optimized setup for GlassGo using Domain-Driven Design (DDD)
  * with 8 Bounded Contexts.
@@ -30,7 +30,7 @@ export default defineConfig({
      * Simplifies imports following GlassGo’s modular structure.
      *
      * Example:
-     *   import { loginUser } from '@modules/identity-access/application/login.service'
+     *   import { loginUser } from '@modules/iam/application/login.service'
      *   import { ButtonPrimary } from '@shared/presentation/components/ui/button-primary.vue'
      * ---------------------------------------------------------- */
     resolve: {
@@ -39,17 +39,17 @@ export default defineConfig({
             '@assets': path.resolve(__dirname, './src/assets'),
             '@shared': path.resolve(__dirname, './src/shared'),
             '@modules': path.resolve(__dirname, './src/modules'),
-            '@config': path.resolve(__dirname, './src/config'),
+            '@config': path.resolve(__dirname, './src/domain'),
 
             // 🔹 Optional aliases per bounded context
-            '@identity': path.resolve(__dirname, './src/modules/identity-access'),
-            '@profiles': path.resolve(__dirname, './src/modules/profiles-preferences'),
-            '@payments': path.resolve(__dirname, './src/modules/payments-subscriptions'),
+            '@identity': path.resolve(__dirname, './src/modules/iam'),
+            '@profiles': path.resolve(__dirname, './src/modules/profiles'),
+            '@payments': path.resolve(__dirname, './src/modules/payments'),
             '@inventory': path.resolve(__dirname, './src/modules/consumption-inventory'),
-            '@execution': path.resolve(__dirname, './src/modules/service-execution-monitoring'),
-            '@dashboard': path.resolve(__dirname, './src/modules/dashboard-analytics'),
+            '@execution': path.resolve(__dirname, './src/modules/execution-monitoring'),
+            '@dashboard': path.resolve(__dirname, './src/modules/analytics'),
             '@notifications': path.resolve(__dirname, './src/modules/notifications-messaging'),
-            '@system': path.resolve(__dirname, './src/modules/system-administration-configuration')
+            '@system': path.resolve(__dirname, './src/modules/administration-configuration')
         }
     },
 

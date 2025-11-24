@@ -14,7 +14,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useAnalyticsStore } from '../../application/analytics.store';
+import { useAnalyticsStore } from '../../application/analytics.store.js';
 const store = useAnalyticsStore();
 const reports = computed(() => store.reports);
 </script>

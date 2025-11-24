@@ -64,7 +64,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useAnalyticsStore } from '../../application/analytics.store.js';
-import { useUserStore } from '@/stores/user.store';
+import { useUserStore } from '@/stores/user.store.js';
 import DashboardChart from '../components/dashboard-chart.vue';
 import KpiCard from '../components/kpi-card.vue';
 import { fetchTopProducts } from '../../infrastructure/top-products-api.js';
