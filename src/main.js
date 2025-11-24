@@ -1,12 +1,5 @@
 /* ============================================================
  * 🧭 main.js — GlassGo Entry Point
- * ============================================================
- * Initializes and mounts the Vue application, registering all
- * global modules required by the system:
- *  - Router (navigation)
- *  - i18n (internationalization)
- *  - Pinia (state management)
- *  - Global styles
  * ============================================================ */
 
 // ------------------------------------------------------------
@@ -15,25 +8,26 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
+// PrimeVue v4 (correct import)
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes';   // theme preset
+
+import "primeicons/primeicons.css"
+import "primeflex/primeflex.css"
+
 // ------------------------------------------------------------
 // 🧭 Router
 // ------------------------------------------------------------
-// Handles navigation between views (home, modules, 404, etc.)
-// Defined in `router.js` with full app hierarchy (AppShell + views).
 import router from './router'
 
 // ------------------------------------------------------------
 // 🌐 i18n (Internationalization)
 // ------------------------------------------------------------
-// Loads language dictionaries (en.json / es.json)
-// and manages translation across the entire app.
 import { i18n } from './i18n'
 
 // ------------------------------------------------------------
 // 🧠 Pinia (Global State)
 // ------------------------------------------------------------
-// Centralized state management (user, language, etc.)
-// Exported from `pinia.js` for global use.
 import { pinia } from './pinia'
 
 // ------------------------------------------------------------
@@ -44,11 +38,18 @@ import './style.css'
 // ------------------------------------------------------------
 // 🚀 App Initialization
 // ------------------------------------------------------------
-// 1️⃣ Create Vue instance
-// 2️⃣ Register global modules
-// 3️⃣ Mount to DOM (#app)
 const app = createApp(App)
+
+// Use PrimeVue plugin with theme preset
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura
+    },
+    ripple: true
+});
+
 app.use(pinia)
 app.use(router)
 app.use(i18n)
+
 app.mount('#app')

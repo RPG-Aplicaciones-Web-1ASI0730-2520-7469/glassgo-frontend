@@ -25,6 +25,11 @@ import HomeCarrier from './shared/presentation/views/home/home-carrier.vue'
 import HomeBusinessOwner from './shared/presentation/views/home/home-business-owner.vue'
 
 // ------------------------------------------------------------
+// 🚚 Deliveries Module (DDD)
+// ------------------------------------------------------------
+import DeliveryDashboard from './modules/service-execution/presentation/views/delivery-dashboard.vue'
+
+// ------------------------------------------------------------
 // 🧠 User Store (Role Detection)
 // ------------------------------------------------------------
 import { useUserStore } from '@/stores/user.store'
@@ -50,12 +55,11 @@ const router = createRouter({
                     beforeEnter: async () => {
                         const userStore = useUserStore()
 
-                        // Load user if not available yet
+                        // Load user if not available
                         if (!userStore.user) await userStore.fetchUser()
 
                         const role = userStore.user?.role || 'demo'
 
-                        // Role-based redirects
                         const redirectMap = {
                             admin: '/app/home-admin',
                             distributor: '/app/home-distributor',
@@ -63,30 +67,52 @@ const router = createRouter({
                             'business-owner': '/app/home-business-owner'
                         }
 
-                        // Default to classic Home if invalid or demo role
-                        if (role === 'demo' || role === '' || !redirectMap[role]) return true
+                        // Default if demo, empty or invalid
+                        if (role === 'demo' || role === '' || !redirectMap[role]) {
+                            return true
+                        }
 
-                        // Redirect to correct Home view
+                        // Redirect by role
                         return redirectMap[role]
                     }
                 },
 
-                // 🧱 Role-Specific Routes
+                // 🧱 Role-Specific Homes
                 { path: 'home-admin', component: HomeAdmin, name: 'HomeAdmin' },
                 { path: 'home-distributor', component: HomeDistributor, name: 'HomeDistributor' },
                 { path: 'home-carrier', component: HomeCarrier, name: 'HomeCarrier' },
                 { path: 'home-business-owner', component: HomeBusinessOwner, name: 'HomeBusinessOwner' },
+
+                // --------------------------------------------------------
+                // 🚚 Deliveries Module (NEW)
+                // --------------------------------------------------------
+                {
+                    path: 'deliveries',
+                    component: DeliveryDashboard,
+                    name: 'Deliveries'
+                },
 
                 // 🧩 Placeholder Modules (WIP)
                 { path: 'create-order', component: ComingSoon },
                 { path: 'tracking', component: ComingSoon },
                 { path: 'inventory', component: ComingSoon },
                 { path: 'calendar', component: ComingSoon },
-                { path: 'reports', component: ComingSoon },
+                /*{
+                    path: 'reports',
+                    component: () => import('./modules/dashboard-analytics/presentation/views/reporte.vue'),
+                    name: 'Reports'
+                },*/
                 { path: 'payments', component: ComingSoon },
                 { path: 'history', component: ComingSoon },
                 { path: 'claims', component: ComingSoon },
-                { path: 'admin', component: ComingSoon }
+                { path: 'admin', component: ComingSoon },
+
+                // Legacy dashboard route
+                /*{
+                    path: 'reportes',
+                    component: () => import('./modules/dashboard-analytics/presentation/views/reporte.vue'),
+                    name: 'Reportes'
+                }*/
             ]
         },
 

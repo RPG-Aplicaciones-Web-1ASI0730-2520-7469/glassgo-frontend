@@ -10,8 +10,12 @@
     "server": "json-server --watch server/db.json --routes server/routes.json --port 3000"
   },
   "dependencies": {
+    "@primevue/themes": "^4.4.1",
     "axios": "^1.7.7",
     "pinia": "^2.1.7",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.4.1",
     "vue": "^3.4.21",
     "vue-i18n": "^9.14.0",
     "vue-router": "^4.3.0"
