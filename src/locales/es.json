@@ -209,7 +209,7 @@
         "errorCreating": "Error al crear la entrega.",
         "errorUpdating": "Error al actualizar la entrega.",
         "errorDeleting": "Error al eliminar la entrega.",
-        "errorLoading": "Error al cargar las entregas.",
+        "errorLoading": "Error al cargar las entregas."
 
       }
 
