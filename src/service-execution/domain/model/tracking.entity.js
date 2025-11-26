@@ -1,4 +1,4 @@
-﻿export class Delivery {
+export class Delivery {
     constructor({
                     deliveryId = null,
                     carrierId = null,

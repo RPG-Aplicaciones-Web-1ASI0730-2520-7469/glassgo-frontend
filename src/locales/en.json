@@ -205,7 +205,7 @@
       "errorCreating": "Error creating delivery",
       "errorUpdating": "Error updating delivery",
       "errorDeleting": "Error deleting delivery",
-      "errorLoading": "Error loading deliveries",
+      "errorLoading": "Error loading deliveries"
 
     }
   }
