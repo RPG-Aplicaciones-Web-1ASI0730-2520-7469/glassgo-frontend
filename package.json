@@ -10,6 +10,7 @@
     "server": "json-server --watch server/db.json --routes server/routes.json --port 3000"
   },
   "dependencies": {
+    "@primeuix/themes": "^2.0.1",
     "@primevue/themes": "^4.4.1",
     "axios": "^1.7.7",
     "pinia": "^2.1.7",
