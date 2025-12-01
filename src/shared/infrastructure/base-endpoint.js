@@ -1,5 +1,5 @@
 // ============================================================
-// 🌐 base-endpoint.js — Base API Endpoint Configuration
+//  base-endpoint.js — Base API Endpoint Configuration
 // ------------------------------------------------------------
 // Centralizes the API base URL for both local and production use.
 // Reads environment variables from `.env` if available.

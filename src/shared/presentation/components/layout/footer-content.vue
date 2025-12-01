@@ -1,6 +1,6 @@
 <template>
   <!-- ============================================================
-       🦶 Footer Component
+        Footer Component
        ------------------------------------------------------------
        Global footer for the main layout.
        Displays reserved rights and institutional information.
@@ -13,7 +13,7 @@
 
 <script setup>
 /* ============================================================
- * 🌐 i18n — Internationalization
+ *  i18n — Internationalization
  * ------------------------------------------------------------
  * Uses the global translation scope (`t()`) to display footer text.
  * ============================================================ */
@@ -23,7 +23,7 @@ const { t } = useI18n({ useScope: 'global' })
 
 <style scoped>
 /* ============================================================
- * 🎨 Footer Styles
+ *  Footer Styles
  * ------------------------------------------------------------
  * Simple and clean design consistent with GlassGo layout.
  * White background with subtle top border separation.

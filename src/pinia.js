@@ -11,13 +11,13 @@
  * ============================================================ */
 
 // ------------------------------------------------------------
-// 📦 Main Import
+//  Main Import
 // ------------------------------------------------------------
 // createPinia() → creates a single global store instance.
 import { createPinia } from 'pinia'
 
 // ------------------------------------------------------------
-// 🚀 Export Global Instance
+//  Export Global Instance
 // ------------------------------------------------------------
 // Registered in main.js via app.use(pinia),
 // making it available to all components.

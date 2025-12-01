@@ -1,6 +1,6 @@
 {
   // ============================================================
-  // 📦 GlassGo Frontend — package.explained.jsonc
+  //  GlassGo Frontend — package.explained.jsonc
   // ------------------------------------------------------------
   // Core configuration file for the GlassGo Frontend project.
   // Defines metadata, dependencies, and npm scripts for:
@@ -18,7 +18,7 @@
   "type": "module",           // Enables ES Modules syntax (import/export)
 
   // ------------------------------------------------------------
-  // 🧩 Scripts (npm run ...)
+  // Scripts (npm run ...)
   // ------------------------------------------------------------
   "scripts": {
     "dev": "vite",                             // Starts local dev server → http://localhost:5173
@@ -32,7 +32,7 @@
   },
 
   // ------------------------------------------------------------
-  // 📚 Dependencies — Core runtime packages
+  // Dependencies — Core runtime packages
   // ------------------------------------------------------------
   "dependencies": {
     "axios": "^1.7.7",         // HTTP client for API calls (GET/POST/PUT/DELETE)
@@ -43,7 +43,7 @@
   },
 
   // ------------------------------------------------------------
-  // 🛠️ Dev Dependencies — Used only in local builds
+  // Dev Dependencies — Used only in local builds
   // ------------------------------------------------------------
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",   // Vite plugin to compile .vue components
@@ -52,14 +52,14 @@
   },
 
   // ------------------------------------------------------------
-  // 🧠 Recommended Node.js Engine
+  // Recommended Node.js Engine
   // ------------------------------------------------------------
   "engines": {
     "node": ">=18.0.0"
   },
 
   // ------------------------------------------------------------
-  // 🧾 Metadata (for documentation / CI)
+  // Metadata (for documentation / CI)
   // ------------------------------------------------------------
   "author": "RPG-Aplicaciones-Web-1ASI0730-2520-7469",         // Project author or organization
   "license": "MIT",                       // Open-source license

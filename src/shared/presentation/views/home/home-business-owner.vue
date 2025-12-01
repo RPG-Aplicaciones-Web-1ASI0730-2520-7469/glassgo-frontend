@@ -1,20 +1,20 @@
 <template>
   <!-- ============================================================
-       🏪 Home — Business Owner Dashboard (GlassGo)
+       Home — Business Owner Dashboard (GlassGo)
        ------------------------------------------------------------
        Main dashboard for business owners showing consumption,
        active subscriptions, and recent orders.
        ============================================================ -->
   <div class="business-dashboard">
-    <ConnectionStatus /> <!-- ✅ Floating status card -->
+    <ConnectionStatus /> <!--  Floating status card -->
 
-    <!-- 🏷️ Header -->
+    <!-- 🏷 Header -->
     <header class="header">
-      <h1>🏪 {{ t('homeBusinessOwner.welcome') }}, {{ userName }}</h1>
+      <h1> {{ t('homeBusinessOwner.welcome') }}, {{ userName }}</h1>
       <p class="subtitle">{{ t('homeBusinessOwner.subtitle') }}</p>
     </header>
 
-    <!-- 📈 KPI Section -->
+    <!--  KPI Section -->
     <section class="kpi-section">
       <div class="kpi-card blue">
         <h2>{{ stats.monthlyConsumption || 0 }} L</h2>
@@ -34,9 +34,9 @@
       </div>
     </section>
 
-    <!-- 🧾 Recent Orders -->
+    <!--  Recent Orders -->
     <section class="recent-orders">
-      <h3>📦 {{ t('homeBusinessOwner.recentOrders') }}</h3>
+      <h3> {{ t('homeBusinessOwner.recentOrders') }}</h3>
       <table>
         <thead>
         <tr>
@@ -61,9 +61,9 @@
       </table>
     </section>
 
-    <!-- 💳 Active Subscriptions -->
+    <!--  Active Subscriptions -->
     <section class="subscriptions">
-      <h3>💳 {{ t('homeBusinessOwner.activeSubscriptionsTitle') }}</h3>
+      <h3> {{ t('homeBusinessOwner.activeSubscriptionsTitle') }}</h3>
       <ul>
         <li v-for="(sub, i) in subscriptions" :key="i">
           <strong>{{ sub.name }}</strong> — {{ sub.type }} ({{ sub.renewal }})
@@ -71,9 +71,9 @@
       </ul>
     </section>
 
-    <!-- ❤️ Loyalty Program -->
+    <!--  Loyalty Program -->
     <section class="loyalty">
-      <h3>❤️ {{ t('homeBusinessOwner.loyaltyProgram') }}</h3>
+      <h3> {{ t('homeBusinessOwner.loyaltyProgram') }}</h3>
       <p>
         {{ t('homeBusinessOwner.loyaltyPoints') }}
         <strong>{{ loyaltyPoints }}</strong>
@@ -86,7 +86,7 @@
 
 <script setup>
 /* ============================================================
- * 🧠 Logic — Business Owner Dashboard (dynamic from db.json)
+ *  Logic — Business Owner Dashboard (dynamic from db.json)
  * ============================================================ */
 import { ref, reactive, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -109,12 +109,12 @@ const loyaltyPoints = ref(0)
 
 onMounted(async () => {
   try {
-    // 1️⃣ Load user
+    //  Load user
     const userRes = await httpClient.get(`/users/${DEMO_USER_ID}`)
     user.value = userRes.data
     loyaltyPoints.value = user.value.loyaltyPoints || 0
 
-    // 2️⃣ Load orders
+    //  Load orders
     const ordersRes = await httpClient.get(`/orders?userId=${user.value.id}`)
     const orders = ordersRes.data || []
     console.log('📦 Orders loaded:', orders)
@@ -124,7 +124,7 @@ onMounted(async () => {
       status: o.status?.trim().toLowerCase()
     }))
 
-    // 3️⃣ KPIs
+    // KPIs
     stats.monthlyConsumption = normalizedOrders
         .filter(o => ['delivered', 'pending'].includes(o.status))
         .reduce((sum, o) => sum + (o.liters || 0), 0)
@@ -134,10 +134,10 @@ onMounted(async () => {
         .filter(o => o.status !== 'cancelled' && o.status !== 'canceled')
         .reduce((sum, o) => sum + (o.total || 0), 0)
 
-    // 4️⃣ Recent orders (last 3)
+    // Recent orders (last 3)
     recentOrders.value = orders.slice(-3).reverse()
 
-    // 5️⃣ Subscriptions
+    // Subscriptions
     const subsRes = await httpClient.get(`/subscriptions?userId=${user.value.id}`)
     subscriptions.value = subsRes.data?.filter(s => s.isActive) || []
     stats.activeSubscriptions = subscriptions.value.length
@@ -151,7 +151,7 @@ const userName = computed(() => (user.value ? user.value.firstName : 'Usuario'))
 
 <style scoped>
 /* ============================================================
- * 🎨 Styles — Business Owner Dashboard
+ * Styles — Business Owner Dashboard
  * ============================================================ */
 .business-dashboard {
   background: #f8fafc;

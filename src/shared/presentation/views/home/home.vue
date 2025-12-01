@@ -1,14 +1,14 @@
 <template>
   <!-- ============================================================
-       🏠 Home View — GlassGo
+        Home View — GlassGo
        ------------------------------------------------------------
        Displays a welcome message and a floating connection card
        that visually indicates connection status:
-       ✅ Green → Success
-       ❌ Red   → Failure
+        Green → Success
+        Red   → Failure
        ============================================================ -->
   <div class="welcome">
-    <ConnectionStatus /> <!-- ✅ Floating status card -->
+    <ConnectionStatus /> <!--  Floating status card -->
 
     <!-- 🌍 Translatable content (i18n) -->
     <h1>{{ t('homeView.welcome') }}</h1>
@@ -18,7 +18,7 @@
 
 <script setup>
 /* ============================================================
- * 🧩 Imports
+ * Imports
  * ------------------------------------------------------------
  * - ConnectionStatus → reusable network indicator component
  * - useI18n → provides translation capability
@@ -27,7 +27,7 @@ import ConnectionStatus from '@/shared/presentation/components/ui/connection-sta
 import { useI18n } from 'vue-i18n'
 
 /* ============================================================
- * 🌐 Internationalization (i18n)
+ *  Internationalization (i18n)
  * ------------------------------------------------------------
  * - Retrieves global translation context to access `t()`
  * ============================================================ */
@@ -36,7 +36,7 @@ const { t } = useI18n({ useScope: 'global' })
 
 <style scoped>
 /* ============================================================
- * 🎨 Layout — Home Page
+ *  Layout — Home Page
  * ------------------------------------------------------------
  * - Centers content vertically and horizontally
  * - Clean, simple layout for a first-time user view

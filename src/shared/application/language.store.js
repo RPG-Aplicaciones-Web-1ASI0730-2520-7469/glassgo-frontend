@@ -1,5 +1,5 @@
 // ============================================================
-// 🌐 language.store.js — Global language state (Pinia-like)
+//  language.store.js — Global language state (Pinia-like)
 // ------------------------------------------------------------
 // Handles language preference (EN/ES) with reactive sync between
 // Vue I18n and localStorage.

@@ -1,5 +1,5 @@
 // ============================================================
-// ⚙️ http-client.js — Axios HTTP Client Configuration
+//  http-client.js — Axios HTTP Client Configuration
 // ------------------------------------------------------------
 // Reusable Axios instance for all API requests.
 // Automatically loads the base URL from `base-endpoint.js`.

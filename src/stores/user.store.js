@@ -15,7 +15,7 @@ import { DEMO_USER_ID } from '@/shared/config/demo-user'
 
 export const useUserStore = defineStore('user', {
     /* ----------------------------------------------------------
-     * 🧠 State
+     * State
      * ---------------------------------------------------------- */
     state: () => ({
         user: null,
@@ -24,11 +24,11 @@ export const useUserStore = defineStore('user', {
     }),
 
     /* ----------------------------------------------------------
-     * ⚙️ Actions
+     * Actions
      * ---------------------------------------------------------- */
     actions: {
         /**
-         * 🔄 Fetch user from db.json
+         * Fetch user from db.json
          * Uses DEMO_USER_ID for local testing.
          */
         async fetchUser(userId = DEMO_USER_ID) {
@@ -41,7 +41,7 @@ export const useUserStore = defineStore('user', {
 
                 console.log(`👤 User loaded: ${this.user.firstName} (${this.user.role})`)
 
-                // ✅ Local persistence
+                // Local persistence
                 localStorage.setItem('userRole', this.user.role)
                 localStorage.setItem('userId', this.user.id)
             } catch (err) {
@@ -54,7 +54,7 @@ export const useUserStore = defineStore('user', {
         },
 
         /**
-         * ✏️ Manually set user data
+         * Manually set user data
          */
         setUser(userData) {
             this.user = userData
@@ -63,7 +63,7 @@ export const useUserStore = defineStore('user', {
         },
 
         /**
-         * 🚪 Clear user data (logout)
+         * Clear user data (logout)
          */
         clearUser() {
             this.user = null
@@ -72,7 +72,7 @@ export const useUserStore = defineStore('user', {
         },
 
         /**
-         * 🧭 Return home route by user role
+         * Return home route by user role
          * Used by router.js and AppShell.vue.
          */
         getHomeRoute() {
@@ -90,16 +90,16 @@ export const useUserStore = defineStore('user', {
     },
 
     /* ----------------------------------------------------------
-     * 🔍 Getters
+     *  Getters
      * ---------------------------------------------------------- */
     getters: {
-        /** 🧾 Full name */
+        /** Full name */
         fullName: (state) => {
             if (!state.user) return ''
             return `${state.user.firstName} ${state.user.lastName}`
         },
 
-        /** 🔠 User initials */
+        /** User initials */
         initials: (state) => {
             if (!state.user) return ''
             const f = state.user.firstName?.[0]?.toUpperCase() || ''
@@ -107,10 +107,10 @@ export const useUserStore = defineStore('user', {
             return f + l
         },
 
-        /** 🧩 Current role */
+        /**  Current role */
         role: (state) => state.user?.role || 'demo',
 
-        /** ⚙️ Auth state */
+        /** ⚙ Auth state */
         isAuthenticated: (state) => !!state.user
     }
 })

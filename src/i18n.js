@@ -7,22 +7,22 @@
  * ============================================================ */
 
 // ------------------------------------------------------------
-// 📦 Imports
+// Imports
 // ------------------------------------------------------------
 import { createI18n } from 'vue-i18n'
 import en from './locales/en.json'
 import es from './locales/es.json'
 
 // ------------------------------------------------------------
-// 🧠 Initial Locale Setup
+// Initial Locale Setup
 // ------------------------------------------------------------
-// 1️⃣ Try to load saved language from localStorage.
-// 2️⃣ Default to 'en' if none is found.
+// Try to load saved language from localStorage.
+// Default to 'en' if none is found.
 const saved = localStorage.getItem('lang')
 const startLocale = saved || 'en'
 
 // ------------------------------------------------------------
-// 🚀 i18n Instance
+// i18n Instance
 // ------------------------------------------------------------
 export const i18n = createI18n({
     legacy: false,               // Enables Composition API usage
@@ -33,7 +33,7 @@ export const i18n = createI18n({
 })
 
 // ------------------------------------------------------------
-// 💾 Notes
+// Notes
 // ------------------------------------------------------------
 // - Language switching is handled by <LangSwitch /> component.
 // - Each change is saved in localStorage ("lang").

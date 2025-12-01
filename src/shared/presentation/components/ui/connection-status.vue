@@ -1,27 +1,27 @@
 <template>
   <!-- ============================================================
-       🔌 Connection Status Card
+       Connection Status Card
        ------------------------------------------------------------
        Floating notification that confirms the connection to the
        local server (db.json). Displays user info or an error state.
-       - Green ✅  → Successful connection
-       - Red ❌    → Connection error
+       - Green   → Successful connection
+       - Red    → Connection error
        - Auto-hides after 1.5 seconds
        ============================================================ -->
   <transition name="fade-slide-top">
     <div v-if="showCard" :class="['demo-user', isError ? 'error' : 'success']">
-      <!-- ✅ Success state -->
+      <!--  Success state -->
       <p v-if="!isError">
-        ✅ <strong>{{ user.firstName }} {{ user.lastName }}</strong>
+         <strong>{{ user.firstName }} {{ user.lastName }}</strong>
         <span>({{ user.role }})</span>
       </p>
 
-      <!-- ❌ Error state -->
+      <!--  Error state -->
       <p v-else>
-        ❌ <strong>Error loading user data</strong>
+         <strong>Error loading user data</strong>
       </p>
 
-      <!-- 📧 Email (only on success) -->
+      <!--  Email (only on success) -->
       <small v-if="!isError" class="email">{{ user.email }}</small>
     </div>
   </transition>
@@ -29,7 +29,7 @@
 
 <script setup>
 /* ============================================================
- * 🧠 Logic — ConnectionStatus Component
+ *  Logic — ConnectionStatus Component
  * ============================================================
  * - Fetches user data from the API on mount.
  * - Shows temporary floating card with user info or error message.
@@ -59,7 +59,7 @@ onMounted(async () => {
 
 <style scoped>
 /* ============================================================
- * 🎨 Styles — Connection Status
+ *  Styles — Connection Status
  * ============================================================ */
 .demo-user {
   position: fixed;
@@ -74,14 +74,14 @@ onMounted(async () => {
   z-index: 1000;
 }
 
-/* ✅ Success */
+/*  Success */
 .demo-user.success {
   background-color: #ecfdf5;
   border: 1px solid #6ee7b7;
   color: #065f46;
 }
 
-/* ❌ Error */
+/*  Error */
 .demo-user.error {
   background-color: #fef2f2;
   border: 1px solid #fca5a5;
@@ -100,7 +100,7 @@ onMounted(async () => {
   margin-top: 0.3rem;
 }
 
-/* ✨ Animations */
+/*  Animations */
 .fade-slide-top-enter-active,
 .fade-slide-top-leave-active {
   transition: all 0.6s ease;

@@ -1,19 +1,19 @@
 <template>
   <div class="app-shell">
-    <!-- 🧭 Sidebar (always mounted, only visually hidden) -->
+    <!--  Sidebar (always mounted, only visually hidden) -->
     <Sidebar class="sidebar" :class="{ open: sidebarOpen }" />
 
-    <!-- 🧩 Main area -->
+    <!--  Main area -->
     <div class="main-area" :class="{ 'no-sidebar': !sidebarOpen }">
       <!-- 🔝 Topbar fija -->
       <Topbar :sidebarOpen="sidebarOpen" @toggle-sidebar="toggleSidebar" />
 
-      <!-- 📦 Dynamic content -->
+      <!--  Dynamic content -->
       <main class="content" @click="closeSidebarIfMobile">
         <router-view />
       </main>
 
-      <!-- 🦶 Footer global -->
+      <!--  Footer global -->
       <FooterContent />
     </div>
   </div>
@@ -28,11 +28,11 @@ import Topbar from './topbar.vue'
 import FooterContent from './footer-content.vue'
 
 /* ============================================================
- * 🧱 Layout State
+ *  Layout State
  * ============================================================ */
 const sidebarOpen = ref(true)
 
-/* 🎛️ Toggle functions */
+/*  Toggle functions */
 function toggleSidebar() {
   sidebarOpen.value = !sidebarOpen.value
 }
@@ -40,7 +40,7 @@ function closeSidebarIfMobile() {
   if (window.innerWidth < 1024 && sidebarOpen.value) sidebarOpen.value = false
 }
 
-/* 📏 Auto adjust based on screen size */
+/* Auto adjust based on screen size */
 function handleResize() {
   sidebarOpen.value = window.innerWidth >= 1024
 }
@@ -54,7 +54,7 @@ onUnmounted(() => {
 })
 
 /* ============================================================
- * 🔄 Role-based automatic redirection
+ * Role-based automatic redirection
  * ============================================================
  * - Detects changes in user role (from db.json or auth module)
  * - Dynamically redirects to the correct Home view

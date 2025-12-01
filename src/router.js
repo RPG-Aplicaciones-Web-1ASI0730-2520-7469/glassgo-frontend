@@ -1,5 +1,5 @@
 /* ============================================================
- * 🧭 GlassGo Main Router (with Role Detection)
+ *  GlassGo Main Router (with Role Detection)
  * ============================================================
  * Central routing system controlling navigation across views.
  * Handles automatic redirection based on user roles and ensures
@@ -10,7 +10,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { h } from 'vue'
 
 // ------------------------------------------------------------
-// 🧩 Core Layout and Common Views
+// Core Layout and Common Views
 // ------------------------------------------------------------
 import AppShell from './shared/presentation/components/layout/app-shell.vue'
 // Importar rutas de autenticación y guard
@@ -41,7 +41,7 @@ import ComingSoon from './shared/presentation/views/coming-soon.vue'
 import NotFound from './shared/presentation/views/page-not-found.vue'
 
 // ------------------------------------------------------------
-// 🏠 Role-Specific Home Views
+// Role-Specific Home Views
 // ------------------------------------------------------------
 
 
@@ -51,12 +51,12 @@ import HomeCarrier from './shared/presentation/views/home/home-carrier.vue'
 import HomeBusinessOwner from './shared/presentation/views/home/home-business-owner.vue'
 
 // ------------------------------------------------------------
-// 🧠 User Store (Role Detection)
+// User Store (Role Detection)
 // ------------------------------------------------------------
 import { useUserStore } from '@/stores/user.store'
 
 // ------------------------------------------------------------
-// 🚀 Router Definition
+// Router Definition
 // ------------------------------------------------------------
 const router = createRouter({
     history: createWebHistory(),
@@ -78,7 +78,7 @@ const router = createRouter({
                 },
                 { path: '', redirect: '/app/home' },
 
-                // 🏠 Base Home Route — Redirect by Role
+                //  Base Home Route — Redirect by Role
                 {
                     path: 'home',
                     name: 'Home',
@@ -107,13 +107,13 @@ const router = createRouter({
                     }
                 },
 
-                // 🧱 Role-Specific Routes
+                //  Role-Specific Routes
                 { path: 'home-admin', component: HomeAdmin, name: 'HomeAdmin' },
                 { path: 'home-distributor', component: HomeDistributor, name: 'HomeDistributor' },
                 { path: 'home-carrier', component: HomeCarrier, name: 'HomeCarrier' },
 
                 { path: 'home-business-owner', component: HomeBusinessOwner, name: 'HomeBusinessOwner' },
-                // 🧩 Placeholder Modules (WIP)
+                // Placeholder Modules (WIP)
                 { path: 'create-order', component: ComingSoon },
                 { path: 'tracking', component: ComingSoon },
                 { path: 'inventory', component: ComingSoon },
@@ -126,7 +126,7 @@ const router = createRouter({
             ]
         },
 
-        // 🌍 Global Routes
+        //  Global Routes
         { path: '/', redirect: '/auth/login' },
         { path: '/:pathMatch(.*)*', component: NotFound }
     ]

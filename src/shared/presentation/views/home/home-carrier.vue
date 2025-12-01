@@ -1,20 +1,20 @@
 <template>
   <!-- ============================================================
-       🚚 Home — Carrier Dashboard (GlassGo)
+       Home — Carrier Dashboard (GlassGo)
        ------------------------------------------------------------
        Main dashboard for carriers showing key delivery metrics,
        active routes, and recent deliveries.
        ============================================================ -->
   <div class="transport-dashboard">
-    <ConnectionStatus /> <!-- ✅ Floating connection card -->
+    <ConnectionStatus /> <!-- Floating connection card -->
 
-    <!-- 🏷️ Header -->
+    <!-- 🏷Header -->
     <header class="header">
-      <h1>🚚 {{ t('homeCarrier.welcome') }}, {{ userName }}!</h1>
+      <h1> {{ t('homeCarrier.welcome') }}, {{ userName }}!</h1>
       <p class="subtitle">{{ t('homeCarrier.subtitle') }}</p>
     </header>
 
-    <!-- 📦 KPI Section -->
+    <!--  KPI Section -->
     <section class="kpi-section">
       <div class="kpi-card blue">
         <h2>{{ stats.deliveriesToday }}</h2>
@@ -34,9 +34,9 @@
       </div>
     </section>
 
-    <!-- 🗺️ Active Routes -->
+    <!-- Active Routes -->
     <section class="routes">
-      <h3>🗺️ {{ t('homeCarrier.activeRoutes') }}</h3>
+      <h3>️ {{ t('homeCarrier.activeRoutes') }}</h3>
       <table>
         <thead>
         <tr>
@@ -61,9 +61,9 @@
       </table>
     </section>
 
-    <!-- 🕓 Recent Deliveries -->
+    <!--  Recent Deliveries -->
     <section class="recent-deliveries">
-      <h3>📋 {{ t('homeCarrier.recentDeliveries') }}</h3>
+      <h3> {{ t('homeCarrier.recentDeliveries') }}</h3>
       <ul>
         <li v-for="(delivery, i) in recentDeliveries" :key="i">
           <strong>{{ delivery.id }}</strong> — {{ delivery.client }}
@@ -78,7 +78,7 @@
 
 <script setup>
 /* ============================================================
- * 🧠 Logic — Carrier Dashboard (dynamic from db.json)
+ *  Logic — Carrier Dashboard (dynamic from db.json)
  * ============================================================ */
 import { ref, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -103,11 +103,11 @@ const recentDeliveries = ref([])
 
 onMounted(async () => {
   try {
-    // 1️⃣ Load carrier user
+    //  Load carrier user
     const userRes = await httpClient.get(`/users/${DEMO_USER_ID}`)
     user.value = userRes.data
 
-    // 2️⃣ Load carrier orders
+    //  Load carrier orders
     const ordersRes = await httpClient.get(`/orders?userId=${user.value.id}`)
     const orders = ordersRes.data || []
     console.log('📦 Orders loaded:', orders)
@@ -118,18 +118,18 @@ onMounted(async () => {
       status: o.status?.trim().toLowerCase()
     }))
 
-    // 3️⃣ KPIs
+    // KPIs
     stats.value.deliveriesToday = normalizedOrders.length
     stats.value.completedDeliveries = normalizedOrders.filter(o => o.status === 'delivered').length
     stats.value.pendingDeliveries = normalizedOrders.filter(o => o.status === 'pending').length
     stats.value.failedDeliveries = normalizedOrders.filter(o => ['failed', 'cancelled'].includes(o.status)).length
 
-    // 4️⃣ Active routes
+    // Active routes
     const routesRes = await httpClient.get(`/routes?userId=${user.value.id}`)
     activeRoutes.value = routesRes.data || []
     console.log('🗺️ Routes loaded:', activeRoutes.value)
 
-    // 5️⃣ Recent deliveries (last 3)
+    // Recent deliveries (last 3)
     recentDeliveries.value = normalizedOrders.slice(-3).reverse()
   } catch (error) {
     console.error('❌ Error loading carrier dashboard:', error)

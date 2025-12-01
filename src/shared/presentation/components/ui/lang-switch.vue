@@ -1,6 +1,6 @@
 <template>
   <!-- ============================================================
-       🌐 Language Switch Component
+        Language Switch Component
        ------------------------------------------------------------
        - Global UI element to toggle app language (EN / ES).
        - Uses the reactive state from `language.store.js`.
@@ -23,7 +23,7 @@
 
 <script setup>
 /* ============================================================
- * 🧠 Logic — Language Switcher
+ *  Logic — Language Switcher
  * ------------------------------------------------------------
  * - Imports `useLanguageStore` for global language control.
  * - Updates language via Pinia store (shared/application).
@@ -35,7 +35,7 @@ const { currentLang, setLanguage } = useLanguageStore()
 
 <style scoped>
 /* ============================================================
- * 🎨 Styles — Language Switch
+ *  Styles — Language Switch
  * ============================================================ */
 .lang-switch {
   display: flex;
@@ -59,12 +59,12 @@ const { currentLang, setLanguage } = useLanguageStore()
   color: #475569;
 }
 
-/* 🖱️ Hover effect */
+/* 🖱 Hover effect */
 .lang-switch button:hover {
   background: #f1f5f9;
 }
 
-/* ✅ Active language */
+/*  Active language */
 .lang-switch .active {
   background: #0f172a;
   color: #fff;

@@ -1,23 +1,23 @@
 <template>
   <!-- ============================================================
-       🧭 Sidebar Navigation
+        Sidebar Navigation
        ------------------------------------------------------------
        Main navigation component for GlassGo AppShell.
        Dynamically loads routes based on user role.
        Includes overlay support for mobile and fixed logout link.
        ============================================================ -->
   <div>
-    <!-- 🌑 Mobile overlay -->
+    <!--  Mobile overlay -->
     <div v-if="open && !desktop" class="overlay" @click="$emit('close')"></div>
 
-    <!-- 🧭 Sidebar -->
+    <!--  Sidebar -->
     <aside class="sidebar" :class="{ open }">
       <!-- 🔹 Logo -->
       <div class="brand">
         <img :src="logo" alt="GlassGo Logo" class="brand-logo" />
       </div>
 
-      <!-- 📋 Navigation menu -->
+      <!--  Navigation menu -->
       <nav class="menu">
         <RouterLink
             v-for="(item, i) in menuItems"
@@ -29,7 +29,7 @@
         </RouterLink>
       </nav>
 
-      <!-- 🚪 Logout -->
+      <!--  Logout -->
       <div class="logout">
         <RouterLink to="/" class="logout-link">
           [→ {{ t('sidebar.logout') }}
@@ -47,7 +47,7 @@ import { useI18n } from 'vue-i18n'
 import logo from '@/assets/logo-glassgo.jpg'
 
 /* ============================================================
- * 🧠 Sidebar State & Logic
+ *  Sidebar State & Logic
  * ============================================================ */
 const props = defineProps({
   open: { type: Boolean, default: true }
@@ -56,12 +56,12 @@ const props = defineProps({
 const { t } = useI18n()
 const userStore = useUserStore()
 
-// 💻 Detect screen type
+//  Detect screen type
 const desktop = computed(() =>
     window.matchMedia('(min-width:1024px)').matches
 )
 
-// 🧩 Menu items by user role
+//  Menu items by user role
 const menuConfig = {
   admin: [
     { icon: '🏠', label: 'sidebar.home', path: '/app/home-admin' },
@@ -103,7 +103,7 @@ const menuConfig = {
   demo: [{ icon: '🏠', label: 'sidebar.home', path: '/app/home' }]
 }
 
-// 🔁 Computed menu based on user role
+//  Computed menu based on user role
 const menuItems = computed(() => {
   const role = userStore.user?.role || 'demo'
   return menuConfig[role] || menuConfig.demo
@@ -112,7 +112,7 @@ const menuItems = computed(() => {
 
 <style scoped>
 /* ============================================================
- * 🎨 Sidebar Styles
+ *  Sidebar Styles
  * ============================================================ */
 
 /* 🌑 Mobile overlay */
@@ -123,7 +123,7 @@ const menuItems = computed(() => {
   z-index: 40;
 }
 
-/* 🧭 Sidebar base */
+/*  Sidebar base */
 .sidebar {
   position: fixed;
   top: 0;
@@ -148,7 +148,7 @@ const menuItems = computed(() => {
   }
 }
 
-/* 🔹 Brand */
+/*  Brand */
 .brand {
   display: flex;
   align-items: center;
@@ -161,7 +161,7 @@ const menuItems = computed(() => {
   display: block;
 }
 
-/* 📋 Menu */
+/*  Menu */
 .menu {
   display: flex;
   flex-direction: column;
@@ -183,7 +183,7 @@ const menuItems = computed(() => {
   font-weight: 600;
 }
 
-/* 🚪 Logout */
+/*  Logout */
 .logout {
   border-top: 1px solid #e9eef5;
   padding: 0.75rem;

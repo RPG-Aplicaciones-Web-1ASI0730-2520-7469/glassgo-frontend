@@ -6,11 +6,11 @@
 // ============================================================
 
 /**
- * 🧠 Usage:
+ *  Usage:
  * - Change DEMO_USER_ID to simulate a different role.
  * - Home components (home-*) will automatically load its data.
  *
- * 🧾 Reference (db.json users):
+ *  Reference (db.json users):
  *   ID | Role            | Home View
  *   ---|-----------------|--------------------------
  *    1 | distributor     | home-distributor.vue
@@ -19,4 +19,4 @@
  *    4 | admin           | home-admin.vue
  */
 
-export const DEMO_USER_ID = 1 // 👈 Change this to test another role
+export const DEMO_USER_ID = 1 //  Change this to test another role

@@ -1,20 +1,20 @@
 <template>
   <!-- ============================================================
-       🧑‍💼 Home — Admin Dashboard (GlassGo)
+       Home — Admin Dashboard (GlassGo)
        ------------------------------------------------------------
        Main admin view displaying global metrics, role distribution,
        and system activity logs.
        ============================================================ -->
   <div class="admin-dashboard">
-    <ConnectionStatus /> <!-- ✅ Floating connection card -->
+    <ConnectionStatus /> <!-- Floating connection card -->
 
-    <!-- 🏷️ Header -->
+    <!--  Header -->
     <header class="header">
       <h1>⚙️ {{ t('homeAdmin.title') }}</h1>
       <p class="subtitle">{{ t('homeAdmin.subtitle') }}</p>
     </header>
 
-    <!-- 📊 System KPIs -->
+    <!--System KPIs -->
     <section class="kpi-section">
       <div class="kpi-card blue">
         <h2>{{ systemStats.totalUsers }}</h2>
@@ -45,9 +45,9 @@
       </ul>
     </section>
 
-    <!-- 🧠 Recent system activity -->
+    <!--  Recent system activity -->
     <section class="activity-log">
-      <h3>🧠 {{ t('homeAdmin.activity.title') }}</h3>
+      <h3> {{ t('homeAdmin.activity.title') }}</h3>
       <table>
         <thead>
         <tr>
@@ -76,7 +76,7 @@
 
 <script setup>
 /* ============================================================
- * 🧠 Logic — Admin Dashboard (dynamic data via db.json)
+ *  Logic — Admin Dashboard (dynamic data via db.json)
  * ============================================================ */
 import { ref, onMounted } from 'vue'
 import { httpClient } from '@/shared/infrastructure/http-client'
@@ -102,17 +102,17 @@ const activityLogs = ref([])
 
 onMounted(async () => {
   try {
-    // 1️⃣ Load general system data
+    //Load general system data
     const systemRes = await httpClient.get('/system')
     const systemData = systemRes.data || {}
     systemStats.value = systemData.stats || systemStats.value
     roleStats.value = systemData.roleDistribution || roleStats.value
 
-    // 2️⃣ Load activity logs
+    // ⃣Load activity logs
     const logsRes = await httpClient.get('/activityLogs')
     activityLogs.value = logsRes.data || []
 
-    // 3️⃣ Compute metrics dynamically from real collections
+    //  Compute metrics dynamically from real collections
     const usersRes = await httpClient.get('/users')
     const ordersRes = await httpClient.get('/orders')
     const servicesRes = await httpClient.get('/services')
@@ -134,7 +134,7 @@ onMounted(async () => {
 
 <style scoped>
 /* ============================================================
- * 🎨 Styles — Admin Dashboard
+ * Styles — Admin Dashboard
  * ============================================================ */
 .admin-dashboard {
   background: #f8fafc;

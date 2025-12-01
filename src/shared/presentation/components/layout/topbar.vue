@@ -1,6 +1,6 @@
 <template>
   <!-- ============================================================
-       📍 Topbar Component
+       Topbar Component
        ------------------------------------------------------------
        Fixed top navigation bar displayed above all views.
        Shows user role, language switcher, and profile info.
@@ -16,10 +16,10 @@
 
     <div class="spacer"></div>
 
-    <!-- 🌐 Language switch -->
+    <!--  Language switch -->
     <LangSwitch />
 
-    <!-- 👤 User info -->
+    <!--  User info -->
     <div class="user">
       <span class="name">
         {{ user?.firstName || t('fallbackUser.name') }}
@@ -34,7 +34,7 @@
 
 <script setup>
 /* ============================================================
- * 🧠 Logic — Topbar Behavior
+ *  Logic — Topbar Behavior
  * ============================================================ */
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
@@ -50,17 +50,17 @@ defineProps({
   sidebarOpen: { type: Boolean, default: true }
 })
 
-// 👤 Load user on mount
+//  Load user on mount
 onMounted(() => {
   if (!userStore.user) userStore.fetchUser()
 })
 
-// 🧭 Redirect to profile page
+//  Redirect to profile page
 function goToProfile() {
   router.push({ name: 'Profile' })
 }
 
-// 🧩 Computed properties
+//  Computed properties
 const user = computed(() => userStore.user)
 const initials = computed(() => {
   if (!user.value) return '?'
@@ -72,7 +72,7 @@ const initials = computed(() => {
 
 <style scoped>
 /* ============================================================
- * 🎨 Styles — Topbar Layout
+ *  Styles — Topbar Layout
  * ============================================================ */
 .topbar {
   position: fixed;

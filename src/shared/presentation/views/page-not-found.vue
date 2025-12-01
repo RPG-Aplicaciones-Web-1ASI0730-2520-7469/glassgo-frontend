@@ -1,6 +1,6 @@
 <template>
   <!-- ============================================================
-       🚫 404 — Page Not Found
+       404 — Page Not Found
        ------------------------------------------------------------
        Displayed when a user navigates to a non-existent route.
        Includes a friendly message and a button to return home.
@@ -18,7 +18,7 @@
 
 <script setup>
 /* ============================================================
- * 🧭 Routing & i18n Setup
+ * Routing & i18n Setup
  * ------------------------------------------------------------
  * - RouterLink → enables in-app navigation.
  * - useI18n → provides translated texts (global scope).
@@ -31,7 +31,7 @@ const { t } = useI18n({ useScope: 'global' })
 
 <style scoped>
 /* ============================================================
- * 🎨 Layout — 404 Page
+ * Layout — 404 Page
  * ============================================================ */
 .notfound {
   display: flex;

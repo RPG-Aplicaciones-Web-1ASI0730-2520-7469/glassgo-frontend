@@ -1,20 +1,20 @@
 <template>
   <!-- ============================================================
-       🚛 Home — Distributor Dashboard (GlassGo)
+       Home — Distributor Dashboard (GlassGo)
        ------------------------------------------------------------
        Main distributor view showing operational stats, stock levels,
        and recent orders.
        ============================================================ -->
   <div class="distributor-dashboard">
-    <ConnectionStatus /> <!-- ✅ Floating connection card -->
+    <ConnectionStatus /> <!-- Floating connection card -->
 
-    <!-- 🏷️ Header -->
+    <!-- 🏷Header -->
     <header class="header">
       <h1>🚛 {{ t('homeDistributor.welcome') }}, {{ userName }}</h1>
       <p class="subtitle">{{ t('homeDistributor.subtitle') }}</p>
     </header>
 
-    <!-- 📦 KPI Section -->
+    <!-- KPI Section -->
     <section class="kpi-section">
       <div class="kpi-card blue">
         <h2>{{ stats.active || 0 }}</h2>
@@ -34,9 +34,9 @@
       </div>
     </section>
 
-    <!-- 🧾 Recent Orders -->
+    <!-- Recent Orders -->
     <section class="recent-orders">
-      <h3>📋 {{ t('homeDistributor.recentOrders') }}</h3>
+      <h3> {{ t('homeDistributor.recentOrders') }}</h3>
       <table>
         <thead>
         <tr>
@@ -61,9 +61,9 @@
       </table>
     </section>
 
-    <!-- 📅 Upcoming Events -->
+    <!-- Upcoming Events -->
     <section class="upcoming-events">
-      <h3>🗓️ {{ t('homeDistributor.upcomingEvents') }}</h3>
+      <h3> {{ t('homeDistributor.upcomingEvents') }}</h3>
       <ul>
         <li v-for="(event, i) in upcomingEvents" :key="i">
           <strong>{{ event.date }}</strong> — {{ event.description }}
@@ -75,7 +75,7 @@
 
 <script setup>
 /* ============================================================
- * 🧠 Logic — Distributor Dashboard (dynamic from db.json)
+ * Logic — Distributor Dashboard (dynamic from db.json)
  * ============================================================ */
 import { ref, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -92,11 +92,11 @@ const upcomingEvents = ref([])
 
 onMounted(async () => {
   try {
-    // 1️⃣ Load logged-in distributor
+    //  Load logged-in distributor
     const userRes = await httpClient.get(`/users/${DEMO_USER_ID}`)
     user.value = userRes.data
 
-    // 2️⃣ Load related orders
+    //  Load related orders
     const ordersRes = await httpClient.get(`/orders?userId=${user.value.id}`)
     const orders = ordersRes.data || []
     console.log('📦 Orders loaded:', orders)
@@ -114,15 +114,15 @@ onMounted(async () => {
       stock: 0 // filled below
     }
 
-    // 3️⃣ Recent orders (last 3)
+    // 3️Recent orders (last 3)
     recentOrders.value = orders.slice(-3).reverse()
 
-    // 4️⃣ Inventory
+    //  Inventory
     const invRes = await httpClient.get(`/inventory?userId=${user.value.id}`)
     const inventory = invRes.data || []
     stats.value.stock = inventory.reduce((sum, i) => sum + (i.stock || 0), 0)
 
-    // 5️⃣ Upcoming events
+    //  Upcoming events
     const eventsRes = await httpClient.get(`/events?userId=${user.value.id}`)
     upcomingEvents.value = eventsRes.data || []
   } catch (error) {
@@ -135,7 +135,7 @@ const userName = computed(() => (user.value ? user.value.firstName : 'Usuario'))
 
 <style scoped>
 /* ============================================================
- * 🎨 Styles — Distributor Dashboard
+ * Styles — Distributor Dashboard
  * ============================================================ */
 .distributor-dashboard {
   background: #f8fafc;

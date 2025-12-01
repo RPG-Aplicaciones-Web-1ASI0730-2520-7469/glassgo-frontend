@@ -1,6 +1,6 @@
 <template>
   <!-- ============================================================
-       🚧 Coming Soon — Temporary View
+       Coming Soon — Temporary View
        ------------------------------------------------------------
        Placeholder view for modules under development.
        Keeps a clean, centered layout consistent with GlassGo branding.
@@ -21,7 +21,7 @@
 
 <script setup>
 /* ============================================================
- * 🌐 i18n Integration
+ * i18n Integration
  * ------------------------------------------------------------
  * Enables translations for title and message.
  * Keys are defined in /locales/en.json and /locales/es.json.
@@ -32,7 +32,7 @@ const { t } = useI18n({ useScope: 'global' })
 
 <style scoped>
 /* ============================================================
- * 🎨 Layout — Coming Soon
+ * Layout — Coming Soon
  * ============================================================ */
 .coming-soon {
   display: flex;
