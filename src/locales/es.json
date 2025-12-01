@@ -159,5 +159,29 @@
   },
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
+  },
+  "profile": {
+    "title": "Perfil de Usuario",
+    "subtitle": "Administra tu información personal y configuración de cuenta",
+    "edit": "Editar Perfil",
+    "save": "Guardar Cambios",
+    "cancel": "Cancelar",
+    "changePhoto": "Cambiar Foto",
+    "userInfo": {
+      "title": "Información Personal",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo Electrónico",
+      "role": "Rol",
+      "company": "Empresa",
+      "phone": "Teléfono"
+    },
+    "settings": {
+      "title": "Configuración de Cuenta",
+      "notifications": "Notificaciones por Correo",
+      "notificationsDesc": "Recibe actualizaciones por correo sobre tu cuenta",
+      "twoFactor": "Autenticación de Dos Factores",
+      "twoFactorDesc": "Agrega una capa extra de seguridad a tu cuenta"
+    }
   }
 }

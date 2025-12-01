@@ -11,7 +11,7 @@ Defines standards for version control, commits, workflow, and structure.
 |:--|:--|
 | **main** | Stable and production-ready branch. |
 | **develop** | Integration branch for active development. |
-| **feature/** | One per module or bounded context (e.g., `feature/identity-access`). |
+| **feature/** | One per module or bounded context (e.g., `feature/iam`, `feature/profiles`). |
 | **release/** | Temporary pre-release branches (TB1, TP1, TB2, TF1). |
 | **hotfix/** | Emergency fixes for `main`. |
 

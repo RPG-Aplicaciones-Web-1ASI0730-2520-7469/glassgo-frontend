@@ -14,7 +14,7 @@ import { h } from 'vue'
 // ------------------------------------------------------------
 import AppShell from './shared/presentation/components/layout/app-shell.vue'
 // Importar rutas de autenticación y guard
-import Login from '@/modules/identity-access/presentation/views/login.vue'
+import Login from '@/iam/presentation/views/login.vue'
 const authRoutes = [
     {
         path: 'login',
@@ -25,17 +25,17 @@ const authRoutes = [
     {
         path: 'forgot-password',
         name: 'auth-forgot-password',
-        component: () => import('@/modules/identity-access/presentation/views/forgot-password.vue'),
+        component: () => import('@/iam/presentation/views/forgot-password.vue'),
         meta: { title: 'Forgot Password', titleKey: 'auth.forgot-password' }
     },
     {
         path: 'register',
         name: 'auth-register',
-        component: () => import('@/modules/identity-access/presentation/views/register.vue'),
+        component: () => import('@/iam/presentation/views/register.vue'),
         meta: { title: 'Register', titleKey: 'auth.sign-up' }
     }
 ]
-import { authGuard } from '@/modules/identity-access/infrastructure/auth.guard.js'
+import { authGuard } from '@/iam/infrastructure/auth.guard.js'
 import Home from '@shared/presentation/views/home/home.vue'
 import ComingSoon from './shared/presentation/views/coming-soon.vue'
 import NotFound from './shared/presentation/views/page-not-found.vue'
@@ -64,14 +64,18 @@ const router = createRouter({
         // Rutas de autenticación
         {
             path: '/auth',
-            component: () => import('@/modules/identity-access/presentation/components/auth-layout.vue'),
+            component: () => import('@/iam/presentation/components/auth-layout.vue'),
             children: authRoutes
         },
         {
             path: '/app',
             component: AppShell,
             children: [
-                { path: 'profile', component: ComingSoon, name: 'Profile' },
+                { 
+                    path: 'profile', 
+                    component: () => import('@/profiles/presentation/views/profile.vue'), 
+                    name: 'Profile' 
+                },
                 { path: '', redirect: '/app/home' },
 
                 // 🏠 Base Home Route — Redirect by Role

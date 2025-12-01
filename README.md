@@ -35,6 +35,24 @@ This repository contains the **Web Frontend Application** of **GlassGo**, a modu
   │ │ ├─ en.json                          # English (default language)
   │ │ └─ es.json                          # Spanish translation
   │ │
+  │ ├─ iam/                               # Identity and Access Management (authentication & authorization)
+  │ │ ├─ application/                     # Auth-related services and commands
+  │ │ ├─ domain/                          # Core identity and role entities
+  │ │ │ └─ model/                         # User and credential domain models
+  │ │ ├─ infrastructure/                  # API connections and persistence for auth
+  │ │ └─ presentation/                    # UI for login, registration, and access control
+  │ │   ├─ components/                    # Authentication-related UI components
+  │ │   └─ views/                         # Login and account management views
+  │ │
+  │ ├─ profiles/                          # User Profiles and Preferences
+  │ │ ├─ application/                     # Application logic for user configuration
+  │ │ ├─ domain/                          # Entities for user settings and preferences
+  │ │ │ └─ model/                         # Profile and preference domain models
+  │ │ ├─ infrastructure/                  # Data persistence for profile configuration
+  │ │ └─ presentation/                    # UI for editing user profile and settings
+  │ │   ├─ components/                    # Profile and preference interface components
+  │ │   └─ views/                         # Profile management main views
+  │ │
   │ ├─ modules/                           # Core business modules following DDD architecture
   │ │ ├─ dashboard-analytics/             # Handles KPIs, business metrics, and analytics dashboards
   │ │ │ ├─ application/                   # Application logic and service orchestration

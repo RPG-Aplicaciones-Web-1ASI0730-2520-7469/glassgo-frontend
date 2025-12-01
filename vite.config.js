@@ -30,7 +30,7 @@ export default defineConfig({
      * Simplifies imports following GlassGo’s modular structure.
      *
      * Example:
-     *   import { loginUser } from '@modules/identity-access/application/login.service'
+     *   import { loginUser } from '@iam/application/login.service'
      *   import { ButtonPrimary } from '@shared/presentation/components/ui/button-primary.vue'
      * ---------------------------------------------------------- */
     resolve: {
@@ -42,8 +42,8 @@ export default defineConfig({
             '@config': path.resolve(__dirname, './src/config'),
 
             // 🔹 Optional aliases per bounded context
-            '@identity': path.resolve(__dirname, './src/modules/identity-access'),
-            '@profiles': path.resolve(__dirname, './src/modules/profiles-preferences'),
+            '@iam': path.resolve(__dirname, './src/iam'),
+            '@profiles': path.resolve(__dirname, './src/profiles'),
             '@payments': path.resolve(__dirname, './src/modules/payments-subscriptions'),
             '@inventory': path.resolve(__dirname, './src/modules/consumption-inventory'),
             '@execution': path.resolve(__dirname, './src/modules/service-execution-monitoring'),
