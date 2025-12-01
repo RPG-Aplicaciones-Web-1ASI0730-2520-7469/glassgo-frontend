@@ -13,13 +13,32 @@ import { defineStore } from 'pinia'
 import { httpClient } from '@/shared/infrastructure/http-client'
 import { DEMO_USER_ID } from '@/shared/config/demo-user'
 
+/**
+ * User Store - Global State Management
+ * Manages authenticated user data, role-based routing, and session persistence.
+ * Uses Pinia for reactive state management across the application.
+ */
 export const useUserStore = defineStore('user', {
     /* ----------------------------------------------------------
      * 🧠 State
      * ---------------------------------------------------------- */
     state: () => ({
+        /**
+         * Current authenticated user object
+         * @type {Object|null}
+         */
         user: null,
+
+        /**
+         * Loading state for user operations
+         * @type {boolean}
+         */
         loading: false,
+
+        /**
+         * Error message from failed operations
+         * @type {string|null}
+         */
         error: null
     }),
 
@@ -93,13 +112,19 @@ export const useUserStore = defineStore('user', {
      * 🔍 Getters
      * ---------------------------------------------------------- */
     getters: {
-        /** 🧾 Full name */
+        /**
+         * Full name of the user
+         * @type {string}
+         */
         fullName: (state) => {
             if (!state.user) return ''
             return `${state.user.firstName} ${state.user.lastName}`
         },
 
-        /** 🔠 User initials */
+        /**
+         * User initials for avatar display
+         * @type {string}
+         */
         initials: (state) => {
             if (!state.user) return ''
             const f = state.user.firstName?.[0]?.toUpperCase() || ''
@@ -107,10 +132,16 @@ export const useUserStore = defineStore('user', {
             return f + l
         },
 
-        /** 🧩 Current role */
+        /**
+         * Current user role
+         * @type {string}
+         */
         role: (state) => state.user?.role || 'demo',
 
-        /** ⚙️ Auth state */
+        /**
+         * Authentication status
+         * @type {boolean}
+         */
         isAuthenticated: (state) => !!state.user
     }
 })

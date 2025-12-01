@@ -9,6 +9,13 @@
 import axios from 'axios'
 import { BASE_API_URL } from './base-endpoint.js'
 
+/**
+ * Configured Axios HTTP client instance
+ * Shared infrastructure for making API requests with predefined base URL and headers.
+ * Used across all infrastructure API modules for consistent HTTP communication.
+ *
+ * @type {import('axios').AxiosInstance}
+ */
 export const httpClient = axios.create({
     baseURL: `${BASE_API_URL}/api`,
     headers: {

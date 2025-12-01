@@ -5,18 +5,13 @@
 // Identity & Access module is implemented.
 // ============================================================
 
-/**
- * 🧠 Usage:
- * - Change DEMO_USER_ID to simulate a different role.
- * - Home components (home-*) will automatically load its data.
- *
- * 🧾 Reference (db.json users):
- *   ID | Role            | Home View
- *   ---|-----------------|--------------------------
- *    1 | distributor     | home-distributor.vue
- *    2 | business-owner  | home-business-owner.vue
- *    3 | carrier         | home-carrier.vue
- *    4 | admin           | home-admin.vue
- */
 
+
+/**
+ * Demo user ID for local testing
+ * Used to simulate different user roles during development.
+ * Change this value to test different user experiences.
+ *
+ * @type {number}
+ */
 export const DEMO_USER_ID = 1 // 👈 Change this to test another role

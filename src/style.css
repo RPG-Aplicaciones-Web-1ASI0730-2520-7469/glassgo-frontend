@@ -16,13 +16,7 @@
     box-sizing: border-box;
 }
 
-/* ------------------------------------------------------------
- * 🧩 Global Document & App Setup
- * ------------------------------------------------------------
- * - Ensures html, body, and #app occupy full viewport height.
- * - Removes default margins for a clean layout base.
- * - Sets the system font stack and main text color.
- * ------------------------------------------------------------ */
+
 html,
 body,
 #app {

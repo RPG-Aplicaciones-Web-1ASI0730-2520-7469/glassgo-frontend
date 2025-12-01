@@ -20,6 +20,13 @@
 </template>
 
 <script setup>
+/**
+ * App Shell Component - Presentation Layer
+ * Main layout component providing consistent application shell with sidebar, topbar, and content area.
+ * Handles responsive sidebar behavior and role-based automatic redirection.
+ * Serves as the root layout for authenticated routes under /app.
+ */
+
 import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user.store'
@@ -32,15 +39,24 @@ import FooterContent from './footer-content.vue'
  * ============================================================ */
 const sidebarOpen = ref(true)
 
-/* 🎛️ Toggle functions */
+/**
+ * Toggle sidebar visibility
+ */
 function toggleSidebar() {
   sidebarOpen.value = !sidebarOpen.value
 }
+
+/**
+ * Close sidebar on mobile when clicking outside
+ */
 function closeSidebarIfMobile() {
   if (window.innerWidth < 1024 && sidebarOpen.value) sidebarOpen.value = false
 }
 
 /* 📏 Auto adjust based on screen size */
+/**
+ * Handle window resize to adjust sidebar visibility
+ */
 function handleResize() {
   sidebarOpen.value = window.innerWidth >= 1024
 }
@@ -49,6 +65,7 @@ onMounted(() => {
   handleResize()
   window.addEventListener('resize', handleResize)
 })
+
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
 })

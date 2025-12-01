@@ -1,38 +1,28 @@
-/* ============================================================
- * 🧭 GlassGo Main Router (with Role Detection)
- * ============================================================
- * Central routing system controlling navigation across views.
- * Handles automatic redirection based on user roles and ensures
- * a consistent layout (AppShell) for all /app routes.
- * ============================================================ */
 
 import { createRouter, createWebHistory } from 'vue-router'
 
-// ------------------------------------------------------------
-// 🧩 Core Layout and Common Views
-// ------------------------------------------------------------
 import AppShell from './shared/presentation/components/layout/app-shell.vue'
 import Home from '@shared/presentation/views/home/home.vue'
-import CrearPedido from './modules/service-planning/presentation/views/crear-pedido.vue'
+import CreatOrder from './service-planning/presentation/views/creat-order.vue'
 import ComingSoon from './shared/presentation/views/coming-soon.vue'
 import NotFound from './shared/presentation/views/page-not-found.vue'
 
-// ------------------------------------------------------------
-// 🏠 Role-Specific Home Views
-// ------------------------------------------------------------
+
 import HomeAdmin from './shared/presentation/views/home/home-admin.vue'
 import HomeDistributor from './shared/presentation/views/home/home-distributor.vue'
 import HomeCarrier from './shared/presentation/views/home/home-carrier.vue'
 import HomeBusinessOwner from './shared/presentation/views/home/home-business-owner.vue'
 
-// ------------------------------------------------------------
-// 🧠 User Store (Role Detection)
-// ------------------------------------------------------------
+
 import { useUserStore } from '@/stores/user.store'
 
-// ------------------------------------------------------------
-// 🚀 Router Definition
-// ------------------------------------------------------------
+/**
+ * Vue Router instance with role-based routing
+ * Configured router for the GlassGo application with nested routes under /app.
+ * Handles automatic redirection based on user roles and provides consistent layout.
+ *
+ * @type {import('vue-router').Router}
+ */
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -79,7 +69,7 @@ const router = createRouter({
                 { path: 'home-business-owner', component: HomeBusinessOwner, name: 'HomeBusinessOwner' },
 
                 // 🧩 Placeholder Modules (WIP)
-                { path: 'create-order', component: CrearPedido },
+                { path: 'create-order', component: CreatOrder },
                 { path: 'tracking', component: ComingSoon },
                 { path: 'inventory', component: ComingSoon },
                 { path: 'calendar', component: ComingSoon },
