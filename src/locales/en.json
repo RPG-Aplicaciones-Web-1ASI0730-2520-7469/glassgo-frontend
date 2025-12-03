@@ -1,4 +1,26 @@
 {
+  "auth": {
+    "username": "Email",
+    "password": "Password",
+    "sign-in": "Sign In",
+  "sign-up": "Create Account",
+  "forgot-password": "Forgot Password?",
+  "send-recovery": "Send Recovery Email",
+  "recovery-email-sent": "Recovery email sent! Please check your inbox.",
+  "back-to-login": "Back to Login",
+    "remember-me": "Remember me",
+    "distributor": "Distributor",
+    "transport": "Transport",
+  "admin": "Admin",
+  "business-owner": "Business Owner",
+    "register": "Register",
+    "required-field": "The field {field} is required.",
+    "user-type": "User Type",
+    "validation-error": "Validation Error",
+    "welcome": "Welcome!",
+    "login-failed": "Login failed",
+    "invalid-credentials": "Invalid credentials"
+  },
   "notfound": {
     "message": "The page you are looking for does not exist 😢.",
     "back": "Return to Home"
@@ -137,6 +159,61 @@
   },
   "footer": {
     "text": "© 2025 GlassGo. All rights reserved."
+  },
+  "profile": {
+    "title": "User Profile",
+    "subtitle": "Manage your personal information and account settings",
+    "edit": "Edit Profile",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "changePhoto": "Change Photo",
+    "userInfo": {
+      "title": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "role": "Role",
+      "company": "Company",
+      "phone": "Phone"
+    },
+    "settings": {
+      "title": "Account Settings",
+      "notifications": "Email Notifications",
+      "notificationsDesc": "Receive email updates about your account",
+      "twoFactor": "Two-Factor Authentication",
+      "twoFactorDesc": "Add an extra layer of security to your account"
+    }
+  },
+  "payments": {
+    "titleOwner": "Payments & Subscriptions",
+    "subtitleOwner": "Manage your active plans and review your payment history.",
+    "activeSubscription": "Active Subscription",
+    "plan": "Plan",
+    "renewal": "Renewal",
+    "renewNow": "Renew Now",
+    "history": "Payment History",
+    "date": "Date",
+
+    "titleDistributor": "Distributor Payments",
+    "subtitleDistributor": "View your received payments and pending commissions.",
+    "table": {
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "status": "Status",
+      "user": "User"
+    },
+
+    "titleAdmin": "System Payments",
+    "subtitleAdmin": "System-wide payment audit and monitoring panel.",
+    "searchPlaceholder": "Search by user ID...",
+
+    "status": {
+      "completed": "Completed",
+      "pending": "Pending",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    }
   },
   "orders": {
     "create": {

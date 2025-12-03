@@ -1,10 +1,10 @@
 /* ============================================================
- * ⚙️ vite.domain.js — Vite Environment Configuration
+ * ️ vite.config.js — Vite Environment Configuration
  * ============================================================
  * Optimized setup for GlassGo using Domain-Driven Design (DDD)
  * with 8 Bounded Contexts.
  *
- * ✅ Key Features:
+ *  Key Features:
  *  - Vue file processing
  *  - Clean path aliases for modular imports
  *  - Scalable DDD structure per bounded context
@@ -16,21 +16,21 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 /* ------------------------------------------------------------
- * 🚀 Export Configuration
+ * 🚀Export Configuration
  * ------------------------------------------------------------ */
 export default defineConfig({
     /* ----------------------------------------------------------
-     * 🧩 Plugins
+     *  Plugins
      * ---------------------------------------------------------- */
     plugins: [vue()],
 
     /* ----------------------------------------------------------
-     * 🧭 Path Aliases
+     *  Path Aliases
      * ----------------------------------------------------------
      * Simplifies imports following GlassGo’s modular structure.
      *
      * Example:
-     *   import { loginUser } from '@modules/iam/application/login.service'
+     *   import { loginUser } from '@iam/application/login.service'
      *   import { ButtonPrimary } from '@shared/presentation/components/ui/button-primary.vue'
      * ---------------------------------------------------------- */
     resolve: {
@@ -39,22 +39,22 @@ export default defineConfig({
             '@assets': path.resolve(__dirname, './src/assets'),
             '@shared': path.resolve(__dirname, './src/shared'),
             '@modules': path.resolve(__dirname, './src/modules'),
-            '@config': path.resolve(__dirname, './src/domain'),
+            '@config': path.resolve(__dirname, './src/config'),
 
             // 🔹 Optional aliases per bounded context
-            '@identity': path.resolve(__dirname, './src/modules/iam'),
-            '@profiles': path.resolve(__dirname, './src/modules/profiles'),
-            '@payments': path.resolve(__dirname, './src/modules/payments'),
+            '@iam': path.resolve(__dirname, './src/iam'),
+            '@profiles': path.resolve(__dirname, './src/profiles'),
+            '@payments': path.resolve(__dirname, './src/payments'),
             '@inventory': path.resolve(__dirname, './src/modules/consumption-inventory'),
-            '@execution': path.resolve(__dirname, './src/modules/execution-monitoring'),
-            '@dashboard': path.resolve(__dirname, './src/modules/analytics'),
+            '@execution': path.resolve(__dirname, './src/modules/service-execution-monitoring'),
+            '@dashboard': path.resolve(__dirname, './src/modules/dashboard-analytics'),
             '@notifications': path.resolve(__dirname, './src/modules/notifications-messaging'),
-            '@system': path.resolve(__dirname, './src/modules/administration-configuration')
+            '@system': path.resolve(__dirname, './src/modules/system-administration-configuration')
         }
     },
 
     /* ----------------------------------------------------------
-     * 🌐 Dev Server
+     *  Dev Server
      * ----------------------------------------------------------
      * Local development server settings.
      * ---------------------------------------------------------- */

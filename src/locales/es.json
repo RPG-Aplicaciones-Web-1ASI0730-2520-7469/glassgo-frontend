@@ -1,4 +1,26 @@
 {
+  "auth": {
+    "username": "Correo electrónico",
+    "password": "Contraseña",
+    "sign-in": "Iniciar sesión",
+  "sign-up": "Crear Cuenta",
+  "forgot-password": "¿Olvidaste tu contraseña?",
+  "send-recovery": "Enviar correo de recuperación",
+  "recovery-email-sent": "¡Correo de recuperación enviado! Revisa tu bandeja de entrada.",
+  "back-to-login": "Volver al inicio de sesión",
+    "remember-me": "Recuérdame",
+    "distributor": "Distribuidor",
+    "transport": "Transporte",
+  "admin": "Administrador",
+  "business-owner": "Dueño de Negocio",
+    "register": "Registrarse",
+    "required-field": "El campo {field} es obligatorio.",
+    "user-type": "Tipo de usuario",
+    "validation-error": "Error de validación",
+    "welcome": "¡Bienvenido!",
+    "login-failed": "Error al iniciar sesión",
+    "invalid-credentials": "Credenciales inválidas"
+  },
   "notfound": {
     "message": "La página que buscas no existe 😢.",
     "back": "Volver al inicio"
@@ -137,6 +159,61 @@
   },
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
+  },
+  "profile": {
+    "title": "Perfil de Usuario",
+    "subtitle": "Administra tu información personal y configuración de cuenta",
+    "edit": "Editar Perfil",
+    "save": "Guardar Cambios",
+    "cancel": "Cancelar",
+    "changePhoto": "Cambiar Foto",
+    "userInfo": {
+      "title": "Información Personal",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo Electrónico",
+      "role": "Rol",
+      "company": "Empresa",
+      "phone": "Teléfono"
+    },
+    "settings": {
+      "title": "Configuración de Cuenta",
+      "notifications": "Notificaciones por Correo",
+      "notificationsDesc": "Recibe actualizaciones por correo sobre tu cuenta",
+      "twoFactor": "Autenticación de Dos Factores",
+      "twoFactorDesc": "Agrega una capa extra de seguridad a tu cuenta"
+    }
+  },
+  "payments": {
+    "titleOwner": "Pagos y Suscripciones",
+    "subtitleOwner": "Administra tus planes activos y revisa el historial de pagos.",
+    "activeSubscription": "Suscripción activa",
+    "plan": "Plan",
+    "renewal": "Renovación",
+    "renewNow": "Renovar ahora",
+    "history": "Historial de pagos",
+    "date": "Fecha",
+
+    "titleDistributor": "Pagos de Distribuidor",
+    "subtitleDistributor": "Consulta tus pagos recibidos y comisiones pendientes.",
+    "table": {
+      "id": "ID",
+      "date": "Fecha",
+      "amount": "Monto",
+      "status": "Estado",
+      "user": "Usuario"
+    },
+
+    "titleAdmin": "Pagos del Sistema",
+    "subtitleAdmin": "Panel de auditoría de pagos del sistema.",
+    "searchPlaceholder": "Buscar por ID de usuario...",
+
+    "status": {
+      "completed": "Completado",
+      "pending": "Pendiente",
+      "failed": "Fallido",
+      "cancelled": "Cancelado"
+    }
   },
   "orders": {
     "create": {

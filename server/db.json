@@ -13,11 +13,7 @@
       "address": "Av. Brasil 1234, Lima",
       "phone": "+51 987654321",
       "preferredCurrency": "PEN",
-      "notifications": {
-        "email": true,
-        "sms": false,
-        "push": true
-      },
+      "notifications": { "email": true, "sms": false, "push": true },
       "paymentMethods": [
         {
           "type": "bank_transfer",
@@ -106,6 +102,7 @@
     },
     {
       "id": "ORD-1002",
+      "date": "2025-10-29",
       "status": "Pending",
       "total": 420,
       "liters": 700,
@@ -142,40 +139,6 @@
       "date": "2025-11-01",
       "total": 180,
       "userId": 3
-    },
-    {
-      "userId": 1,
-      "items": [
-        {
-          "productId": 7,
-          "productName": "Vidrio antirreflejo",
-          "quantity": 2,
-          "unitPrice": 200,
-          "subtotal": 400
-        },
-        {
-          "productId": 8,
-          "productName": "Vidrio esmerilado",
-          "quantity": 1,
-          "unitPrice": 110,
-          "subtotal": 110
-        }
-      ],
-      "delivery": {
-        "date": "2025-11-15",
-        "time": "08:00-12:00",
-        "address": "Samiria",
-        "instructions": "Bien sellado"
-      },
-      "totals": {
-        "subtotal": 510,
-        "igv": 91.8,
-        "total": 601.8,
-        "itemCount": 2
-      },
-      "status": "pending",
-      "createdAt": "2025-11-12T03:18:56.211Z",
-      "id": "4Cd2Gje"
     }
   ],
   "inventory": [
@@ -240,85 +203,6 @@
       "type": "Anual",
       "renewal": "Renovación en marzo 2026",
       "isActive": true
-    }
-  ],
-  "payments": [
-    {
-      "id": 1001,
-      "userId": 2,
-      "currency": "PEN",
-      "amount": 39.9,
-      "date": "2025-10-28",
-      "status": "completed",
-      "method": "credit_card",
-      "reference": "PAY-20251028-001",
-      "plan": "Plan Estándar"
-    },
-    {
-      "id": 1002,
-      "userId": 2,
-      "currency": "PEN",
-      "amount": 420,
-      "date": "2025-11-02",
-      "status": "pending",
-      "method": "bank_transfer",
-      "reference": "PAY-20251102-002",
-      "plan": "Soporte Premium"
-    },
-    {
-      "id": 1003,
-      "userId": 2,
-      "currency": "PEN",
-      "amount": 79.9,
-      "date": "2025-09-20",
-      "status": "failed",
-      "method": "debit_card",
-      "reference": "PAY-20250920-003",
-      "plan": "Plan Corporativo"
-    },
-    {
-      "id": 2001,
-      "userId": 1,
-      "currency": "PEN",
-      "amount": 1520.5,
-      "date": "2025-10-28",
-      "status": "completed",
-      "method": "bank_transfer",
-      "reference": "DIST-PAY-20251028-001",
-      "description": "Liquidación comisiones Octubre 2025"
-    },
-    {
-      "id": 2002,
-      "userId": 1,
-      "currency": "PEN",
-      "amount": 830.75,
-      "date": "2025-11-03",
-      "status": "pending",
-      "method": "bank_transfer",
-      "reference": "DIST-PAY-20251103-002",
-      "description": "Comisiones pendientes por transferencia"
-    },
-    {
-      "id": 3001,
-      "userId": 4,
-      "currency": "PEN",
-      "amount": 39.9,
-      "date": "2025-10-20",
-      "status": "completed",
-      "method": "credit_card",
-      "reference": "ADMIN-PAY-20251020-001",
-      "description": "Pago de mantenimiento de sistema"
-    },
-    {
-      "id": 3002,
-      "userId": 4,
-      "currency": "PEN",
-      "amount": 420,
-      "date": "2025-11-01",
-      "status": "completed",
-      "method": "bank_transfer",
-      "reference": "ADMIN-PAY-20251101-002",
-      "description": "Pago de infraestructura de red"
     }
   ],
   "vehicles": [
@@ -435,6 +319,103 @@
       "user": "Admin02",
       "action": "Desactivó usuario inactivo",
       "status": "danger"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": 1,
+      "userId": 2,
+      "name": "Plan Estándar",
+      "type": "Mensual",
+      "renewal": "Renovación automática el 1 de noviembre",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "Soporte Premium",
+      "type": "Anual",
+      "renewal": "Renovación en marzo 2026",
+      "isActive": true
+    }
+  ],
+  "payments": [
+    {
+      "id": 1001,
+      "userId": 2,
+      "currency": "PEN",
+      "amount": 39.9,
+      "date": "2025-10-28",
+      "status": "completed",
+      "method": "credit_card",
+      "reference": "PAY-20251028-001",
+      "plan": "Plan Estándar"
+    },
+    {
+      "id": 1002,
+      "userId": 2,
+      "currency": "PEN",
+      "amount": 420,
+      "date": "2025-11-02",
+      "status": "pending",
+      "method": "bank_transfer",
+      "reference": "PAY-20251102-002",
+      "plan": "Soporte Premium"
+    },
+    {
+      "id": 1003,
+      "userId": 2,
+      "currency": "PEN",
+      "amount": 79.9,
+      "date": "2025-09-20",
+      "status": "failed",
+      "method": "debit_card",
+      "reference": "PAY-20250920-003",
+      "plan": "Plan Corporativo"
+    },
+    {
+      "id": 2001,
+      "userId": 1,
+      "currency": "PEN",
+      "amount": 1520.5,
+      "date": "2025-10-28",
+      "status": "completed",
+      "method": "bank_transfer",
+      "reference": "DIST-PAY-20251028-001",
+      "description": "Liquidación comisiones Octubre 2025"
+    },
+    {
+      "id": 2002,
+      "userId": 1,
+      "currency": "PEN",
+      "amount": 830.75,
+      "date": "2025-11-03",
+      "status": "pending",
+      "method": "bank_transfer",
+      "reference": "DIST-PAY-20251103-002",
+      "description": "Comisiones pendientes por transferencia"
+    },
+    {
+      "id": 3001,
+      "userId": 4,
+      "currency": "PEN",
+      "amount": 39.9,
+      "date": "2025-10-20",
+      "status": "completed",
+      "method": "credit_card",
+      "reference": "ADMIN-PAY-20251020-001",
+      "description": "Pago de mantenimiento de sistema"
+    },
+    {
+      "id": 3002,
+      "userId": 4,
+      "currency": "PEN",
+      "amount": 420,
+      "date": "2025-11-01",
+      "status": "completed",
+      "method": "bank_transfer",
+      "reference": "ADMIN-PAY-20251101-002",
+      "description": "Pago de infraestructura de red"
     }
   ],
   "products": [
