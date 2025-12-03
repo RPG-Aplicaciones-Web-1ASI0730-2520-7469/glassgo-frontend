@@ -160,39 +160,76 @@
 
   "footer": {
     "text": "© 2025 GlassGo. All rights reserved."
+    },
+  "analytics": {
+    "title": "Analytics",
+    "metrics": "Metrics",
+    "reports": "Reports",
+    "totalSales": "Total Sales",
+    "activeUsers": "Active Users",
+    "ordersDelivered": "Orders Delivered",
+    "monthlyReport": "Monthly Sales Report",
+    "userActivityReport": "User Activity Report",
+    "viewReport": "View Report",
+    "period": "Period",
+    "value": "Value",
+    "unit": "Unit"
   },
-  "profile": {
-    "title": "Profile",
-    "subtitle": "Manage your personal information and account settings.",
-    "edit": "Edit",
-    "cancel": "Cancel",
-    "save": "Save",
-    "changePhoto": "Change photo",
-    "userInfo": {
-      "title": "User Information",
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "email": "Email",
-      "role": "Role",
-      "company": "Company",
-      "phone": "Phone"
+  "tracking": {
+    "title": "Tracking",
+    "subtitle": "Monitor your deliveries in real-time",
+    "deliveries": "Deliveries",
+    "allDeliveries": "All Deliveries",
+    "activeDeliveries": "Active Deliveries",
+    "completedDeliveries": "Completed Deliveries",
+    "pendingDeliveries": "Pending Deliveries",
+    "inTransitDeliveries": "In Transit",
+    "failedDeliveries": "Failed Deliveries",
+    "table": {
+      "deliveryId": "Delivery ID",
+      "carrierId": "Carrier",
+      "routeId": "Route",
+      "status": "Status",
+      "location": "Location",
+      "timestamp": "Date & Time",
+      "actions": "Actions"
     },
-    "settings": {
-      "title": "Account Settings",
-      "notifications": "Notifications",
-      "notificationsDesc": "Receive notifications about account activity.",
-      "twoFactor": "Two-factor authentication",
-      "twoFactorDesc": "Add extra security to your account."
+    "status": {
+      "pending": "Pending",
+      "in-transit": "In Transit",
+      "completed": "Completed",
+      "failed": "Failed",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
     },
-    "nav": {
-      "historial": "History",
-      "tracking": "Tracking",
-      "inventario": "Inventory",
-      "calendar": "Calendar",
-      "reportes": "Reports",
-      "reclamos": "Claims",
-      "configuraciones": "Settings",
-      "crearPedido": "Create Order"
+    "buttons": {
+      "addDelivery": "Add Delivery",
+      "editDelivery": "Edit",
+      "deleteDelivery": "Delete",
+      "updateLocation": "Update Location",
+      "updateStatus": "Update Status",
+      "viewDetails": "View Details",
+      "trackDelivery": "Track"
+    },
+    "labels": {
+      "deliveryId": "Delivery ID",
+      "carrierId": "Carrier ID",
+      "routeId": "Route ID",
+      "status": "Status",
+      "location": "Location",
+      "timestamp": "Timestamp"
+    },
+    "messages": {
+      "noDeliveries": "No deliveries found",
+      "loadingDeliveries": "Loading deliveries...",
+      "deliveryCreated": "Delivery created successfully",
+      "deliveryUpdated": "Delivery updated successfully",
+      "deliveryDeleted": "Delivery deleted successfully",
+      "errorCreating": "Error creating delivery",
+      "errorUpdating": "Error updating delivery",
+      "errorDeleting": "Error deleting delivery",
+      "errorLoading": "Error loading deliveries"
+
     }
   }
 }

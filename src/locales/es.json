@@ -160,39 +160,81 @@
 
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
-  },
-  "profile": {
-    "title": "Perfil",
-    "subtitle": "Administra tu información personal y configuración de cuenta.",
-    "edit": "Editar",
-    "cancel": "Cancelar",
-    "save": "Guardar",
-    "changePhoto": "Cambiar foto",
-    "userInfo": {
-      "title": "Información del usuario",
-      "firstName": "Nombre",
-      "lastName": "Apellido",
-      "email": "Correo electrónico",
-      "role": "Rol",
-      "company": "Empresa",
-      "phone": "Teléfono"
-    },
-    "settings": {
-      "title": "Configuración de la cuenta",
-      "notifications": "Notificaciones",
-      "notificationsDesc": "Recibe notificaciones sobre la actividad de la cuenta.",
-      "twoFactor": "Autenticación en dos pasos",
-      "twoFactorDesc": "Agrega seguridad extra a tu cuenta."
-    },
-    "nav": {
-      "historial": "Historial",
-      "tracking": "Tracking",
-      "inventario": "Inventario",
-      "calendar": "Calendario",
-      "reportes": "Reportes",
-      "reclamos": "Reclamos",
-      "configuraciones": "Configuraciones",
-      "crearPedido": "Crear pedido"
     }
-  }
+  ,
+  "analytics": {
+    "title": "Analítica",
+    "metrics": "Métricas",
+    "reports": "Reportes",
+    "totalSales": "Ventas Totales",
+    "activeUsers": "Usuarios Activos",
+    "ordersDelivered": "Órdenes Entregadas",
+    "monthlyReport": "Reporte de Ventas Mensual",
+    "userActivityReport": "Reporte de Actividad de Usuarios",
+    "viewReport": "Ver Reporte",
+    "period": "Periodo",
+    "value": "Valor",
+    "unit": "Unidad"
+  },
+    "tracking": {
+      "title": "Tracking",
+      "subtitle": "Monitorea el estado de tus pedidos en tiempo real.",
+      "deliveries": "Tus entregas",
+      "allDeliveries": "Todas las entregas",
+      "activeDeliveries": "Entregas activas",
+      "completedDeliveries": "Entregas completadas",
+      "pendingDeliveries": "Entregas pendientes",
+      "inTransitDeliveries": "Entregas en tránsito",
+      "failedDeliveries": "Entregas fallidas",
+      "table": {
+        "deliveryId": "ID de Entrega",
+        "carrierId": "ID del Transportista",
+        "routeId": "ID de la Ruta",
+        "status": "Estado",
+        "location": "Ubicación",
+        "timestamp": "Fecha y Hora",
+        "actions": "Acciones"
+      },
+      "status": {
+        "pending": "Pendiente",
+        "in-transit": "En tránsito",
+        "completed": "Completada",
+        "failed": "Fallida",
+        "delivered": "Entregada",
+        "cancelled": "Cancelada"
+      },
+      "buttons": {
+
+        "addDelivery": "Agregar Entrega",
+        "editDelivery": "Editar Entrega",
+        "deleteDelivery": "Eliminar Entrega",
+        "updateLocation": "Actualizar Ubicación",
+        "updateStatus": "Actualizar Estado",
+        "viewDetails": "Ver Detalles",
+        "trackDelivery": "Rastrear Entrega"
+
+      },
+      "labels": {
+        "deliveryId": "ID de Entrega",
+        "carrierId": "ID del Transportista",
+        "routeId": "ID de la Ruta",
+        "status": "Estado",
+        "location": "Ubicación",
+        "timestamp": "Fecha y Hora"
+      },
+      "messages": {
+
+        "noDeliveries": "No hay entregas para mostrar.",
+        "loadingDeliveries": "Cargando entregas...",
+        "deliveryCreated": "Entrega creada exitosamente.",
+        "deliveryUpdated": "Entrega actualizada exitosamente.",
+        "deliveryDeleted": "Entrega eliminada exitosamente.",
+        "errorCreating": "Error al crear la entrega.",
+        "errorUpdating": "Error al actualizar la entrega.",
+        "errorDeleting": "Error al eliminar la entrega.",
+        "errorLoading": "Error al cargar las entregas."
+
+      }
+
+    }
 }
