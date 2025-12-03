@@ -157,38 +157,42 @@
       "danger": "Error"
     }
   },
+
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
   },
-  "payments": {
-    "titleOwner": "Pagos y Suscripciones",
-    "subtitleOwner": "Administra tus planes activos y revisa el historial de pagos.",
-    "activeSubscription": "Suscripción activa",
-    "plan": "Plan",
-    "renewal": "Renovación",
-    "renewNow": "Renovar ahora",
-    "history": "Historial de pagos",
-    "date": "Fecha",
-
-    "titleDistributor": "Pagos de Distribuidor",
-    "subtitleDistributor": "Consulta tus pagos recibidos y comisiones pendientes.",
-    "table": {
-      "id": "ID",
-      "date": "Fecha",
-      "amount": "Monto",
-      "status": "Estado",
-      "user": "Usuario"
+  "profile": {
+    "title": "Perfil",
+    "subtitle": "Administra tu información personal y configuración de cuenta.",
+    "edit": "Editar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "changePhoto": "Cambiar foto",
+    "userInfo": {
+      "title": "Información del usuario",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "role": "Rol",
+      "company": "Empresa",
+      "phone": "Teléfono"
     },
-
-    "titleAdmin": "Pagos del Sistema",
-    "subtitleAdmin": "Panel de auditoría de pagos del sistema.",
-    "searchPlaceholder": "Buscar por ID de usuario...",
-
-    "status": {
-      "completed": "Completado",
-      "pending": "Pendiente",
-      "failed": "Fallido",
-      "cancelled": "Cancelado"
+    "settings": {
+      "title": "Configuración de la cuenta",
+      "notifications": "Notificaciones",
+      "notificationsDesc": "Recibe notificaciones sobre la actividad de la cuenta.",
+      "twoFactor": "Autenticación en dos pasos",
+      "twoFactorDesc": "Agrega seguridad extra a tu cuenta."
+    },
+    "nav": {
+      "historial": "Historial",
+      "tracking": "Tracking",
+      "inventario": "Inventario",
+      "calendar": "Calendario",
+      "reportes": "Reportes",
+      "reclamos": "Reclamos",
+      "configuraciones": "Configuraciones",
+      "crearPedido": "Crear pedido"
     }
   }
 }

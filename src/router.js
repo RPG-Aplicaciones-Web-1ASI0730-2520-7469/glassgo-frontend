@@ -13,29 +13,7 @@ import { h } from 'vue'
 // Core Layout and Common Views
 // ------------------------------------------------------------
 import AppShell from './shared/presentation/components/layout/app-shell.vue'
-// Importar rutas de autenticación y guard
-import Login from '@/iam/presentation/views/login.vue'
-const authRoutes = [
-    {
-        path: 'login',
-        name: 'auth-login',
-        component: Login,
-        meta: { title: 'Sign In', titleKey: 'auth.sign-in' }
-    },
-    {
-        path: 'forgot-password',
-        name: 'auth-forgot-password',
-        component: () => import('@/iam/presentation/views/forgot-password.vue'),
-        meta: { title: 'Forgot Password', titleKey: 'auth.forgot-password' }
-    },
-    {
-        path: 'register',
-        name: 'auth-register',
-        component: () => import('@/iam/presentation/views/register.vue'),
-        meta: { title: 'Register', titleKey: 'auth.sign-up' }
-    }
-]
-import { authGuard } from '@/iam/infrastructure/auth.guard.js'
+import ProfileView from './modules/profile-preferences/presentation/views/profile.vue'
 import Home from '@shared/presentation/views/home/home.vue'
 import ComingSoon from './shared/presentation/views/coming-soon.vue'
 import NotFound from './shared/presentation/views/page-not-found.vue'
@@ -71,11 +49,18 @@ const router = createRouter({
             path: '/app',
             component: AppShell,
             children: [
-                { 
-                    path: 'profile', 
-                    component: () => import('@/profiles/presentation/views/profile.vue'), 
-                    name: 'Profile' 
-                },
+                                {
+                                    path: 'profile',
+                                    component: ProfileView,
+                                    name: 'Profile'
+                                },
+                                { path: 'profile/tracking', component: ComingSoon, name: 'ProfileTracking' },
+                                { path: 'profile/inventario', component: ComingSoon, name: 'ProfileInventario' },
+                                { path: 'profile/calendar', component: ComingSoon, name: 'ProfileCalendar' },
+                                { path: 'profile/reportes', component: ComingSoon, name: 'ProfileReportes' },
+                                { path: 'profile/reclamos', component: ComingSoon, name: 'ProfileReclamos' },
+                                { path: 'profile/configuraciones', component: ComingSoon, name: 'ProfileConfiguraciones' },
+                                { path: 'profile/crear-pedido', component: ComingSoon, name: 'ProfileCrearPedido' },
                 { path: '', redirect: '/app/home' },
 
                 //  Base Home Route — Redirect by Role
