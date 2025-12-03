@@ -118,8 +118,26 @@ const router = createRouter({
                 { path: 'tracking', component: ComingSoon },
                 { path: 'inventory', component: ComingSoon },
                 { path: 'calendar', component: ComingSoon },
-                { path: 'reports', component: () => import('./analytics/presentation/views/reporte.vue'), name: 'Reports' },
-                { path: 'payments', component: ComingSoon },
+                { path: 'reports', component: ComingSoon },
+                // Reemplaza el actual "ComingSoon" por esto:
+                {
+                    path: 'payments',
+                    name: 'Payments',
+                    component: () => {
+                        const userRole = localStorage.getItem('userRole')
+                        switch (userRole) {
+                            case 'business-owner':
+                                return import('@modules/payments-subscriptions/presentation/views/payments-view-owner.vue')
+                            case 'distributor':
+                                return import('@modules/payments-subscriptions/presentation/views/payments-view-distributor.vue')
+                            case 'admin':
+                                return import('@modules/payments-subscriptions/presentation/views/payments-view-admin.vue')
+                            default:
+                                return import('@shared/presentation/views/coming-soon.vue')
+                        }
+                    }
+                },
+
                 { path: 'history', component: ComingSoon },
                 { path: 'claims', component: ComingSoon },
                 { path: 'admin', component: ComingSoon }

@@ -159,20 +159,36 @@
   },
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
+  },
+  "payments": {
+    "titleOwner": "Pagos y Suscripciones",
+    "subtitleOwner": "Administra tus planes activos y revisa el historial de pagos.",
+    "activeSubscription": "Suscripción activa",
+    "plan": "Plan",
+    "renewal": "Renovación",
+    "renewNow": "Renovar ahora",
+    "history": "Historial de pagos",
+    "date": "Fecha",
+
+    "titleDistributor": "Pagos de Distribuidor",
+    "subtitleDistributor": "Consulta tus pagos recibidos y comisiones pendientes.",
+    "table": {
+      "id": "ID",
+      "date": "Fecha",
+      "amount": "Monto",
+      "status": "Estado",
+      "user": "Usuario"
+    },
+
+    "titleAdmin": "Pagos del Sistema",
+    "subtitleAdmin": "Panel de auditoría de pagos del sistema.",
+    "searchPlaceholder": "Buscar por ID de usuario...",
+
+    "status": {
+      "completed": "Completado",
+      "pending": "Pendiente",
+      "failed": "Fallido",
+      "cancelled": "Cancelado"
     }
-  ,
-  "analytics": {
-    "title": "Analítica",
-    "metrics": "Métricas",
-    "reports": "Reportes",
-    "totalSales": "Ventas Totales",
-    "activeUsers": "Usuarios Activos",
-    "ordersDelivered": "Órdenes Entregadas",
-    "monthlyReport": "Reporte de Ventas Mensual",
-    "userActivityReport": "Reporte de Actividad de Usuarios",
-    "viewReport": "Ver Reporte",
-    "period": "Periodo",
-    "value": "Valor",
-    "unit": "Unidad"
   }
 }
