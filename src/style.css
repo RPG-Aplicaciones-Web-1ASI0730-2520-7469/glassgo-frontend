@@ -1,12 +1,12 @@
 /* ============================================================
- *  style.css — Global Styles for GlassGo Frontend
+ * 🎨 style.css — Global Styles for GlassGo Frontend
  * ============================================================
  * Defines the base visual rules applied across the app.
  * Ensures consistent styling between all components and views.
  * ============================================================ */
 
 /* ------------------------------------------------------------
- *  Box Model Reset
+ * 🔳 Box Model Reset
  * ------------------------------------------------------------
  * - box-sizing: border-box → includes padding and border
  *   in the element’s total width and height.
@@ -16,13 +16,7 @@
     box-sizing: border-box;
 }
 
-/* ------------------------------------------------------------
- *  Global Document & App Setup
- * ------------------------------------------------------------
- * - Ensures html, body, and #app occupy full viewport height.
- * - Removes default margins for a clean layout base.
- * - Sets the system font stack and main text color.
- * ------------------------------------------------------------ */
+
 html,
 body,
 #app {

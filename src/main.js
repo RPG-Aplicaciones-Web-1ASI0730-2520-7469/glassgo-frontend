@@ -1,63 +1,45 @@
-import InputText from 'primevue/inputtext';
-import Checkbox from 'primevue/checkbox';
-import Button from 'primevue/button';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-/* ============================================================
- * 🧭 main.js — GlassGo Entry Point
- * ============================================================ */
+/**
+ * Main Vue Application Entry Point
+ * Initializes and configures the GlassGo frontend application.
+ * Sets up Vue 3 with Composition API, Pinia for state management,
+ * Vue Router for navigation, and Vue I18n for internationalization.
+ * Mounts the application to the DOM element with id 'app'.
+ *
+ * Application Architecture:
+ * - Domain-Driven Design (DDD) with layered architecture
+ * - Presentation Layer: Vue components and views
+ * - Application Layer: Pinia stores and business logic
+ * - Domain Layer: Entities and domain models
+ * - Infrastructure Layer: API clients and external services
+ *
+ * @fileoverview Main application bootstrap file
+ * @author GlassGo Development Team
+ * @version 1.0.0
+ */
 
-// ------------------------------------------------------------
-//  Core Vue Imports
-// ------------------------------------------------------------
 import { createApp } from 'vue'
 import App from './App.vue'
-import PrimeVue from 'primevue/config';
-import ToastService from 'primevue/toastservice';
-import Toast from 'primevue/toast';
 
-// PrimeVue v4 (correct import)
-import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes';   // theme preset
 
-import "primeicons/primeicons.css"
-import "primeflex/primeflex.css"
-
-// ------------------------------------------------------------
-//  Router
-// ------------------------------------------------------------
 import router from './router'
 
-// ------------------------------------------------------------
-// i18n (Internationalization)
-// ------------------------------------------------------------
+
 import { i18n } from './i18n'
 
-// ------------------------------------------------------------
-//  Pinia (Global State)
-// ------------------------------------------------------------
 import { pinia } from './pinia'
 
-// ------------------------------------------------------------
-//  Global Styles
-// ------------------------------------------------------------
 import './style.css'
 
-// ------------------------------------------------------------
-// App Initialization
-// ------------------------------------------------------------
+
+/**
+ * Main Vue application instance
+ * Configured Vue app with Pinia, Router, and i18n plugins.
+ * Mounted to the #app element in the DOM.
+ *
+ * @type {import('vue').App}
+ */
 const app = createApp(App)
-
-// Use PrimeVue plugin with theme preset
-app.use(PrimeVue, {
-    theme: {
-        preset: Aura
-    },
-    ripple: true
-});
-
 app.use(pinia)
 app.use(router)
 app.use(i18n)
-
 app.mount('#app')

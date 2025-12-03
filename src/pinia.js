@@ -1,28 +1,12 @@
-/* ============================================================
- * 🧠 pinia.js — Global Pinia Configuration
- * ============================================================
- * Pinia is Vue 3’s official state management system.
- * It centralizes data and logic shared across components.
- *
- * In GlassGo, it's used for:
- *  - Managing user sessions (user.store.js)
- *  - Storing language or user preferences
- *  - Synchronizing global states between modules
- * ============================================================ */
 
-// ------------------------------------------------------------
-//  Main Import
-// ------------------------------------------------------------
-// createPinia() → creates a single global store instance.
+
 import { createPinia } from 'pinia'
 
-// ------------------------------------------------------------
-//  Export Global Instance
-// ------------------------------------------------------------
-// Registered in main.js via app.use(pinia),
-// making it available to all components.
-//
-// Example:
-//   import { useUserStore } from '@/stores/user.store'
-//   const userStore = useUserStore()
+/**
+ * Global Pinia store instance
+ * Configured Pinia instance for state management across the application.
+ * Provides reactive state management for user data, language preferences, and module-specific stores.
+ *
+ * @type {import('pinia').Pinia}
+ */
 export const pinia = createPinia()

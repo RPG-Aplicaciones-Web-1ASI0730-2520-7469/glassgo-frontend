@@ -1,26 +1,4 @@
 {
-  "auth": {
-    "username": "Correo electrónico",
-    "password": "Contraseña",
-    "sign-in": "Iniciar sesión",
-  "sign-up": "Crear Cuenta",
-  "forgot-password": "¿Olvidaste tu contraseña?",
-  "send-recovery": "Enviar correo de recuperación",
-  "recovery-email-sent": "¡Correo de recuperación enviado! Revisa tu bandeja de entrada.",
-  "back-to-login": "Volver al inicio de sesión",
-    "remember-me": "Recuérdame",
-    "distributor": "Distribuidor",
-    "transport": "Transporte",
-  "admin": "Administrador",
-  "business-owner": "Dueño de Negocio",
-    "register": "Registrarse",
-    "required-field": "El campo {field} es obligatorio.",
-    "user-type": "Tipo de usuario",
-    "validation-error": "Error de validación",
-    "welcome": "¡Bienvenido!",
-    "login-failed": "Error al iniciar sesión",
-    "invalid-credentials": "Credenciales inválidas"
-  },
   "notfound": {
     "message": "La página que buscas no existe 😢.",
     "back": "Volver al inicio"
@@ -157,84 +135,43 @@
       "danger": "Error"
     }
   },
-
   "footer": {
     "text": "© 2025 GlassGo. Todos los derechos reservados."
-    }
-  ,
-  "analytics": {
-    "title": "Analítica",
-    "metrics": "Métricas",
-    "reports": "Reportes",
-    "totalSales": "Ventas Totales",
-    "activeUsers": "Usuarios Activos",
-    "ordersDelivered": "Órdenes Entregadas",
-    "monthlyReport": "Reporte de Ventas Mensual",
-    "userActivityReport": "Reporte de Actividad de Usuarios",
-    "viewReport": "Ver Reporte",
-    "period": "Periodo",
-    "value": "Valor",
-    "unit": "Unidad"
   },
-    "tracking": {
-      "title": "Tracking",
-      "subtitle": "Monitorea el estado de tus pedidos en tiempo real.",
-      "deliveries": "Tus entregas",
-      "allDeliveries": "Todas las entregas",
-      "activeDeliveries": "Entregas activas",
-      "completedDeliveries": "Entregas completadas",
-      "pendingDeliveries": "Entregas pendientes",
-      "inTransitDeliveries": "Entregas en tránsito",
-      "failedDeliveries": "Entregas fallidas",
-      "table": {
-        "deliveryId": "ID de Entrega",
-        "carrierId": "ID del Transportista",
-        "routeId": "ID de la Ruta",
-        "status": "Estado",
-        "location": "Ubicación",
-        "timestamp": "Fecha y Hora",
-        "actions": "Acciones"
-      },
-      "status": {
-        "pending": "Pendiente",
-        "in-transit": "En tránsito",
-        "completed": "Completada",
-        "failed": "Fallida",
-        "delivered": "Entregada",
-        "cancelled": "Cancelada"
-      },
-      "buttons": {
-
-        "addDelivery": "Agregar Entrega",
-        "editDelivery": "Editar Entrega",
-        "deleteDelivery": "Eliminar Entrega",
-        "updateLocation": "Actualizar Ubicación",
-        "updateStatus": "Actualizar Estado",
-        "viewDetails": "Ver Detalles",
-        "trackDelivery": "Rastrear Entrega"
-
-      },
-      "labels": {
-        "deliveryId": "ID de Entrega",
-        "carrierId": "ID del Transportista",
-        "routeId": "ID de la Ruta",
-        "status": "Estado",
-        "location": "Ubicación",
-        "timestamp": "Fecha y Hora"
-      },
-      "messages": {
-
-        "noDeliveries": "No hay entregas para mostrar.",
-        "loadingDeliveries": "Cargando entregas...",
-        "deliveryCreated": "Entrega creada exitosamente.",
-        "deliveryUpdated": "Entrega actualizada exitosamente.",
-        "deliveryDeleted": "Entrega eliminada exitosamente.",
-        "errorCreating": "Error al crear la entrega.",
-        "errorUpdating": "Error al actualizar la entrega.",
-        "errorDeleting": "Error al eliminar la entrega.",
-        "errorLoading": "Error al cargar las entregas."
-
-      }
-
+  "orders": {
+    "create": {
+      "title": "Crear Pedido",
+      "subtitle": "Agrega productos y completa la información de entrega",
+      "searchPlaceholder": "Buscar productos...",
+      "addNewProduct": "Añadir nuevo producto",
+      "orderInfo": "Información del pedido",
+      "total": "Total",
+      "orderSummary": "Resumen del pedido",
+      "deliveryInfo": "Información de entrega",
+      "subtotal": "Subtotal",
+      "igv": "IGV",
+      "itemCount": "Artículos",
+      "items": "productos",
+      "deliveryDate": "Fecha de entrega",
+      "deliveryTime": "Hora de entrega",
+      "deliveryAddress": "Dirección de entrega",
+      "specialInstructions": "Instrucciones especiales",
+      "addressPlaceholder": "Ingresa la dirección completa de entrega",
+      "instructionsPlaceholder": "Instrucciones adicionales para la entrega (opcional)",
+      "selectTime": "Seleccionar horario",
+      "cancel": "Cancelar",
+      "submitOrder": "Enviar Pedido",
+      "submitting": "Enviando...",
+      "continue": "Continuar",
+      "description": "Descripción",
+      "unitPrice": "Precio unitario",
+      "supplier": "Proveedor",
+      "showDetails": "Mostrar detalles",
+      "hideDetails": "Ocultar detalles",
+      "emptyOrder": "No hay productos en el pedido",
+      "emptyOrderSubtitle": "Busca y agrega productos para comenzar",
+      "orderSuccess": "¡Pedido enviado exitosamente!",
+      "orderSuccessMessage": "Tu pedido ha sido registrado y será procesado pronto."
     }
+  }
 }

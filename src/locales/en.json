@@ -1,26 +1,4 @@
 {
-  "auth": {
-    "username": "Email",
-    "password": "Password",
-    "sign-in": "Sign In",
-  "sign-up": "Create Account",
-  "forgot-password": "Forgot Password?",
-  "send-recovery": "Send Recovery Email",
-  "recovery-email-sent": "Recovery email sent! Please check your inbox.",
-  "back-to-login": "Back to Login",
-    "remember-me": "Remember me",
-    "distributor": "Distributor",
-    "transport": "Transport",
-  "admin": "Admin",
-  "business-owner": "Business Owner",
-    "register": "Register",
-    "required-field": "The field {field} is required.",
-    "user-type": "User Type",
-    "validation-error": "Validation Error",
-    "welcome": "Welcome!",
-    "login-failed": "Login failed",
-    "invalid-credentials": "Invalid credentials"
-  },
   "notfound": {
     "message": "The page you are looking for does not exist 😢.",
     "back": "Return to Home"
@@ -157,79 +135,43 @@
       "danger": "Error"
     }
   },
-
   "footer": {
     "text": "© 2025 GlassGo. All rights reserved."
-    },
-  "analytics": {
-    "title": "Analytics",
-    "metrics": "Metrics",
-    "reports": "Reports",
-    "totalSales": "Total Sales",
-    "activeUsers": "Active Users",
-    "ordersDelivered": "Orders Delivered",
-    "monthlyReport": "Monthly Sales Report",
-    "userActivityReport": "User Activity Report",
-    "viewReport": "View Report",
-    "period": "Period",
-    "value": "Value",
-    "unit": "Unit"
   },
-  "tracking": {
-    "title": "Tracking",
-    "subtitle": "Monitor your deliveries in real-time",
-    "deliveries": "Deliveries",
-    "allDeliveries": "All Deliveries",
-    "activeDeliveries": "Active Deliveries",
-    "completedDeliveries": "Completed Deliveries",
-    "pendingDeliveries": "Pending Deliveries",
-    "inTransitDeliveries": "In Transit",
-    "failedDeliveries": "Failed Deliveries",
-    "table": {
-      "deliveryId": "Delivery ID",
-      "carrierId": "Carrier",
-      "routeId": "Route",
-      "status": "Status",
-      "location": "Location",
-      "timestamp": "Date & Time",
-      "actions": "Actions"
-    },
-    "status": {
-      "pending": "Pending",
-      "in-transit": "In Transit",
-      "completed": "Completed",
-      "failed": "Failed",
-      "delivered": "Delivered",
-      "cancelled": "Cancelled"
-    },
-    "buttons": {
-      "addDelivery": "Add Delivery",
-      "editDelivery": "Edit",
-      "deleteDelivery": "Delete",
-      "updateLocation": "Update Location",
-      "updateStatus": "Update Status",
-      "viewDetails": "View Details",
-      "trackDelivery": "Track"
-    },
-    "labels": {
-      "deliveryId": "Delivery ID",
-      "carrierId": "Carrier ID",
-      "routeId": "Route ID",
-      "status": "Status",
-      "location": "Location",
-      "timestamp": "Timestamp"
-    },
-    "messages": {
-      "noDeliveries": "No deliveries found",
-      "loadingDeliveries": "Loading deliveries...",
-      "deliveryCreated": "Delivery created successfully",
-      "deliveryUpdated": "Delivery updated successfully",
-      "deliveryDeleted": "Delivery deleted successfully",
-      "errorCreating": "Error creating delivery",
-      "errorUpdating": "Error updating delivery",
-      "errorDeleting": "Error deleting delivery",
-      "errorLoading": "Error loading deliveries"
-
+  "orders": {
+    "create": {
+      "title": "Create Order",
+      "subtitle": "Add products and complete delivery information",
+      "searchPlaceholder": "Search products...",
+      "addNewProduct": "Add new product",
+      "orderInfo": "Order Information",
+      "total": "Total",
+      "orderSummary": "Order Summary",
+      "deliveryInfo": "Delivery Information",
+      "subtotal": "Subtotal",
+      "igv": "VAT",
+      "itemCount": "Items",
+      "items": "products",
+      "deliveryDate": "Delivery Date",
+      "deliveryTime": "Delivery Time",
+      "deliveryAddress": "Delivery Address",
+      "specialInstructions": "Special Instructions",
+      "addressPlaceholder": "Enter complete delivery address",
+      "instructionsPlaceholder": "Additional delivery instructions (optional)",
+      "selectTime": "Select time slot",
+      "cancel": "Cancel",
+      "submitOrder": "Submit Order",
+      "submitting": "Submitting...",
+      "continue": "Continue",
+      "description": "Description",
+      "unitPrice": "Unit Price",
+      "supplier": "Supplier",
+      "showDetails": "Show Details",
+      "hideDetails": "Hide Details",
+      "emptyOrder": "No products in order",
+      "emptyOrderSubtitle": "Search and add products to get started",
+      "orderSuccess": "Order submitted successfully!",
+      "orderSuccessMessage": "Your order has been registered and will be processed soon."
     }
   }
 }

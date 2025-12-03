@@ -75,9 +75,13 @@
 </template>
 
 <script setup>
-/* ============================================================
- *  Logic — Admin Dashboard (dynamic data via db.json)
- * ============================================================ */
+/**
+ * Admin Home View - Presentation Layer
+ * Dashboard component for administrators displaying system statistics, user roles distribution,
+ * and activity logs. Loads data from backend APIs and provides overview of platform health.
+ * Part of the shared presentation layer, used for admin role routing.
+ */
+
 import { ref, onMounted } from 'vue'
 import { httpClient } from '@/shared/infrastructure/http-client'
 import ConnectionStatus from '@/shared/presentation/components/ui/connection-status.vue'
@@ -100,6 +104,10 @@ const roleStats = ref({
 
 const activityLogs = ref([])
 
+/**
+ * Load dashboard data on component mount
+ * Fetches system statistics, role distribution, and activity logs from backend APIs.
+ */
 onMounted(async () => {
   try {
     //Load general system data

@@ -1,18 +1,53 @@
+/* ============================================================
+ * 📁 src/stores/user.store.js
+ * ============================================================
+ * 👤 Global User Store (Pinia)
+ * ------------------------------------------------------------
+ * Centralized management of the authenticated user.
+ * - Loads data from JSON Server via DEMO_USER_ID.
+ * - Handles role, name, and session persistence.
+ * - Ready for future migration to the Identity & Access BC.
+ * ============================================================ */
 
 import { defineStore } from 'pinia'
 import { httpClient } from '@/shared/infrastructure/http-client'
-import { DEMO_USER_ID } from '@shared/domain/model/demo-user.js'
+import { DEMO_USER_ID } from '@/shared/config/demo-user'
 
+/**
+ * User Store - Global State Management
+ * Manages authenticated user data, role-based routing, and session persistence.
+ * Uses Pinia for reactive state management across the application.
+ */
 export const useUserStore = defineStore('user', {
+    /* ----------------------------------------------------------
+     * 🧠 State
+     * ---------------------------------------------------------- */
     state: () => ({
+        /**
+         * Current authenticated user object
+         * @type {Object|null}
+         */
         user: null,
+
+        /**
+         * Loading state for user operations
+         * @type {boolean}
+         */
         loading: false,
+
+        /**
+         * Error message from failed operations
+         * @type {string|null}
+         */
         error: null
     }),
 
+    /* ----------------------------------------------------------
+     * ⚙️ Actions
+     * ---------------------------------------------------------- */
     actions: {
         /**
-         * Fetch user from db.json
+         * 🔄 Fetch user from db.json
          * Uses DEMO_USER_ID for local testing.
          */
         async fetchUser(userId = DEMO_USER_ID) {
@@ -25,7 +60,7 @@ export const useUserStore = defineStore('user', {
 
                 console.log(`👤 User loaded: ${this.user.firstName} (${this.user.role})`)
 
-                // Local persistence
+                // ✅ Local persistence
                 localStorage.setItem('userRole', this.user.role)
                 localStorage.setItem('userId', this.user.id)
             } catch (err) {
@@ -38,7 +73,7 @@ export const useUserStore = defineStore('user', {
         },
 
         /**
-         * Manually set user data
+         * ✏️ Manually set user data
          */
         setUser(userData) {
             this.user = userData
@@ -47,7 +82,7 @@ export const useUserStore = defineStore('user', {
         },
 
         /**
-         * Clear user data (logout)
+         * 🚪 Clear user data (logout)
          */
         clearUser() {
             this.user = null
@@ -56,7 +91,7 @@ export const useUserStore = defineStore('user', {
         },
 
         /**
-         * Return home route by user role
+         * 🧭 Return home route by user role
          * Used by router.js and AppShell.vue.
          */
         getHomeRoute() {
@@ -74,16 +109,22 @@ export const useUserStore = defineStore('user', {
     },
 
     /* ----------------------------------------------------------
-     *  Getters
+     * 🔍 Getters
      * ---------------------------------------------------------- */
     getters: {
-        /** Full name */
+        /**
+         * Full name of the user
+         * @type {string}
+         */
         fullName: (state) => {
             if (!state.user) return ''
             return `${state.user.firstName} ${state.user.lastName}`
         },
 
-        /** User initials */
+        /**
+         * User initials for avatar display
+         * @type {string}
+         */
         initials: (state) => {
             if (!state.user) return ''
             const f = state.user.firstName?.[0]?.toUpperCase() || ''
@@ -91,10 +132,16 @@ export const useUserStore = defineStore('user', {
             return f + l
         },
 
-        /**  Current role */
+        /**
+         * Current user role
+         * @type {string}
+         */
         role: (state) => state.user?.role || 'demo',
 
-        /** ⚙ Auth state */
+        /**
+         * Authentication status
+         * @type {boolean}
+         */
         isAuthenticated: (state) => !!state.user
     }
 })

@@ -1,29 +1,17 @@
-/* ============================================================
- * 🌐 i18n Configuration — GlassGo
- * ============================================================
- * Central translation system for the entire app.
- * Enables dynamic switching between EN/ES and persists
- * user preference via localStorage.
- * ============================================================ */
-
-// ------------------------------------------------------------
-// Imports
-// ------------------------------------------------------------
 import { createI18n } from 'vue-i18n'
 import en from './locales/en.json'
 import es from './locales/es.json'
 
-// ------------------------------------------------------------
-// Initial Locale Setup
-// ------------------------------------------------------------
-// Try to load saved language from localStorage.
-// Default to 'en' if none is found.
 const saved = localStorage.getItem('lang')
 const startLocale = saved || 'en'
 
-// ------------------------------------------------------------
-// i18n Instance
-// ------------------------------------------------------------
+/**
+ * Vue I18n instance for internationalization
+ * Configured i18n plugin with English and Spanish locales.
+ * Supports composition API and global injection for translation functions.
+ *
+ * @type {import('vue-i18n').I18n}
+ */
 export const i18n = createI18n({
     legacy: false,               // Enables Composition API usage
     globalInjection: true,       // Allows $t globally
@@ -31,11 +19,3 @@ export const i18n = createI18n({
     fallbackLocale: 'en',        // Fallback if key is missing
     messages: { en, es }         // Language dictionaries
 })
-
-// ------------------------------------------------------------
-// Notes
-// ------------------------------------------------------------
-// - Language switching is handled by <LangSwitch /> component.
-// - Each change is saved in localStorage ("lang").
-// - All texts are auto-translated using `t()` from useI18n.
-// ------------------------------------------------------------
