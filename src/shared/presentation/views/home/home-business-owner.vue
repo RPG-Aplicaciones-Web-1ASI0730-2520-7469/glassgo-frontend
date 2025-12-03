@@ -92,7 +92,7 @@ import { ref, reactive, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { httpClient } from '@/shared/infrastructure/http-client'
 import ConnectionStatus from '@/shared/presentation/components/ui/connection-status.vue'
-import { DEMO_USER_ID } from '@/shared/config/demo-user'
+import { DEMO_USER_ID } from '@shared/domain/model/demo-user.js'
 
 const { t } = useI18n({ useScope: 'global' })
 

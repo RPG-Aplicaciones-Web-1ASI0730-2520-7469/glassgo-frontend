@@ -1,31 +1,15 @@
-/* ============================================================
- * 📁 src/stores/user.store.js
- * ============================================================
- * 👤 Global User Store (Pinia)
- * ------------------------------------------------------------
- * Centralized management of the authenticated user.
- * - Loads data from JSON Server via DEMO_USER_ID.
- * - Handles role, name, and session persistence.
- * - Ready for future migration to the Identity & Access BC.
- * ============================================================ */
 
 import { defineStore } from 'pinia'
 import { httpClient } from '@/shared/infrastructure/http-client'
-import { DEMO_USER_ID } from '@/shared/config/demo-user'
+import { DEMO_USER_ID } from '@shared/domain/model/demo-user.js'
 
 export const useUserStore = defineStore('user', {
-    /* ----------------------------------------------------------
-     * State
-     * ---------------------------------------------------------- */
     state: () => ({
         user: null,
         loading: false,
         error: null
     }),
 
-    /* ----------------------------------------------------------
-     * Actions
-     * ---------------------------------------------------------- */
     actions: {
         /**
          * Fetch user from db.json

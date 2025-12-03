@@ -81,6 +81,6 @@ structurizr-*.json
 
 # =====================================================
 # ✅ Notes:
-# - Keep vite.config.js, src/, public/, and server/db.json tracked.
+# - Keep vite.domain.js, src/, public/, and server/db.json tracked.
 # - Do not commit personal environment or IDE files.
 # =====================================================

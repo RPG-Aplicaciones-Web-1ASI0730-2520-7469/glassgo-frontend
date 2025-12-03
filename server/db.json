@@ -321,4 +321,67 @@
       "status": "danger"
     }
   ]
+  ,
+  "analyticsReports": [
+    {
+      "id": 1,
+      "role": "distributor",
+      "userId": 2,
+      "title": "Reporte de Pedidos Octubre 2025",
+      "period": "Octubre 2025",
+      "metrics": [
+        { "metricId": 1, "name": "Pedidos Completados", "value": 120, "unit": "pedidos", "recordedAt": "2025-10-31" },
+        { "metricId": 2, "name": "Pedidos Pendientes", "value": 15, "unit": "pedidos", "recordedAt": "2025-10-31" },
+        { "metricId": 3, "name": "Entregas Tardías", "value": 12, "unit": "entregas", "recordedAt": "2025-10-31" },
+        { "metricId": 4, "name": "Pedidos Cancelados", "value": 3, "unit": "pedidos", "recordedAt": "2025-10-31" }
+      ],
+      "generatedBy": "admin",
+      "generatedAt": "2025-11-01"
+    },
+    {
+      "id": 2,
+      "role": "transport",
+      "userId": 3,
+      "title": "Reporte de Viajes Octubre 2025",
+      "period": "Octubre 2025",
+      "metrics": [
+        { "metricId": 1, "name": "Viajes Realizados", "value": 45, "unit": "viajes", "recordedAt": "2025-10-31" },
+        { "metricId": 2, "name": "Entregas Perfectas", "value": 40, "unit": "entregas", "recordedAt": "2025-10-31" },
+        { "metricId": 3, "name": "Problemas en el Camión", "value": 2, "unit": "incidencias", "recordedAt": "2025-10-31" },
+        { "metricId": 4, "name": "Licores Rotos", "value": 1, "unit": "incidencias", "recordedAt": "2025-10-31" }
+      ],
+      "generatedBy": "transport.company",
+      "generatedAt": "2025-11-01"
+    },
+    {
+      "id": 3,
+      "role": "business",
+      "userId": 4,
+      "title": "Reporte de Pedidos Recibidos Octubre 2025",
+      "period": "Octubre 2025",
+      "metrics": [
+        { "metricId": 1, "name": "Pedidos Realizados", "value": 30, "unit": "pedidos", "recordedAt": "2025-10-31" },
+        { "metricId": 2, "name": "Pedidos Entregados", "value": 28, "unit": "pedidos", "recordedAt": "2025-10-31" },
+        { "metricId": 3, "name": "Pedidos Pendientes", "value": 2, "unit": "pedidos", "recordedAt": "2025-10-31" },
+        { "metricId": 4, "name": "Reclamos", "value": 1, "unit": "reclamos", "recordedAt": "2025-10-31" }
+      ],
+      "generatedBy": "john.admin",
+      "generatedAt": "2025-11-01"
+    },
+    {
+      "id": 4,
+      "role": "distributor",
+      "userId": 2,
+      "title": "Reporte de Pedidos Noviembre 2025",
+      "period": "Noviembre 2025",
+      "metrics": [
+        { "metricId": 1, "name": "Pedidos Completados", "value": 10, "unit": "pedidos", "recordedAt": "2025-11-03" },
+        { "metricId": 2, "name": "Pedidos Pendientes", "value": 2, "unit": "pedidos", "recordedAt": "2025-11-03" },
+        { "metricId": 3, "name": "Entregas Tardías", "value": 1, "unit": "entregas", "recordedAt": "2025-11-03" },
+        { "metricId": 4, "name": "Pedidos Cancelados", "value": 0, "unit": "pedidos", "recordedAt": "2025-11-03" }
+      ],
+      "generatedBy": "admin",
+      "generatedAt": "2025-11-03"
+    }
+  ]
 }

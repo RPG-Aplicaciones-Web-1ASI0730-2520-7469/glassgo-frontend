@@ -118,11 +118,14 @@ const router = createRouter({
                 { path: 'tracking', component: ComingSoon },
                 { path: 'inventory', component: ComingSoon },
                 { path: 'calendar', component: ComingSoon },
-                { path: 'reports', component: ComingSoon },
+                { path: 'reports', component: () => import('./analytics/presentation/views/reporte.vue'), name: 'Reports' },
                 { path: 'payments', component: ComingSoon },
                 { path: 'history', component: ComingSoon },
                 { path: 'claims', component: ComingSoon },
                 { path: 'admin', component: ComingSoon }
+                ,
+                // Dashboard Analytics
+                { path: 'reportes', component: () => import('./analytics/presentation/views/reporte.vue'), name: 'Reportes' }
             ]
         },
 
